@@ -1,0 +1,43 @@
+# Runtime data
+var/
+logs/
+tmp/
+
+# Downloaded packages (re-download with setup)
+downloads/
+
+# Extracted system binaries (re-extract with setup)
+usr/
+lib/
+
+# WordPress core files (installed via setup)
+wordpress/wp-admin/
+wordpress/wp-includes/
+wordpress/wp-content/plugins/*
+wordpress/wp-content/uploads/
+wordpress/*.php
+wordpress/*.html
+wordpress/*.txt
+wordpress/wp-config.php
+wordpress/.htaccess
+wordpress/xmlrpc.php
+wordpress/wp-*.php
+
+# Keep wp-content dirs structure
+!wordpress/wp-content/.gitkeep
+!wordpress/wp-content/themes/.gitkeep
+!wordpress/wp-content/plugins/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# MySQL data
+data/mysql/

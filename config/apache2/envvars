@@ -1,0 +1,10 @@
+export LD_LIBRARY_PATH=__LAMPDIR__/usr/lib/x86_64-linux-gnu:__LAMPDIR__/lib/x86_64-linux-gnu
+export PHPRC=__LAMPDIR__/etc/php/8.4/apache2
+export APACHE_RUN_USER=z
+export APACHE_RUN_GROUP=z
+export APACHE_PID_FILE=__LAMPDIR__/var/run/apache2/apache2.pid
+export APACHE_RUN_DIR=__LAMPDIR__/var/run/apache2
+export APACHE_LOCK_DIR=__LAMPDIR__/var/lock/apache2
+export APACHE_LOG_DIR=__LAMPDIR__/var/log/apache2
+export LANG=C
+export APACHE_CONFDIR=__LAMPDIR__/etc/apache2
