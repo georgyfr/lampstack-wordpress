@@ -1,0 +1,1187 @@
+/**
+ * NutriVitaX Pro — Header Styles
+ * CSS Layer: nvx-header
+ *
+ * Implémente la spec complète du header BioLab Luxe:
+ * - Top Bar (desktop >1024px)
+ * - Header principal fixe avec scroll shrink/hide/show
+ * - Navigation avec Mega Menu "Produits"
+ * - Barre de recherche extensible
+ * - Icônes compte + panier + badge
+ * - Bouton CTA (desktop >1440px)
+ * - Menu mobile plein écran
+ * - 4 breakpoints: <768, 768-1024, 1024-1440, >1440
+ * - Accessibilité WCAG 2.2 AA
+ * - Animations GPU-accelerated
+ *
+ * @package NutriVitaX_Pro
+ * @since   0.2.0
+ */
+
+/* ─── Custom Properties ──────────────────────────────────────────────── */
+:root {
+	/* Header dimensions */
+	--nvx-header-height: 80px;
+	--nvx-header-height-scrolled: 64px;
+	--nvx-topbar-height: 32px;
+	--nvx-header-total-height: 112px;
+
+	/* Colors */
+	--nvx-header-bg: #FFFFFF;
+	--nvx-header-border: #E9ECEF;
+	--nvx-header-text: #212529;
+	--nvx-header-text-muted: #6C757D;
+	--nvx-header-text-hover: #1A6B3A;
+	--nvx-topbar-bg: #F8F9FA;
+	--nvx-topbar-text: #6C757D;
+	--nvx-topbar-text-hover: #1A6B3A;
+	--nvx-search-border: #E9ECEF;
+	--nvx-search-border-focus: #2ECC71;
+	--nvx-search-placeholder: #6C757D;
+	--nvx-cta-bg: #1A6B3A;
+	--nvx-cta-bg-hover: #165A30;
+	--nvx-cta-text: #FFFFFF;
+	--nvx-badge-bg: #F4A900;
+	--nvx-badge-text: #1A6B3A;
+	--nvx-mega-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+	--nvx-mobile-overlay: rgba(0, 0, 0, 0.5);
+
+	/* Focus */
+	--nvx-focus-ring: 2px solid #2ECC71;
+	--nvx-focus-offset: 2px;
+
+	/* Transitions */
+	--nvx-transition-fast: 0.2s ease;
+	--nvx-transition-base: 0.3s ease;
+
+	/* Z-index layers */
+	--nvx-z-header: 1000;
+	--nvx-z-mega: 1001;
+	--nvx-z-mobile-overlay: 1999;
+	--nvx-z-mobile-menu: 2000;
+	--nvx-z-hamburger: 2001;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   1. SKIP LINK
+   ═══════════════════════════════════════════════════════════════════════ */
+.nvx-skip-link {
+	position: absolute;
+	top: -100%;
+	left: 16px;
+	z-index: 9999;
+	padding: 12px 24px;
+	background: var(--nvx-badge-bg);
+	color: var(--nvx-badge-text);
+	font-family: var(--wp--preset--font-family--nvx-subheading), 'Cabinet Grotesk', sans-serif;
+	font-weight: 600;
+	font-size: 0.875rem;
+	text-decoration: none;
+	border-radius: 0 0 8px 8px;
+	transition: top var(--nvx-transition-fast);
+}
+
+.nvx-skip-link:focus {
+	top: 0;
+	outline: 2px solid var(--nvx-badge-bg);
+	outline-offset: -2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   2. TOP BAR (Desktop >1024px)
+   ═══════════════════════════════════════════════════════════════════════ */
+.nvx-topbar {
+	display: none; /* hidden by default, shown at >1024px */
+	height: var(--nvx-topbar-height);
+	background: var(--nvx-topbar-bg);
+	padding: 0 24px;
+	font-family: var(--wp--preset--font-family--nvx-body), 'Inter Variable', sans-serif;
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: var(--nvx-topbar-text);
+}
+
+.nvx-topbar__inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1200px;
+	margin: 0 auto;
+	height: 100%;
+}
+
+.nvx-topbar__welcome {
+	font-weight: 500;
+	white-space: nowrap;
+}
+
+.nvx-topbar__nav {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.nvx-topbar__nav a {
+	color: var(--nvx-topbar-text);
+	text-decoration: none;
+	transition: color var(--nvx-transition-fast);
+}
+
+.nvx-topbar__nav a:hover {
+	color: var(--nvx-topbar-text-hover);
+}
+
+.nvx-topbar__social {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.nvx-topbar__social a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	color: var(--nvx-topbar-text);
+	text-decoration: none;
+	transition: color var(--nvx-transition-fast), transform var(--nvx-transition-fast);
+}
+
+.nvx-topbar__social a:hover {
+	color: var(--nvx-topbar-text-hover);
+	transform: scale(1.1);
+}
+
+.nvx-topbar__social svg {
+	width: 16px;
+	height: 16px;
+	fill: currentColor;
+}
+
+@media (min-width: 1024px) {
+	.nvx-topbar {
+		display: block;
+	}
+}
+
+.nvx-header--scrolled .nvx-topbar {
+	display: none !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   3. HEADER PRINCIPAL
+   ═══════════════════════════════════════════════════════════════════════ */
+.nvx-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: var(--nvx-z-header);
+	background: var(--nvx-header-bg);
+	border-bottom: 1px solid var(--nvx-header-border);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	transition:
+		height var(--nvx-transition-base),
+		box-shadow var(--nvx-transition-base),
+		transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+	will-change: transform, height;
+}
+
+/* Scrolled state */
+.nvx-header--scrolled {
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Hidden on scroll down */
+.nvx-header--hidden {
+	transform: translateY(-100%);
+}
+
+.nvx-header__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: var(--nvx-header-height);
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 24px;
+	transition: height var(--nvx-transition-base);
+}
+
+.nvx-header--scrolled .nvx-header__inner {
+	height: var(--nvx-header-height-scrolled);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   4. LOGO
+   ═══════════════════════════════════════════════════════════════════════ */
+.nvx-logo {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	flex-shrink: 0;
+}
+
+.nvx-logo__icon {
+	width: 40px;
+	height: 40px;
+	margin-right: 12px;
+	transition: width var(--nvx-transition-base), height var(--nvx-transition-base);
+}
+
+.nvx-header--scrolled .nvx-logo__icon {
+	width: 32px;
+	height: 32px;
+	margin-right: 10px;
+}
+
+.nvx-logo__text {
+	font-family: var(--wp--preset--font-family--nvx-heading), 'Clash Display', sans-serif;
+	font-weight: 700;
+	font-size: 1.5rem;
+	line-height: 1.1;
+	letter-spacing: -0.5px;
+	color: #1A6B3A;
+	transition: font-size var(--nvx-transition-base);
+}
+
+.nvx-header--scrolled .nvx-logo__text {
+	font-size: 1.25rem;
+}
+
+.nvx-logo__accent {
+	color: #F4A900;
+}
+
+/* Mobile: logo centered */
+@media (max-width: 767px) {
+	.nvx-logo__text {
+		font-size: 1.25rem;
+	}
+	.nvx-logo__icon {
+		width: 32px;
+		height: 32px;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   5. NAVIGATION PRINCIPALE
+   ═══════════════════════════════════════════════════════════════════════ */
+.nvx-nav {
+	display: none;
+	align-items: center;
+}
+
+.nvx-nav__list {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nvx-nav__item {
+	position: relative;
+}
+
+.nvx-nav__link {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-family: var(--wp--preset--font-family--nvx-subheading), 'Cabinet Grotesk', sans-serif;
+	font-weight: 500;
+	font-size: 1rem;
+	line-height: 1.4;
+	color: var(--nvx-header-text);
+	text-decoration: none;
+	padding: 8px 0;
+	position: relative;
+	transition: color var(--nvx-transition-fast);
+}
+
+.nvx-nav__link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: #1A6B3A;
+	transition: width var(--nvx-transition-base);
+}
+
+.nvx-nav__link:hover,
+.nvx-nav__link--active {
+	color: var(--nvx-header-text-hover);
+}
+
+.nvx-nav__link:hover::after,
+.nvx-nav__link--active::after {
+	width: 100%;
+}
+
+/* Arrow for dropdown items */
+.nvx-nav__arrow {
+	display: inline-flex;
+	width: 12px;
+	height: 12px;
+	margin-left: 4px;
+	transition: transform var(--nvx-transition-fast);
+}
+
+.nvx-nav__item--open > .nvx-nav__link .nvx-nav__arrow {
+	transform: rotate(180deg);
+}
+
+.nvx-nav__link svg {
+	width: 16px;
+	height: 16px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+/* Show nav on tablet and up */
+@media (min-width: 768px) {
+	.nvx-nav {
+		display: flex;
+	}
+}
+
+/* Hide some items on tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.nvx-nav__list {
+		gap: 16px;
+	}
+	.nvx-nav__item--hide-tablet {
+		display: none;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   6. MEGA MENU "PRODUITS"
+   ═══════════════════════════════════════════════════════════════════════ */
+.nvx-mega {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background: var(--nvx-header-bg);
+	border: 1px solid var(--nvx-header-border);
+	border-top: none;
+	border-radius: 0 0 12px 12px;
+	box-shadow: var(--nvx-mega-shadow);
+	padding: 24px;
+	max-width: 1200px;
+	margin: 0 auto;
+	z-index: var(--nvx-z-mega);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-10px);
+	transition:
+		opacity var(--nvx-transition-base),
+		transform var(--nvx-transition-base),
+		visibility var(--nvx-transition-base);
+	pointer-events: none;
+}
+
+.nvx-nav__item--open > .nvx-mega {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	pointer-events: auto;
+}
+
+.nvx-mega__grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 32px;
+}
+
+.nvx-mega__column-title {
+	font-family: var(--wp--preset--font-family--nvx-body), 'Inter Variable', sans-serif;
+	font-weight: 600;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	color: var(--nvx-header-text-muted);
+	margin-bottom: 16px;
+}
+
+.nvx-mega__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nvx-mega__list li {
+	margin-bottom: 8px;
+}
+
+.nvx-mega__list a {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-family: var(--wp--preset--font-family--nvx-body), 'Inter Variable', sans-serif;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: var(--nvx-header-text);
+	text-decoration: none;
+	padding: 4px 0;
+	transition: color var(--nvx-transition-fast);
+}
+
+.nvx-mega__list a:hover {
+	color: var(--nvx-header-text-hover);
+}
+
+.nvx-mega__list a svg {
+	width: 14px;
+	height: 14px;
+	fill: none;
+	stroke: var(--nvx-header-text-muted);
+	stroke-width: 2;
+	flex-shrink: 0;
+	transition: stroke var(--nvx-transition-fast);
+}
+
+.nvx-mega__list a:hover svg {
+	stroke: var(--nvx-header-text-hover);
+}
+
+/* Featured products column */
+.nvx-mega__featured-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 0;
+	border-bottom: 1px solid #F1F3F5;
+}
+
+.nvx-mega__featured-item:last-child {
+	border-bottom: none;
+}
+
+.nvx-mega__featured-img {
+	width: 48px;
+	height: 48px;
+	border-radius: 8px;
+	object-fit: cover;
+	background: var(--wp--preset--color--nvx-light);
+	flex-shrink: 0;
+}
+
+.nvx-mega__featured-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.nvx-mega__featured-name {
+	font-family: var(--wp--preset--font-family--nvx-body), 'Inter Variable', sans-serif;
+	font-weight: 500;
+	font-size: 0.875rem;
+	color: var(--nvx-header-text);
+	line-height: 1.3;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.nvx-mega__featured-price {
+	font-family: var(--wp--preset--font-family--nvx-mono), 'Space Mono', monospace;
+	font-weight: 700;
+	font-size: 0.875rem;
+	color: #1A6B3A;
+}
+
+.nvx-mega__footer {
+	grid-column: 1 / -1;
+	text-align: center;
+	margin-top: 16px;
+	padding-top: 16px;
+	border-top: 1px solid #E9ECEF;
+}
+
+.nvx-mega__footer a {
+	font-family: var(--wp--preset--font-family--nvx-subheading), 'Cabinet Grotesk', sans-serif;
+	font-weight: 600;
+	font-size: 0.9375rem;
+	color: #1A6B3A;
+	text-decoration: none;
+	transition: color var(--nvx-transition-fast);
+}
+
+.nvx-mega__footer a:hover {
+	color: var(--nvx-header-text-hover);
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.nvx-mega__grid {
+		grid-template-columns: 1fr 1fr;
+	}
+	.nvx-mega__featured {
+		display: none;
+	}
+}
+
+/* Mobile: mega menu not shown, replaced by submenu */
+@media (max-width: 767px) {
+	.nvx-mega {
+		display: none;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   7. HEADER ACTIONS
+   ═══════════════════════════════════════════════════════════════════════ */
+.nvx-actions {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	flex-shrink: 0;
+}
+
+
+/* ─── 7a. Search Bar ─────────────────────────────────────────────────── */
+.nvx-search {
+	display: none;
+	position: relative;
+}
+
+@media (min-width: 1024px) {
+	.nvx-search {
+		display: block;
+	}
+}
+
+.nvx-search__input-wrapper {
+	display: flex;
+	align-items: center;
+	height: 48px;
+	width: 320px;
+	background: var(--nvx-header-bg);
+	border: 1px solid var(--nvx-search-border);
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	padding: 0 16px;
+	transition:
+		width var(--nvx-transition-base),
+		border-color var(--nvx-transition-fast),
+		box-shadow var(--nvx-transition-fast);
+}
+
+@media (min-width: 1440px) {
+	.nvx-search__input-wrapper {
+		width: 400px;
+	}
+}
+
+.nvx-search__input-wrapper:focus-within {
+	width: 400px;
+	border-color: var(--nvx-search-border-focus);
+	box-shadow: 0 2px 12px rgba(46, 204, 113, 0.2);
+}
+
+.nvx-search__input {
+	flex: 1;
+	border: none;
+	outline: none;
+	background: transparent;
+	font-family: var(--wp--preset--font-family--nvx-body), 'Inter Variable', sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: var(--nvx-header-text);
+}
+
+.nvx-search__input::placeholder {
+	color: var(--nvx-search-placeholder);
+}
+
+.nvx-search__btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	color: var(--nvx-header-text-muted);
+	cursor: pointer;
+	transition: color var(--nvx-transition-fast);
+}
+
+.nvx-search__btn:hover {
+	color: var(--nvx-header-text-hover);
+}
+
+.nvx-search__btn svg {
+	width: 18px;
+	height: 18px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+/* Search results dropdown */
+.nvx-search__results {
+	position: absolute;
+	top: calc(100% + 4px);
+	left: 0;
+	right: 0;
+	background: var(--nvx-header-bg);
+	border: 1px solid var(--nvx-header-border);
+	border-radius: 8px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	max-height: 400px;
+	overflow-y: auto;
+	z-index: var(--nvx-z-mega);
+	display: none;
+}
+
+.nvx-search__results--open {
+	display: block;
+}
+
+
+/* ─── 7b. Icon Buttons (Account, Cart) ────────────────────────────────── */
+.nvx-icon-btn {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	text-decoration: none;
+	color: var(--nvx-header-text-muted);
+	padding: 8px;
+	border-radius: 8px;
+	transition: color var(--nvx-transition-fast);
+	position: relative;
+}
+
+.nvx-icon-btn:hover {
+	color: var(--nvx-header-text-hover);
+}
+
+.nvx-icon-btn svg {
+	width: 24px;
+	height: 24px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.nvx-icon-btn__label {
+	display: none;
+	font-family: var(--wp--preset--font-family--nvx-mono), 'Space Mono', monospace;
+	font-size: 0.75rem;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	line-height: 1;
+}
+
+@media (min-width: 1024px) {
+	.nvx-icon-btn__label {
+		display: block;
+	}
+}
+
+/* Cart badge */
+.nvx-cart-badge {
+	position: absolute;
+	top: -2px;
+	right: -2px;
+	min-width: 18px;
+	height: 18px;
+	padding: 0 5px;
+	background: var(--nvx-badge-bg);
+	color: var(--nvx-badge-text);
+	font-family: var(--wp--preset--font-family--nvx-mono), 'Space Mono', monospace;
+	font-size: 0.75rem;
+	font-weight: 700;
+	line-height: 18px;
+	text-align: center;
+	border-radius: 9999px;
+	pointer-events: none;
+}
+
+@keyframes nvx-badge-bounce {
+	0%   { transform: scale(1); }
+	40%  { transform: scale(1.3); }
+	100% { transform: scale(1); }
+}
+
+.nvx-cart-badge--bounce {
+	animation: nvx-badge-bounce 0.5s ease;
+}
+
+
+/* ─── 7c. CTA Button ─────────────────────────────────────────────────── */
+.nvx-cta {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	padding: 0 24px;
+	background: var(--nvx-cta-bg);
+	color: var(--nvx-cta-text);
+	font-family: var(--wp--preset--font-family--nvx-subheading), 'Cabinet Grotesk', sans-serif;
+	font-weight: 600;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	white-space: nowrap;
+	transition:
+		background var(--nvx-transition-fast),
+		transform var(--nvx-transition-fast),
+		box-shadow var(--nvx-transition-fast);
+}
+
+.nvx-cta:hover {
+	background: var(--nvx-cta-bg-hover);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(26, 107, 58, 0.3);
+	color: var(--nvx-cta-text);
+	text-decoration: none;
+}
+
+/* Only show on large desktop */
+@media (min-width: 1440px) {
+	.nvx-cta {
+		display: inline-flex;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   8. HAMBURGER (Mobile <768px)
+   ═══════════════════════════════════════════════════════════════════════ */
+.nvx-hamburger {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	padding: 8px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	gap: 6px;
+	z-index: var(--nvx-z-hamburger);
+}
+
+.nvx-hamburger__line {
+	display: block;
+	width: 24px;
+	height: 2px;
+	background: #1A6B3A;
+	border-radius: 2px;
+	transition:
+		transform var(--nvx-transition-base),
+		opacity var(--nvx-transition-fast);
+	origin: center;
+}
+
+/* Hamburger → X animation */
+.nvx-hamburger--open .nvx-hamburger__line:nth-child(1) {
+	transform: translateY(8px) rotate(45deg);
+}
+
+.nvx-hamburger--open .nvx-hamburger__line:nth-child(2) {
+	opacity: 0;
+}
+
+.nvx-hamburger--open .nvx-hamburger__line:nth-child(3) {
+	transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 767px) {
+	.nvx-hamburger {
+		display: flex;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   9. MOBILE MENU OVERLAY
+   ═══════════════════════════════════════════════════════════════════════ */
+.nvx-mobile-overlay {
+	position: fixed;
+	inset: 0;
+	background: var(--nvx-mobile-overlay);
+	z-index: var(--nvx-z-mobile-overlay);
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity var(--nvx-transition-base),
+		visibility var(--nvx-transition-base);
+}
+
+.nvx-mobile-overlay--open {
+	opacity: 1;
+	visibility: visible;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   10. MOBILE MENU
+   ═══════════════════════════════════════════════════════════════════════ */
+.nvx-mobile-menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	max-width: 380px;
+	background: var(--nvx-header-bg);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+	z-index: var(--nvx-z-mobile-menu);
+	transform: translateX(100%);
+	transition: transform var(--nvx-transition-base);
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	display: flex;
+	flex-direction: column;
+}
+
+.nvx-mobile-menu--open {
+	transform: translateX(0);
+}
+
+.nvx-mobile-menu__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 24px;
+	border-bottom: 1px solid var(--nvx-header-border);
+	flex-shrink: 0;
+}
+
+.nvx-mobile-menu__close {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border: none;
+	background: transparent;
+	color: var(--nvx-header-text-muted);
+	cursor: pointer;
+	border-radius: 8px;
+	transition: background var(--nvx-transition-fast), color var(--nvx-transition-fast);
+}
+
+.nvx-mobile-menu__close:hover {
+	background: #F8F9FA;
+	color: var(--nvx-header-text);
+}
+
+.nvx-mobile-menu__close svg {
+	width: 24px;
+	height: 24px;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	fill: none;
+}
+
+/* Mobile nav */
+.nvx-mobile-nav {
+	flex: 1;
+	padding: 0;
+}
+
+.nvx-mobile-nav__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nvx-mobile-nav__item {
+	border-bottom: 1px solid #F1F3F5;
+}
+
+.nvx-mobile-nav__link {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 24px;
+	font-family: var(--wp--preset--font-family--nvx-subheading), 'Cabinet Grotesk', sans-serif;
+	font-weight: 500;
+	font-size: 1.125rem;
+	line-height: 1.4;
+	color: var(--nvx-header-text);
+	text-decoration: none;
+	transition: background var(--nvx-transition-fast), color var(--nvx-transition-fast);
+}
+
+.nvx-mobile-nav__link:hover {
+	background: #F8F9FA;
+	color: var(--nvx-header-text-hover);
+}
+
+.nvx-mobile-nav__link svg {
+	width: 20px;
+	height: 20px;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: none;
+	flex-shrink: 0;
+	transition: transform var(--nvx-transition-fast);
+}
+
+.nvx-mobile-nav__item--open > .nvx-mobile-nav__link svg {
+	transform: rotate(180deg);
+}
+
+/* Mobile submenu */
+.nvx-mobile-submenu {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height var(--nvx-transition-base);
+}
+
+.nvx-mobile-submenu--open {
+	max-height: 500px;
+}
+
+.nvx-mobile-submenu__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nvx-mobile-submenu__item {
+	border-bottom: 1px solid #F1F3F5;
+}
+
+.nvx-mobile-submenu__link {
+	display: block;
+	padding: 12px 24px 12px 48px;
+	font-family: var(--wp--preset--font-family--nvx-body), 'Inter Variable', sans-serif;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: var(--nvx-header-text-muted);
+	text-decoration: none;
+	transition: background var(--nvx-transition-fast), color var(--nvx-transition-fast);
+}
+
+.nvx-mobile-submenu__link:hover {
+	background: #F8F9FA;
+	color: var(--nvx-header-text-hover);
+}
+
+/* Mobile search */
+.nvx-mobile-search {
+	display: none;
+	padding: 16px 24px;
+	border-bottom: 1px solid var(--nvx-header-border);
+}
+
+@media (max-width: 1023px) {
+	.nvx-mobile-search {
+		display: block;
+	}
+}
+
+.nvx-mobile-search__input-wrapper {
+	display: flex;
+	align-items: center;
+	height: 48px;
+	width: 100%;
+	background: var(--nvx-header-bg);
+	border: 1px solid var(--nvx-search-border);
+	border-radius: 8px;
+	padding: 0 16px;
+}
+
+.nvx-mobile-search__input {
+	flex: 1;
+	border: none;
+	outline: none;
+	background: transparent;
+	font-family: var(--wp--preset--font-family--nvx-body), 'Inter Variable', sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: var(--nvx-header-text);
+}
+
+.nvx-mobile-search__input::placeholder {
+	color: var(--nvx-search-placeholder);
+}
+
+/* Mobile menu footer actions */
+.nvx-mobile-menu__footer {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 16px 24px;
+	border-top: 1px solid var(--nvx-header-border);
+	flex-shrink: 0;
+}
+
+.nvx-mobile-menu__action {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	height: 48px;
+	padding: 0 16px;
+	border-radius: 8px;
+	font-family: var(--wp--preset--font-family--nvx-subheading), 'Cabinet Grotesk', sans-serif;
+	font-weight: 500;
+	font-size: 1rem;
+	text-decoration: none;
+	transition: background var(--nvx-transition-fast);
+}
+
+.nvx-mobile-menu__action--login {
+	background: #F8F9FA;
+	color: var(--nvx-header-text);
+}
+
+.nvx-mobile-menu__action--login:hover {
+	background: #E9ECEF;
+}
+
+.nvx-mobile-menu__action--register {
+	background: #F8F9FA;
+	color: var(--nvx-header-text);
+}
+
+.nvx-mobile-menu__action--register:hover {
+	background: #E9ECEF;
+}
+
+.nvx-mobile-menu__action svg {
+	width: 20px;
+	height: 20px;
+	stroke: currentColor;
+	stroke-width: 2;
+	fill: none;
+}
+
+/* Hide mobile menu elements on desktop */
+@media (min-width: 768px) {
+	.nvx-mobile-menu,
+	.nvx-mobile-overlay {
+		display: none !important;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   11. BODY SCROLL LOCK
+   ═══════════════════════════════════════════════════════════════════════ */
+body.nvx-no-scroll {
+	overflow: hidden;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   12. CONTENT OFFSET (body padding for fixed header)
+   ═══════════════════════════════════════════════════════════════════════ */
+body .nvx-header-spacer {
+	/* Dynamic spacer, handled via JS inline style */
+	display: block;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   13. FOCUS STYLES (WCAG 2.2 AA)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Global focus for keyboard navigation */
+.nvx-keyboard-nav .nvx-nav__link:focus,
+.nvx-keyboard-nav .nvx-icon-btn:focus,
+.nvx-keyboard-nav .nvx-cta:focus,
+.nvx-keyboard-nav .nvx-hamburger:focus,
+.nvx-keyboard-nav .nvx-mobile-nav__link:focus,
+.nvx-keyboard-nav .nvx-mobile-menu__close:focus {
+	outline: var(--nvx-focus-ring);
+	outline-offset: var(--nvx-focus-offset);
+}
+
+.nvx-keyboard-nav .nvx-nav__link:focus {
+	outline-offset: -2px;
+	border-radius: 2px;
+}
+
+.nvx-keyboard-nav .nvx-search__input:focus {
+	box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.3);
+	outline: none;
+}
+
+.nvx-keyboard-nav .nvx-mobile-nav__link:focus {
+	outline-offset: -2px;
+	background: #F8F9FA;
+	border-radius: 4px;
+}
+
+/* Skip link focus */
+.nvx-skip-link:focus {
+	outline: 2px solid #F4A900;
+	outline-offset: -2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   14. ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@keyframes nvx-fade-in {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+@keyframes nvx-fade-out {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+
+@keyframes nvx-slide-down {
+	from { transform: translateY(-10px); }
+	to   { transform: translateY(0); }
+}
+
+@keyframes nvx-slide-up {
+	from { transform: translateY(0); }
+	to   { transform: translateY(-10px); }
+}
+
+@keyframes nvx-pulse {
+	0%, 100% { transform: scale(1); }
+	50%      { transform: scale(1.05); }
+}
+
+.nvx-pulse {
+	animation: nvx-pulse 2s ease infinite;
+}
