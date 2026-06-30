@@ -90,9 +90,16 @@ function nvx_enqueue_assets(): void {
 
         // CSS des couches modulaires
         $layer_files = array(
-                'header' => NVX_DIR . '/assets/css/layers/header.css',
-                'base'    => NVX_DIR . '/assets/css/layers/base.css',
+                'header'    => NVX_DIR . '/assets/css/layers/header.css',
+                'homepage'  => NVX_DIR . '/assets/css/layers/homepage.css',
+                'base'      => NVX_DIR . '/assets/css/layers/base.css',
         );
+
+        // Charger homepage.css uniquement sur la page d'accueil
+        $is_home = is_page_template( 'home' ) || ( is_front_page() && 'page' === get_option( 'show_on_front' ) );
+        if ( ! $is_home && isset( $layer_files['homepage'] ) ) {
+                unset( $layer_files['homepage'] );
+        }
         foreach ( $layer_files as $name => $file ) {
                 if ( file_exists( $file ) ) {
                         wp_enqueue_style(
@@ -131,6 +138,31 @@ function nvx_enqueue_assets(): void {
                 NVX_VERSION,
                 array( 'strategy' => 'defer' )
         );
+
+        // Homepage JS (uniquement sur la home)
+        if ( $is_home && file_exists( NVX_DIR . '/assets/js/modules/homepage.js' ) ) {
+                wp_enqueue_script(
+                        'nvx-homepage',
+                        NVX_URI . '/assets/js/modules/homepage.js',
+                        array( 'nvx-theme' ),
+                        NVX_VERSION,
+                        array( 'strategy' => 'defer' )
+                );
+
+                // Passer données utilisateur pour la personnalisation dynamique
+                if ( is_user_logged_in() ) {
+                        $current_user = wp_get_current_user();
+                        wp_localize_script( 'nvx-homepage', 'nvxUser', array(
+                                'isLoggedIn' => true,
+                                'firstName'  => esc_html( $current_user->first_name ),
+                                'profile'    => get_user_meta( $current_user->ID, 'nvx_health_profile', true ),
+                        ) );
+                } else {
+                        wp_localize_script( 'nvx-homepage', 'nvxUser', array(
+                                'isLoggedIn' => false,
+                        ) );
+                }
+        }
 
         // Compteur du panier pour le JS
         $cart_count = 0;

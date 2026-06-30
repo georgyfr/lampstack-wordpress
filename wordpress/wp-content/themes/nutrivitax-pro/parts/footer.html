@@ -1,27 +1,213 @@
-<!-- wp:pattern {"slug":"nvx-footer-default"} -->
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|40"}}},"backgroundColor":"nvx-dark","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-nvx-dark-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--40)">
-	<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"},"style":{"spacing":{"blockGap":"var:preset|spacing|60"}}} -->
-	<div class="wp-block-group">
-		<!-- wp:group {"layout":{"type":"constrained"}} -->
-		<div class="wp-block-group">
-			<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color--nvx-secondary)"}},"fontSize":"nvx-lg"} -->
-			<p class="has-nvx-secondary-color has-text-color has-nvx-lg-font-size">NutriVitaX Pro</p>
+<!--
+  NutriVitaX Pro — Mega-Footer Template Part
+
+  5 colonnes : Marque, Boutique, Informations, Aide & Support, Contact
+  + Certifications (Bio, GMP, ISO, HACCP)
+  + Badges de paiement (Visa, MC, PayPal, Apple Pay, CB)
+  + Réseaux sociaux
+  + Bottom bar copyright + compat WP/WooCommerce
+
+  @package NutriVitaX_Pro
+  @since   0.3.0
+-->
+
+<!-- wp:pattern {"slug":"nvx-mega-footer"} -->
+<!-- wp:group {"align":"full","tagName":"footer","className":"nvx-mega-footer","layout":{"type":"default"}} -->
+<footer class="wp-block-group alignfull nvx-mega-footer" role="contentinfo" id="nvx-footer">
+
+	<!-- ── Accent top lines ── -->
+	<div class="nvx-mega-footer__accent" aria-hidden="true">
+		<span class="nvx-mega-footer__accent-line nvx-mega-footer__accent-line--primary"></span>
+		<span class="nvx-mega-footer__accent-line nvx-mega-footer__accent-line--secondary"></span>
+	</div>
+
+	<!-- ═══════════════════════════════════════════════════════════
+	     MAIN FOOTER CONTENT (5 columns)
+	     ═══════════════════════════════════════════════════════════ -->
+	<!-- wp:group {"align":"wide","className":"nvx-mega-footer__main","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"},"style":{"spacing":{"padding":{"top":"clamp(2.5rem,5vw,4rem)","bottom":"clamp(2rem,4vw,3rem)","left":"0","right":"0"}}}} -->
+	<div class="wp-block-group alignwide nvx-mega-footer__main" style="padding-top:clamp(2.5rem,5vw,4rem);padding-bottom:clamp(2rem,4vw,3rem)">
+
+		<!-- ── Col 1: Marque ── -->
+		<!-- wp:group {"className":"nvx-footer-col nvx-footer-col--brand","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"0.75rem"}}} -->
+		<div class="wp-block-group nvx-footer-col nvx-footer-col--brand">
+			<!-- Logo -->
+			<!-- wp:group {"layout":{"type":"flex","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"0.5rem"}}} -->
+			<div class="wp-block-group">
+				<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color--nvx-secondary)"}},"fontSize":"nvx-xl"} -->
+				<p class="has-nvx-secondary-color has-text-color has-nvx-xl-font-size"><strong>NutriVitaX</strong> <span class="nvx-footer-brand-pro" style="color:var(--wp--preset--color--nvx-accent);font-size:var(--wp--preset--font-size--nvx-sm);font-weight:700;">PRO</span></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- Description -->
+			<!-- wp:paragraph {"textColor":"nvx-gray","fontSize":"nvx-sm"} -->
+			<p class="has-nvx-gray-color has-text-color has-nvx-sm-font-size">Thème WooCommerce premium conçu pour les boutiques de compléments alimentaires et nutraceutique. Design BioLab Luxe.</p>
 			<!-- /wp:paragraph -->
-			<!-- wp:paragraph {"textColor":"nvx-white"} -->
-			<p class="has-nvx-white-color has-text-color">Thème WooCommerce premium pour boutiques de compléments alimentaires.</p>
-			<!-- /wp:paragraph -->
+
+			<!-- Social Icons -->
+			<div class="nvx-footer-social">
+				<a href="#" class="nvx-footer-social__link" aria-label="Facebook">
+					<span class="nvx-footer-social__icon">f</span>
+				</a>
+				<a href="#" class="nvx-footer-social__link" aria-label="Instagram">
+					<span class="nvx-footer-social__icon">in</span>
+				</a>
+				<a href="#" class="nvx-footer-social__link" aria-label="X (Twitter)">
+					<span class="nvx-footer-social__icon">X</span>
+				</a>
+				<a href="#" class="nvx-footer-social__link" aria-label="YouTube">
+					<span class="nvx-footer-social__icon">Yt</span>
+				</a>
+				<a href="#" class="nvx-footer-social__link" aria-label="LinkedIn">
+					<span class="nvx-footer-social__icon">Li</span>
+				</a>
+			</div>
 		</div>
 		<!-- /wp:group -->
+
+		<!-- ── Col 2: Boutique ── -->
+		<!-- wp:group {"className":"nvx-footer-col","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"0.5rem"}}} -->
+		<div class="wp-block-group nvx-footer-col">
+			<!-- wp:paragraph {"fontSize":"nvx-sm"} -->
+			<p class="has-nvx-sm-font-size" style="color:var(--wp--preset--color--nvx-secondary);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;border-bottom:2px solid var(--wp--preset--color--nvx-secondary);padding-bottom:0.5rem;display:inline-block;">Boutique</p>
+			<!-- /wp:paragraph -->
+			<nav aria-label="Menu Boutique">
+				<ul class="nvx-footer-links">
+					<li><a href="/boutique/vitamines">Vitamines &amp; Minéraux</a></li>
+					<li><a href="/boutique/proteines">Protéines &amp; BCAA</a></li>
+					<li><a href="/boutique/omegas">Omégas &amp; Acides Gras</a></li>
+					<li><a href="/boutique/antioxydants">Antioxydants</a></li>
+					<li><a href="/boutique/herboristerie">Herboristerie</a></li>
+					<li><a href="/boutique/packs">Packs &amp; Stacks</a></li>
+				</ul>
+			</nav>
+		</div>
+		<!-- /wp:group -->
+
+		<!-- ── Col 3: Informations ── -->
+		<!-- wp:group {"className":"nvx-footer-col","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"0.5rem"}}} -->
+		<div class="wp-block-group nvx-footer-col">
+			<!-- wp:paragraph {"fontSize":"nvx-sm"} -->
+			<p class="has-nvx-sm-font-size" style="color:var(--wp--preset--color--nvx-secondary);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;border-bottom:2px solid var(--wp--preset--color--nvx-secondary);padding-bottom:0.5rem;display:inline-block;">Informations</p>
+			<!-- /wp:paragraph -->
+			<nav aria-label="Menu Informations">
+				<ul class="nvx-footer-links">
+					<li><a href="/a-propos">À propos de nous</a></li>
+					<li><a href="/notre-laboratoire">Notre laboratoire</a></li>
+					<li><a href="/blog">Blog Santé</a></li>
+					<li><a href="/programme-affilie">Programme affilié</a></li>
+					<li><a href="/temoignages">Témoignages clients</a></li>
+					<li><a href="/carrieres">Carrières</a></li>
+				</ul>
+			</nav>
+		</div>
+		<!-- /wp:group -->
+
+		<!-- ── Col 4: Aide & Support ── -->
+		<!-- wp:group {"className":"nvx-footer-col","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"0.5rem"}}} -->
+		<div class="wp-block-group nvx-footer-col">
+			<!-- wp:paragraph {"fontSize":"nvx-sm"} -->
+			<p class="has-nvx-sm-font-size" style="color:var(--wp--preset--color--nvx-secondary);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;border-bottom:2px solid var(--wp--preset--color--nvx-secondary);padding-bottom:0.5rem;display:inline-block;">Aide &amp; Support</p>
+			<!-- /wp:paragraph -->
+			<nav aria-label="Menu Aide et Support">
+				<ul class="nvx-footer-links">
+					<li><a href="/faq">FAQ</a></li>
+					<li><a href="/suivi-commande">Suivi de commande</a></li>
+					<li><a href="/politique-livraison">Politique de livraison</a></li>
+					<li><a href="/retours">Retours &amp; remboursements</a></li>
+					<li><a href="/conditions-generales">Conditions générales</a></li>
+					<li><a href="/contact">Contactez-nous</a></li>
+				</ul>
+			</nav>
+		</div>
+		<!-- /wp:group -->
+
+		<!-- ── Col 5: Contact + Certifications ── -->
+		<!-- wp:group {"className":"nvx-footer-col nvx-footer-col--contact","layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"0.5rem"}}} -->
+		<div class="wp-block-group nvx-footer-col nvx-footer-col--contact">
+			<!-- wp:paragraph {"fontSize":"nvx-sm"} -->
+			<p class="has-nvx-sm-font-size" style="color:var(--wp--preset--color--nvx-secondary);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;border-bottom:2px solid var(--wp--preset--color--nvx-secondary);padding-bottom:0.5rem;display:inline-block;">Contact</p>
+			<!-- /wp:paragraph -->
+
+			<ul class="nvx-footer-contact">
+				<li>
+					<span class="nvx-footer-contact__icon" aria-hidden="true">✉</span>
+					<a href="mailto:contact@nutrivitax-pro.com">contact@nutrivitax-pro.com</a>
+				</li>
+				<li>
+					<span class="nvx-footer-contact__icon" aria-hidden="true">☎</span>
+					<a href="tel:+33123456789">+33 1 23 45 67 89</a>
+				</li>
+				<li>
+					<span class="nvx-footer-contact__icon" aria-hidden="true">●</span>
+					Lun-Ven : 9h – 18h
+				</li>
+				<li>
+					<span class="nvx-footer-contact__icon" aria-hidden="true">■</span>
+					14 Rue de la Santé, Paris
+				</li>
+			</ul>
+
+			<!-- Certifications -->
+			<div class="nvx-footer-certs" aria-label="Certifications">
+				<span class="nvx-footer-certs__label">Certifications :</span>
+				<div class="nvx-footer-certs__badges">
+					<span class="nvx-footer-cert-badge" aria-label="Certifié Bio">
+						<span class="nvx-footer-cert-badge__check" aria-hidden="true">✓</span>
+						<span class="nvx-footer-cert-badge__text">Bio</span>
+					</span>
+					<span class="nvx-footer-cert-badge" aria-label="Bonne Pratique de Fabrication">
+						<span class="nvx-footer-cert-badge__check" aria-hidden="true">✓</span>
+						<span class="nvx-footer-cert-badge__text">GMP</span>
+					</span>
+					<span class="nvx-footer-cert-badge" aria-label="ISO 22000">
+						<span class="nvx-footer-cert-badge__check" aria-hidden="true">✓</span>
+						<span class="nvx-footer-cert-badge__text">ISO</span>
+					</span>
+					<span class="nvx-footer-cert-badge" aria-label="HACCP">
+						<span class="nvx-footer-cert-badge__check" aria-hidden="true">✓</span>
+						<span class="nvx-footer-cert-badge__text">HACCP</span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- /wp:group -->
+
 	</div>
 	<!-- /wp:group -->
-	<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|40"}}} -->
-	<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40)">
-		<!-- wp:paragraph {"align":"center","textColor":"nvx-gray","fontSize":"nvx-xs"} -->
-		<p class="has-text-align-center has-nvx-gray-color has-text-color has-nvx-xs-font-size">&copy; <?php echo esc_html( date_i18n( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>. Tous droits réservés.</p>
-		<!-- /wp:paragraph -->
+
+	<!-- ═══════════════════════════════════════════════════════════
+	     BOTTOM BAR (Copyright + Paiement + Compat)
+	     ═══════════════════════════════════════════════════════════ -->
+	<!-- wp:group {"align":"full","className":"nvx-mega-footer__bottom","style":{"spacing":{"padding":{"top":"1rem","bottom":"1rem","left":"0","right":"0"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull nvx-mega-footer__bottom" style="padding-top:1rem;padding-bottom:1rem">
+		<div class="nvx-mega-footer__bottom-inner">
+			<!-- Copyright -->
+			<!-- wp:paragraph {"fontSize":"nvx-xs"} -->
+			<p class="has-nvx-xs-font-size nvx-mega-footer__copy">
+				© <?php echo esc_html( date_i18n( 'Y' ) ); ?> NutriVitaX Pro. Tous droits réservés. | Design BioLab Luxe | FSE Block Theme v<?php echo esc_html( NVX_VERSION ); ?>
+			</p>
+			<!-- /wp:paragraph -->
+
+			<!-- Payment Badges -->
+			<div class="nvx-footer-payments" aria-label="Moyens de paiement acceptés">
+				<span class="nvx-footer-payment" aria-label="Visa" style="background:#143C8C;">Visa</span>
+				<span class="nvx-footer-payment" aria-label="Mastercard" style="background:#E6322E;">MC</span>
+				<span class="nvx-footer-payment" aria-label="PayPal" style="background:#0064B4;">PayPal</span>
+				<span class="nvx-footer-payment" aria-label="Apple Pay" style="background:#323232;">Apple Pay</span>
+				<span class="nvx-footer-payment" aria-label="CB" style="background:#1450A0;">CB</span>
+			</div>
+
+			<!-- WordPress Compat -->
+			<!-- wp:paragraph {"fontSize":"nvx-xs","align":"right"} -->
+			<p class="has-nvx-xs-font-size has-text-align-right nvx-mega-footer__compat">
+				WordPress 6.7+ | WooCommerce 9.0+ | PHP 8.4
+			</p>
+			<!-- /wp:paragraph -->
+		</div>
 	</div>
 	<!-- /wp:group -->
-</div>
+
+</footer>
 <!-- /wp:group -->
 <!-- /wp:pattern -->
