@@ -1,0 +1,705 @@
+================================================================================
+  NUTRIVITAX PRO — REVUE DU DOCUMENT DE SPECIFICATION
+  Tache 0.1.1 : Classification des fonctionnalites par priorite
+  Date : 29 juin 2026
+  Environnement : LAMP user-space (Apache 8080, MariaDB 3307, PHP 8.4.21)
+  Stack installe : WordPress 6.7+ / WooCommerce 9.x / Elementor
+================================================================================
+
+DOCUMENT ANALYSE
+  Fichier : NutriVitaX_Pro_Theme_Specification_2026 (1).pdf
+  Type   : Specification technique & fonctionnelle complete v1.0
+  Pages  : 21
+  Chapitres : 10 (01 a 10)
+  Theme slug : nutrivitax-pro
+
+--------------------------------------------------------------------------------
+  1. SYNTHESE GLOBALE
+--------------------------------------------------------------------------------
+
+Le document decrit un theme WooCommerce FSE (Full Site Editing) premium
+cible les boutiques de complements alimentaires et nutraceutique.
+
+Points forts du document :
+  - Vision claire et differenciante sur le marche (IA nutritionnelle,
+    configurateur de stack, transparence ingredient)
+  - Architecture technique moderne (FSE, theme.json, React 18, CSS Layers)
+  - Roadmap en 3 phases bien structuree (MVP, Premium, Enterprise AI)
+  - Standards eleves : WCAG 2.2 AA, Core Web Vitals, GDPR, Schema.org
+
+Points de vigilance :
+  - Ambition tres elevee : certaines fonctionnalites (AR, NFT, Live Shopping)
+    depassent le cadre d'un theme WordPress classique
+  - Dependances a des services externes non specifies (API Claude, Redis,
+    CDN, Mapbox, Rev.ai, etc.)
+  - Budget estime 154 000 - 208 000 EUR sur 12 mois avec equipe senior
+  - Incoherence partielle : le document cible PHP 8.3+ mais notre
+    environnement dispose de PHP 8.4.21 (compatible, mais a noter)
+
+--------------------------------------------------------------------------------
+  2. FONCTIONNALITES CLASSIFIEES PAR PRIORITE
+--------------------------------------------------------------------------------
+
+Legende :
+  [P1] = CRITIQUE — Indispensable au lancement (Phase 1 - MVP)
+  [P2] = IMPORTANT — Differentiation commerciale (Phase 2 - Premium)
+  [P3] = SOUHAITABLE — Avantage concurrentiel avance (Phase 3 - Enterprise)
+  [P4] = OPTIONNEL — Nice-to-have, peut etre differe indefiniment
+
+Faisabilite technique dans notre environnement :
+  OK   = Faisable sans obstacle majeur
+  PART = Partiellement faisable (limitations identifiees)
+  DIFF = Difficile (necessite ressources/competences specifiques)
+  N/A  = Non applicable dans notre contexte local
+
+================================================================================
+  PRIORITE P1 — CRITIQUE (Phase 1 - MVP, Mois 1-4)
+  Objectif : Fondations premium, theme fonctionnel et commercialisable
+================================================================================
+
+P1-01 | Architecture FSE (Full Site Editing)
+  Description : Theme Block conforme WordPress 6.7+ avec templates,
+               template parts, patterns, et theme.json
+  Faisabilite : OK
+  Justification : Base obligatoire du theme. WordPress 6.7 supporte
+                 nativement le FSE. Notre environnement WP est compatible.
+  Composants :
+    - structure de fichiers FSE (parts/, templates/, patterns/)
+    - theme.json avec design tokens centralises
+    - functions.php avec setup.php
+    - style.css (header WordPress)
+    - Blocs Gutenberg custom (dans assets/js/blocks/)
+
+P1-02 | Design System & Charte Graphique (BioLab Luxe)
+  Description : Palette de couleurs, typographie, tokens de design,
+               composants UI de base
+  Faisabilite : OK
+  Justification : Identite visuelle du theme. Implementable via theme.json
+                 + CSS custom properties + Google Fonts.
+  Composants :
+    - Palette : Foret Profonde #1A6B3A, Emeraude Vif #2ECC71,
+      Or Scientifique #F4A900, Nuit Marine #12243A, Brume Verte #F0F9F4
+    - Typographies : Clash Display, Cabinet Grotesk, Inter Variable,
+      Space Mono, DM Serif Display (toutes sur Google Fonts)
+    - Design tokens : border-radius, shadows, spacing scale, font sizes
+    - CSS Layers pour cascade manager
+    - Container Queries pour composants responsifs
+
+P1-03 | Templates Core (Pages principales)
+  Description : Homepage, page produit, catalogue, header, footer
+  Faisabilite : OK
+  Justification : Pages essentielles pour une boutique en ligne.
+  Composants :
+    - home.html : Homepage avec sections dynamiques
+    - single-product.html : Page produit enrichie
+    - archive-product.html : Catalogue avec filtres
+    - index.html : Template par defaut
+    - header.html : Header adaptatif
+    - footer.html : Footer avec newsletter + certifications
+
+P1-04 | Homepage — Sections completes
+   Description : Hero, barre de confiance, produits vedettes,
+               preuve sociale, blog, newsletter, mega-footer
+  Faisabilite : OK (parties simplifiees pour MVP)
+  Composants :
+    - Hero cinematique : image/video + CTA (MVP: image + CTA sans
+      particules CSS avancees)
+    - Barre de confiance : logos certifications, livraison, satisfaction
+    - Produits vedettes : grille produits avec badges, notation, ajout panier
+    - Preuve sociale : temoignages, notes (MVP: textuel, pas video)
+    - Blog expert : articles recents avec auteurs et temps de lecture
+    - Newsletter : formulaire capture e-mail
+    - Mega-footer : navigation, certifications, reseaux sociaux
+
+P1-05 | Page Produit Enrichie (v1)
+  Description : Galerie, onglets composition/certifications/Q&A,
+               tableau nutritionnel
+  Faisabilite : OK (parties simplifiees pour MVP)
+  Composants MVP :
+    - Galerie photo avec zoom (pas 3D rotation en MVP)
+    - Selecteur de format (pilules/poudre/gelules/liquide)
+    - Tableau nutritionnel visuel avec % AJR
+    - Onglets : Description, Composition, Certificats, Q&A
+    - Boutons d'achat + ajout panier
+    - Avis clients avec notes
+  Composants reportes (v2) :
+    - Galerie 3D interactive (rotation 360, X-ray)
+    - Calculateur de dosage IA
+    - Carte d'origine Mapbox
+
+P1-06 | Catalogue & Filtres de base
+   Description : Grille produits, filtres par categorie/objectif,
+               tri et pagination
+  Faisabilite : OK
+  Composants :
+    - Archive produit WooCommerce avec filtres
+    - Filtres : categorie, objectif sante, forme galenique, certificat
+    - Tri : prix, popularite, note, nouveaute
+    - Vue grille / liste
+    - Pagination ou infinite scroll
+  Reportes :
+    - Filtre par IA pertinence profil
+    - Mode comparaison 4 produits
+    - Filtre par budget mensuel abonnement
+
+P1-07 | WooCommerce Core (Panier + Checkout)
+  Description : Panier optimise, checkout 1-page, affichage produits
+  Faisabilite : OK
+  Composants :
+    - Cart block WooCommerce (FSE natif)
+    - Checkout block WooCommerce (1-page)
+    - Affichage prix, variantes, stock
+    - Guest checkout rapide
+    - Upsell produits complementaires
+  Limitation : Paiements Stripe/Klarna/Alma necessitent configurations
+    comptes externes. En environnement local, on utilisera les
+    gateways de test WooCommerce.
+
+P1-08 | Quiz Sante Basique (Rule-Based)
+  Description : 5-8 questions sur objectifs sante, recommandations
+               produits par regles predefinies
+  Faisabilite : OK
+  Justification : Nucleus de la differenciation. En MVP, les
+                 recommandations sont basees sur des regles (pas d'IA).
+  Composants :
+    - Template page-quiz.html
+    - Moteur quiz-engine.php (logique conditionnelle)
+    - 5-8 questions : objectifs, age, mode de vie, allergies
+    - Mapping questions → categories produits
+    - Resultat : liste produits recommandes avec explications
+
+P1-09 | SEO Schema.org (Base)
+  Description : Donnees structurees pour produits, FAQ,
+               breadcrumbs, organisation
+  Faisabilite : OK
+  Composants :
+    - Product Schema (nom, prix, disponibilite, note, marque, GTIN, SKU)
+    - FAQPage Schema (Q&A produits)
+    - BreadcrumbList Schema
+    - Organization Schema
+    - Review Schema avec aggregateRating
+
+P1-10 | Performance Base
+  Description : Optimisation Core Web Vitals, images, CSS, JS
+  Faisabilite : PART
+  Justification : Optimisations possibles sans Redis/CDN. On vise
+                 LCP < 2.5s et Lighthouse > 90 en environnement local.
+  Composants faisables :
+    - OPcache PHP (deja configure)
+    - Images WebP/AVIF avec fallback
+    - Lazy loading natif (loading="lazy")
+    - CSS minifie, JS defer/async
+    - Font-display: swap
+    - Preload images hero
+  Composants limites :
+    - TTFB < 200ms DIFFICILE sans Redis/Nginx
+    - LCP < 1.2s DIFFICILE sans CDN
+    - Fragment caching DIFFICILE sans Redis
+  Note : Les objectifs extremes (LCP < 1.2s, score 100/100) sont
+    atteignables en production avec infrastructure adequate, pas en
+    environnement de developpement local.
+
+P1-11 | Accessibilite WCAG 2.2 AA (Base)
+  Description : Contraste, navigation clavier, ARIA, alt text
+  Faisabilite : OK
+  Composants :
+    - Ratio contraste >= 4.5:1 (verifiable dans le code CSS)
+    - Navigation clavier complete avec focus visible
+    - ARIA labels sur menus, modales, formulaires
+    - Alt text sur toutes les images
+    - Ordre de tabulation logique
+    - Cibles tactiles >= 44x44px
+    - prefers-reduced-motion respecte
+
+P1-12 | Dark Mode
+  Description : Mode sombre avec transition automatique
+  Faisabilite : OK
+  Justification : Fonctionnalite attendue pour un theme premium 2026.
+                 Implementable via theme.json + CSS custom properties + JS.
+
+P1-13 | Responsive Design (Mobile-First)
+  Description : Adaptation complete mobile/tablette/desktop
+  Faisabilite : OK
+  Justification : Obligatoire. Les personas (Sophie mobile-first) et
+                 les standards 2026 l'exigent.
+
+P1-14 | Conformite RGPD Base
+  Description : Banner cookies, droit a l'oubli, mentions legales
+  Faisabilite : PART
+  Composants :
+    - Banner cookies avec granularite (consentement categories)
+    - Pages mentions legales, politique confidentialite
+    - Formulaire de suppression donnees (droit a l'oubli)
+    - Disclaimer sante sur les allgations (reglement CE 1924/2006)
+  Limitation : Consent Mode v3 Google necessite un compte Google.
+
+================================================================================
+  PRIORITE P2 — IMPORTANTE (Phase 2 - Premium, Mois 5-8)
+  Objectif : Differentiation commerciale, fonctionnalites avancees
+================================================================================
+
+P2-01 | Stack Builder (Configurateur Nutritionnel)
+  Description : Builder drag-and-drop pour creer des programmes
+               de supplementation personnalises
+  Faisabilite : PART
+  Justification : Fonctionnalite signature du theme. Le drag-and-drop
+                 necessite React 18 + bibliothèque DnD. L'analyse des
+                 synergies entre produits est faisable via une matrice
+                 de compatibilite en base de donnees.
+  Composants :
+    - Interface Kanban (Morning/Afternoon/Evening Stack)
+    - Drag-and-drop produits dans les slots
+    - Detection interactions entre produits
+    - Calcul cout journalier/mensuel
+    - Analyse nutritionnelle cumulee
+    - Sauvegarde stack dans le compte client
+    - Export PDF du programme
+  Limitations :
+    - Necessite installation npm + build Vite en user-space (faisable)
+    - Partage reseaux sociaux avec image auto-generee (complexe)
+    - Recommandation "produit manquant" (logique regles avancee)
+
+P2-02 | IA Nutritionnelle (NutriAI Engine)
+  Description : Recommandations personnalisees via API Claude,
+               quiz avance 12 questions, chatbot nutritionnel
+  Faisabilite : PART (depend de l'API externe)
+  Justification : Differentiateur majeur mais depend entierement de
+                 l'acces a l'API Anthropic Claude.
+  Composants :
+    - Quiz avance 12 questions
+    - Scoring nutritionnel /100
+    - Recommandations produits avec score de pertinence (ex: 94%)
+    - Detection carences probables
+    - Alertes interactions medicamenteuses
+    - Chatbot nutritionnel 24/7
+    - Rapports PDF personnalises
+  Limitations :
+    - Necessite cle API Anthropic Claude (coute)
+    - Disclaimer medical obligatoire (faisable)
+    - Stockage profils sante : tables custom en MariaDB (faisable)
+    - BDD pharmacologique pour interactions (a creer/integrer)
+
+P2-03 | Systeme d'Abonnements Intelligents
+  Description : Abonnements flexibles avec cycles adaptatifs,
+               swap, pause, auto-refill
+  Faisabilite : PART
+  Justification : Necessite le plugin WooCommerce Subscriptions
+                 (payant, ~279$/an). Certaines fonctions avancees
+                 (cycles adaptatifs IA, auto-refill predictif) sont
+                 des développements custom complexes.
+  Composants faisables avec WooCommerce Subscriptions :
+    - Frequences flexibles (hebdo, bi-mensuel, mensuel, trimestriel)
+    - Portail client pour gerer abonnements
+    - Pause/resume
+  Composants a developper :
+    - Swap produit dans abonnement
+    - Bundle abonnement avec reduction fidelite
+    - Cycles adaptatifs (IA)
+    - Auto-refill predictif
+    - Coffret decouverte personnalise
+
+P2-04 | Programme Fidelite NutriPoints
+  Description : Points sur achats, avis, parrainage, challenges,
+               niveaux de membership
+  Faisabilite : PART
+  Justification : Necessite un systeme de points custom ou un plugin
+                 comme WooCommerce Points and Rewards. Les challenges
+                 et gamification avancee necessitent du dev custom.
+  Composants :
+    - Table custom nvx_loyalty_points en MariaDB
+    - Accumulation points : achat (1pt/EUR), avis (50-100pts),
+      parrainage (200pts), quiz (75pts), anniversaire (300pts)
+    - Echange points contre reductions
+    - Niveaux de membership avec avantages croissants
+    - Tableau de bord fidelite client
+    - Challenges communautaires (30 jours)
+  Limitation : Sans plugin externe, tout le systeme doit etre
+    developpe from scratch (complexe mais faisable en PHP).
+
+P2-05 | Dashboard Admin Personnalise
+  Description : KPIs temps reel, heatmaps clients, alertes,
+               comparateurs periodes
+  Faisabilite : PART
+  Composants :
+    - Widget dashboard WordPress : CA jour/semaine/mois, LTV
+    - Heatmap profils clients (par objectif sante, age, geo)
+    - Alertes stock critique, retours, produit sous-performant
+    - Suivi scores IA : taux adoption recommandations
+    - Graphiques interactifs (Chart.js)
+    - Export CSV/Excel
+  Limitation : Donnees temps reel difficiles sans cache avancé.
+
+P2-06 | Traçabilite Ingredients
+  Description : Carte interactive origine, certificats COA,
+               timeline fabrication
+  Faisabilite : PART
+  Composants :
+    - Table custom nvx_ingredient_origins en MariaDB
+    - Carte interactive (Mapbox ou Leaflet/OSM alternatif gratuit)
+    - Upload et affichage certificats COA
+    - Timeline fabrication
+  Limitation : Mapbox est payant. Alternative : OpenStreetMap/Leaflet.
+
+P2-07 | Gestion Produits Enrichie (Admin)
+  Description : Onglets composition, IA/SEO, interactions,
+               certifications, bulk editor
+  Faisabilite : OK
+  Composants :
+    - Meta boxes custom pour produits WooCommerce
+    - Onglet Composition : ingredients, pourcentages, origine, COA
+    - Onglet IA & SEO : score pertinence, keywords suggeres
+    - Onglet Interactions : compatibilites/incompatibilites
+    - Onglet Certifications : upload, dates validite
+    - Bulk editor pour modifications en masse
+    - Import/Export CSV
+
+P2-08 | Page Produit Enrichie (v2)
+  Description : Galerie 3D, calculateur dosage IA, carte origine,
+               abonnement intelligent, compatibilite stack
+  Faisabilite : PART
+  Composants :
+    - Galerie 3D interactive (necessite modele 3D ou photos 360)
+    - Calculateur dosage IA (depend API Claude)
+    - Carte origine ingredients (Leaflet/OSM)
+    - Abonnement intelligent depuis la page produit
+    - Badge compatibilite avec stack utilisateur
+    - Etudes cliniques liees (donnees PubMed)
+
+P2-09 | Catalogue Avancé (Filtres IA)
+  Description : Filtres intelligents, mode comparaison,
+               recommandations personnalisees
+  Faisabilite : PART
+  Composants :
+    - Filtre par score IA pertinence profil (depend P2-02)
+    - Mode comparaison jusqu'a 4 produits
+    - Filtre par budget mensuel
+    - Mode "Recommande pour vous" (IA)
+    - Sauvegarde filtres favoris
+
+P2-10 | Checkout Optimise Avance
+  Description : One-page checkout, adressse auto-complete,
+               recap nutritionnel, abandons panier
+  Faisabilite : PART
+  Composants :
+    - One-page checkout (WooCommerce block)
+    - Adresse auto-complete (Google Places API - payant)
+    - Recapitulatif nutritionnel dans le panier
+    - Email/SMS abandon panier (necessite service email/SMS externe)
+    - Upsell post-achat (thank you page)
+    - Trust badges dynamiques
+    - Facturation PDF automatique
+
+P2-11 | Internationalisation (i18n)
+  Description : WPML ready, multi-devise, RTL, hreflang
+  Faisabilite : OK (preparation du theme)
+  Justification : Le theme doit etre "translation-ready" avec
+                 textdomain, mais WPML est un plugin externe payant.
+  Composants :
+    - Textdomain 'nutrivitax-pro' sur toutes les chaines
+    - Fichiers .pot/.po/.mo preparatoires
+    - Support RTL dans le CSS
+    - Hreflang dans le head
+    - Multi-devise via WooCommerce Multi-Currency (plugin)
+
+P2-12 | Tables Personnalisees en Base de Donnees
+  Description : 6 tables custom pour profils, stacks, IA,
+               fidelite, ingredients, quiz
+  Faisabilite : OK
+  Composants :
+    - nvx_health_profiles (user_id, data JSON)
+    - nvx_supplement_stacks (stack_id, products JSON, user_id)
+    - nvx_ai_recommendations (user_id, context, recommended, score)
+    - nvx_loyalty_points (user_id, points, action, date)
+    - nvx_ingredient_origins (ingredient_id, origin, supplier, coa_url)
+    - nvx_quiz_responses (session_id, question_id, answer, timestamp)
+  Note : Toutes creables via dbDelta() WordPress.
+
+================================================================================
+  PRIORITE P3 — SOUHAITABLE (Phase 3 - Enterprise AI, Mois 9-12)
+  Objectif : Innovation radicale, avantages concurrentiels avances
+================================================================================
+
+P3-01 | Realite Augmentee — NutriAR
+  Description : Scan QR, X-ray, visualisation 3D molecules,
+               comparaison AR
+  Faisabilite : DIFF
+  Justification : WebXR API est supportee par Chrome/Safari mobile
+                 MAIS necessite des modeles 3D pour chaque produit,
+                 une infrastructure de hosting 3D, et un dev front-end
+                 tres specialise. Tres couteux en temps de dev.
+  Composants :
+    - Scan QR → visualisation 3D produit
+    - Mode X-ray (superposition AR infos nutritionnelles)
+    - Visualisation 3D molecules actives
+    - Comparaison AR 2 produits
+  Risques : Compatibilite navigateurs, performance mobile,
+    complexite creation modeles 3D.
+
+P3-02 | Personnalisation Dynamique Full-Site
+  Description : Hero personnalise, bannieres contextuelles,
+               emails adaptatifs, prix dynamiques, catalogue personnalise
+  Faisabilite : PART
+  Composants :
+    - Hero personnalise selon profil (faisable avec JS + user meta)
+    - Bannieres contextuelles selon historique (faisable)
+    - Catalogue personnalise (tri par pertinence, faisable)
+    - Prix abonnement dynamique (logique tarifaire, faisable)
+  Limitations :
+    - Emails adaptatifs IA (necessite integration email externe)
+    - Notifications push web (necessite service push, VAPID keys)
+    - Meteo locale (necessite API meteo externe)
+
+P3-03 | PWA (Progressive Web App)
+  Description : Service Worker, mode offline, push notifications,
+               installation sur ecran d'accueil
+  Faisabilite : PART
+  Composants :
+    - Manifest.json avec icones
+    - Service Worker avec strategie cache (stale-while-revalidate)
+    - Mode offline pour catalogue (faisable avec cache API)
+    - Push notifications (necessite backend push)
+  Limitation : Les push notifications necessitent un serveur de
+    push (non disponible en environnement local sans service tiers).
+
+P3-04 | Live Shopping
+  Description : Ventes en direct avec WooCommerce + Zoom/YouTube
+  Faisabilite : DIFF
+  Justification : Integration complexe avec APIs video + WooCommerce.
+                 Necessite gestion flux live, chat en temps reel,
+                 synchronisation produits/prix.
+
+P3-05 | B2B Portal
+  Description : Espace revendeur, tarifs degressifs,
+               bons de commande, facturation NET30
+  Faisabilite : PART
+  Composants :
+    - Inscription/approbation revendeur
+    - Tarifs degressifs selon volume
+    - Bons de commande custom
+    - Facturation avec delai NET30
+  Limitation : Logique metier complexe mais techniquement faisable
+    en PHP/WooCommerce.
+
+P3-06 | Social Commerce
+  Description : TikTok Shop, Instagram Shopping, Pinterest Catalogs
+  Faisabilite : N/A (en environnement local)
+  Justification : Necessite comptes marchands actifs sur chaque
+                 plateforme + approbation. Configuration uniquement,
+                 pas de dev specifique dans le theme.
+
+P3-07 | Connecteurs Health APIs
+  Description : MyFitnessPal, Garmin Connect, Apple Health, Google Fit
+  Faisabilite : DIFF
+  Justification : Chaque API a son propre processus d'approbation,
+                 ses scopes, son OAuth. Integration 4 APIs = 4 projets
+                 distincts. Tres couteux en temps.
+
+P3-08 | Tests A/B Natifs
+  Description : Tests A/B avec statistiques bayesiennes
+  Faisabilite : DIFF
+  Justification : Necessite un moteur de split testing, collecte
+                 de donnees, analyse statistique. Complexite importante.
+
+================================================================================
+  PRIORITE P4 — OPTIONNEL (Nice-to-Have, differe)
+  Objectif : Fonctionnalites a tres faible valeur ajoutee relative
+================================================================================
+
+P4-01 | NFT Fidelite (Badges membership NFT)
+  Description : Badges de fidelite sous forme de NFT sur Polygon
+  Faisabilite : DIFF
+  Justification : Niche extremement etroite. Necessite integration
+                 blockchain (Web3), wallet crypto, smart contract.
+                 Aucun impact sur les ventes pour 99% des marchands.
+                 Risque reputatif (controverses crypto).
+  Recommandation : EXCLURE du perimetre. Cout/benefice defavorable.
+
+P4-02 | Paiement Crypto (Coinbase Commerce)
+  Description : Acceptation paiements en cryptocurrency
+  Faisabilite : PART (plugin Coinbase Commerce existe)
+  Justification : Tres faible demande sur le marche complements
+                 alimentaires. Peut etre ajoute comme plugin externe
+                 sans integration specifique au theme.
+  Recommandation : Laissé comme option de plugin tiers, pas dans le theme.
+
+P4-03 | Synchronisation ERP (SAP, Sage, Cegid)
+  Description : Connecteurs natifs pour stocks et comptabilite
+  Faisabilite : DIFF
+  Justification : Chaque ERP a son API/connector. Developpement
+                 specifique par ERP. Hors perimetre theme.
+  Recommandation : Laisser a des plugins dedies (WooCommerce a deja
+                 des extensions pour SAP/Sage).
+
+P4-04 | Accessibilite Vocale (Web Speech API)
+  Description : Commandes vocales pour navigation et produits
+  Faisabilite : PART
+  Justification : Web Speech API est supportee mais l'experience
+                 est encore fragile. Faible demande reelle.
+  Recommandation : Feature experimentale, pas prioritaire.
+
+P4-05 | Sous-titres Auto Videos (Rev.ai API)
+  Description : Sous-titres automatiques pour toutes les videos
+  Faisabilite : PART (necessite API payante Rev.ai)
+  Recommandation : Alternative gratuite : YouTube fournit des
+                 sous-titres auto. Integration manuelle suffisante.
+
+P4-06 | Preloading Intelligent (Heatmaps)
+  Description : Precharger les pages probables selon comportement
+  Faisabilite : DIFF
+  Justification : Necessite collecte de donnees de navigation +
+                 modele predictif. Complexite elevee pour gain marginal.
+  Recommandation : Prefetch simple des liens visibles suffisant.
+
+P4-07 | BDD Pharmacologique Integree
+  Description : Base de donnees complete interactions medicamenteuses
+  Faisabilite : DIFF
+  Justification : Necessite une base de donnees specialisee,
+                 tenue a jour, avec responsabilite legale. Risques
+                 juridiques si erreur.
+  Recommandation : Integration avec une API externe specialisee
+                 (si disponible) plutot que BDD locale.
+
+P4-08 | Génération Image Partage Stack
+  Description : Generer automatiquement une image du stack pour
+               partage sur reseaux sociaux
+  Faisabilite : DIFF
+  Justification : Necessite soit une librairie de generation d'images
+                 cote serveur (GD/Imagick avec templates complexes),
+                 soit un service externe (Puppeteer/Playwright screenshot).
+  Recommandation : Simple partage de lien avec OG meta tags suffisant.
+
+================================================================================
+  3. ANALYSE DE FAISABILITE TECHNIQUE PAR COMPOSANT
+================================================================================
+
+INFRASTRUCTURE :
+
+  Redis / Object Cache Pro
+    Statut : NON DISPONIBLE
+    Detail : Pas d'acces root, Redis non installe.
+    Impact : TTFB > 200ms, pas de fragment caching avance.
+    Mitigation : Utiliser l'object cache WordPress natif (transient API),
+               OPcache PHP (deja configure). En production, installer Redis.
+
+  Nginx / LiteSpeed
+    Statut : NON DISPONIBLE
+    Detail : Environnement utilise Apache 2.4 sur port 8080.
+    Impact : Pas de page caching Nginx/LiteSpeed.
+    Mitigation : Utiliser .htaccess + mod_rewrite + mod_expires.
+               En production, migrer vers Nginx si necessaire.
+
+  CDN (Cloudflare R2 / BunnyCDN)
+    Statut : NON APPLICABLE (environnement local)
+    Impact : Assets servis localement.
+    Mitigation : En production, configurer CDN pour assets statiques.
+
+  Node.js / npm / Vite
+    Statut : DISPONIBLE (user-space possible via nvm)
+    Impact : Build React/TypeScript possible en user-space.
+    Mitigation : Installer nvm + Node.js dans /home/z/.nvm
+
+  API Claude (Anthropic)
+    Statut : NON CONFIGURE
+    Detail : Necessite cle API Anthropic.
+    Impact : Toutes fonctionnalites IA (P2-02) bloquees sans cle.
+    Mitigation : En Phase 1, utiliser systeme rule-based.
+               En Phase 2, integrer API quand cle disponible.
+
+  Mapbox
+    Statut : NON CONFIGURE (payant)
+    Mitigation : Utiliser Leaflet + OpenStreetMap (gratuit).
+
+  WooCommerce Subscriptions
+    Statut : NON INSTALLE (plugin payant ~279$/an)
+    Impact : Fonctionnalites abonnement (P2-03) bloquees.
+    Mitigation : Developper un systeme d'abonnement simplifie custom,
+               ou installer le plugin quand licence disponible.
+
+WORDPRESS :
+
+  Version WordPress
+    Statut : COMPATIBLE (6.7+ supporte FSE, Block Bindings, Interactivity API)
+    Note : Verifier version exacte installee avec wp core version.
+
+  WooCommerce
+    Statut : COMPATIBLE (9.x supporte HPOS, Cart/Checkout Blocks)
+    Note : Verifier version exacte installee.
+
+  Elementor
+    Statut : INSTALLE mais POTENTIELLEMENT CONFLIT
+    Detail : Elementor et FSE (Block Theme) peuvent entrer en conflit.
+    Mitigation : NutriVitaX Pro etant un Block Theme FSE, Elementor
+               pourrait etre desactive au profit de l'editeur Gutenberg natif.
+               A clarifier avec l'equipe.
+
+  PHP 8.4.21
+    Statut : COMPATIBLE (document requiert 8.3+)
+    Avantage : PHP 8.4 apporte fibers, readonly properties ameliorees,
+               first-class callables syntax, performance JIT.
+
+  MariaDB 11.8
+    Statut : COMPATIBLE
+    Note : WordPress fonctionne avec MariaDB. Les tables custom
+           (nvx_*) seront creees via dbDelta().
+
+================================================================================
+  4. RESUME STATISTIQUE
+================================================================================
+
+  Total fonctionnalites identifiees : 36
+
+  Par priorite :
+    P1 CRITIQUE    : 14 fonctionnalites  (39%)
+    P2 IMPORTANTE   : 12 fonctionnalites  (33%)
+    P3 SOUHAITABLE  :  8 fonctionnalites  (22%)
+    P4 OPTIONNEL    :  2 fonctionnalites  ( 6%)  [NFT exclus]
+                     + 6 nice-to-have diffères
+
+  Par faisabilite :
+    OK   (Faisable sans obstacle)        : 18 (50%)
+    PART (Partiellement faisable)          : 13 (36%)
+    DIFF (Difficile/Complexe)              :  5 (14%)
+    N/A  (Non applicable en local)         :  0 ( 0%)
+
+  Bloquants pour MVP (P1) :
+    AUCUN — toutes les fonctionnalites P1 sont faisables dans notre
+    environnement, avec des adaptations mineures pour la performance.
+
+  Points d'attention :
+    1. Conflit potentiel Elementor vs FSE Block Theme
+    2. Absence de Redis (performance optimale impossible en local)
+    3. Fonctionnalites IA bloquees sans cle API Claude
+    4. Abonnements bloques sans plugin WooCommerce Subscriptions
+
+================================================================================
+  5. RECOMMANDATIONS STRATEGIQUES
+================================================================================
+
+  1. DESACTIVER ELEMENTOR pour le developpement FSE
+     NutriVitaX Pro est un Block Theme (FSE). Elementor utilise son
+     propre systeme de templates qui entre en conflit avec les templates
+     FSE. Garder Elementor pour d'autres projets, mais le desactiver
+     quand NutriVitaX Pro est actif.
+
+  2. COMMENCER PAR LE DESIGN SYSTEM (P1-02)
+     C'est la fondation de tout le reste. Les tokens theme.json doivent
+     etre definis en premier car tous les composants en dependent.
+
+  3. SEPARER LE THEME DES PLUGINS
+     Le theme ne doit pas inclure de logique metier complexe (IA,
+     fidelite, abonnements). Celles-ci doivent etre des plugins
+     compagnons ou des dependances a des plugins tiers. Le theme
+     gere : templates, design, display, hooks WooCommerce.
+
+  4. APPROCHE MVP REALISTE
+     La Phase 1 (MVP) est realisable en environnement local dans un
+     delai raisonnable. Les objectifs Core Web Vitals extremes
+     (LCP < 1.2s) sont des cibles production, pas developpement.
+
+  5. PLANNIFIER L'INSTALLATION NODE.JS
+     Le build JavaScript (React blocks, Vite) necessite Node.js.
+     Installer via nvm en user-space avant la Phase 2.
+
+================================================================================
+  FIN DU DOCUMENT — 0.1.1 Revue Specification NutriVitaX Pro
+================================================================================

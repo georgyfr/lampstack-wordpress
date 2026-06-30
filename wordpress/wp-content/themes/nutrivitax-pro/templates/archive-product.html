@@ -1,0 +1,24 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"align":"full","layout":{"type":"constrained"}} -->
+<main class="wp-block-group alignfull">
+	<!-- wp:woocommerce/product-collection {"query":{"perPage":12,"pages":0,"offset":0,"postType":"product","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"displayLayout":{"type":"flex","columns":3},"align":"wide"} -->
+	<div class="wp-block-query alignwide">
+		<!-- wp:heading {"level":2} -->
+		<h2 class="wp-block-heading">Nos Produits</h2>
+		<!-- /wp:heading -->
+		<!-- wp:woocommerce/product-collection-template -->
+		<div class="wp-block-woocommerce-product-collection-template">
+			<!-- wp:woocommerce/product-template -->
+			<!-- wp:post-featured-image {"size":"nvx-product-card"} /-->
+			<!-- wp:woocommerce/product-title {"isLink":true} /-->
+			<!-- wp:woocommerce/product-price /-->
+			<!-- wp:woocommerce/product-add-to-cart /-->
+			<!-- /wp:woocommerce/product-template -->
+		</div>
+		<!-- /wp:woocommerce/product-collection-template -->
+		<!-- wp:query-pagination {"align":"center"} /-->
+	</div>
+	<!-- /wp:woocommerce/product-collection -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

@@ -1,0 +1,31 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"align":"full","layout":{"type":"constrained"}} -->
+<main class="wp-block-group alignfull">
+	<!-- wp:heading {"textAlign":"center","level":1} -->
+	<h1 class="wp-block-heading has-text-align-center">Bienvenue sur <?php echo esc_html( get_bloginfo( 'name' ) ); ?></h1>
+	<!-- /wp:heading -->
+	<!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
+	<p class="has-text-align-center has-nvx-gray-color has-text-color">Votre boutique de compléments alimentaires premium.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:spacer {"height":"var:preset|spacing|60"} -->
+	<div style="height:var(--wp--preset--spacing--60)" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
+	<!-- wp:query {"queryId":0,"query":{"perPage":6,"pages":0,"offset":0,"postType":"product","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"displayLayout":{"type":"flex","columns":3},"align":"wide"} -->
+	<div class="wp-block-query alignwide">
+		<!-- wp:query-title {"type":"archive","align":"wide"} /-->
+		<!-- wp:post-template {"align":"wide"} -->
+			<!-- wp:group {"layout":{"type":"default"}} -->
+			<div class="wp-block-group">
+				<!-- wp:post-featured-image {"size":"nvx-product-card"} /-->
+				<!-- wp:post-title {"isLink":true,"textAlign":"center"} /-->
+				<!-- wp:post-excerpt /-->
+				<!-- wp:read-more {"textAlign":"center"} /-->
+			</div>
+			<!-- /wp:group -->
+		<!-- /wp:post-template -->
+		<!-- wp:query-pagination {"align":"center"} /-->
+	</div>
+	<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

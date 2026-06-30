@@ -1,0 +1,1008 @@
+================================================================================
+  NUTRIVITAX PRO — CARTOGRAPHIE DES INTEGRATIONS
+  Tache 0.1.4 : Diagramme d'integration complet
+  Date : 1er juillet 2026
+  Reference : Specification NutriVitaX Pro v1.0 — Chapitres 02 a 09
+================================================================================
+
+TABLE DES MATIERES
+  1. Inventaire complet des integrations
+  2. Classification par couche (Core / Extend / External / Optional)
+  3. Matrice de dependance entre composants
+  4. Diagramme d'architecture ASCII
+  5. Diagramme de flux de donnees
+  6. Diagramme de dependance Phases
+  7. Analyse des risques d'integration
+  8. Glossaire des connecteurs
+
+Convention utilisee dans les diagrammes :
+  [C] = Composant du theme NutriVitaX Pro
+  [P] = Plugin WordPress / WooCommerce
+  [A] = API externe (service tiers)
+  [S] = Service d'infrastructure
+  [D] = Base de donnees
+  ---> = dependance forte (requis)
+  - -> = dependance faible (optionnel / fallback)
+  <--> = communication bidirectionnelle
+
+================================================================================
+  1. INVENTAIRE COMPLET DES INTEGRATIONS
+================================================================================
+
+Ce chapitre liste TOUTES les integrations identifiees dans le document
+de specification, classees par categorie et par phase de roadmap.
+
+1.1 COUCHE CORE — PLATEFORME (Phase 1)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  CORE-01  WordPress Core           [S]    6.7+       wordpress.org
+  CORE-02  WooCommerce              [P]    9.x        automattic.com
+  CORE-03  PHP                      [S]    8.3+       (environnement serveur)
+  CORE-04  MariaDB / MySQL          [D]    10.6+      (environnement serveur)
+  CORE-05  Apache / Nginx           [S]    2.4+       (environnement serveur)
+  CORE-06  Gutenberg Editor         [S]    (WP core)  wordpress.org
+  CORE-07  theme.json              [C]    WP 6.7+    (fichier theme)
+  CORE-08  Block Bindings API       [S]    WP 6.7+    (API WP native)
+  CORE-09  Interactivity API v2     [S]    WP 6.7+    (API WP native)
+
+1.2 COUCHE FRONT-END — BUILD & ASSETS (Phase 1)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  FE-01  React 18                   [S]    18.x       meta (facebook)
+  FE-02  TypeScript 5.x            [S]    5.x        microsoft
+  FE-03  Vite 6                     [S]    6.x        vitejs.dev
+  FE-04  @wordpress/scripts         [S]    latest     wordpress.org
+  FE-05  Google Fonts API           [A]    free       fonts.googleapis.com
+             Polices : Clash Display, Cabinet Grotesk,
+             Inter Variable, Space Mono, DM Serif Display
+  FE-06  CSS Layers                 [S]    natif      (navigateur)
+  FE-07  Container Queries          [S]    natif      (navigateur)
+
+1.3 COUCHE WOOCOMMERCE — E-COMMERCE (Phase 1-2)
+  ID    Integration                 Type   Version      Fournisseur
+  ----  --------------------------  ----   ----------   --------------------
+  WOO-01  Cart Blocks               [P]    Woo 9.x     (WooCommerce natif)
+  WOO-02  Checkout Blocks            [P]    Woo 9.x     (WooCommerce natif)
+  WOO-03  HPOS                      [P]    Woo 9.x     (WooCommerce natif)
+  WOO-04  HPPOS                     [P]    Woo 9.x     (WooCommerce natif)
+  WOO-05  REST API WooCommerce      [A]    Woo 9.x     (WooCommerce natif)
+  WOO-06  WooCommerce Subscriptions [P]    6.x+        woo.com (~279$/an)
+  WOO-07  Stripe                    [P]    latest      stripe.com
+  WOO-08  PayPal Express            [P]    latest      paypal.com
+  WOO-09  Klarna                    [P]    latest      klarna.com
+  WOO-10  Alma (3x/4x)              [P]    latest      getalma.eu
+  WOO-11  Apple Pay / Google Pay    [P]    latest      (natif navigateur)
+  WOO-12  Coinbase Commerce         [P]    latest      commerce.coinbase.com
+  WOO-13  WP-CLI                    [S]    2.x         wp-cli.org
+  WOO-14  WooCommerce CSV Import    [P]    Woo native  (WooCommerce natif)
+
+1.4 COUCHE INTELLIGENCE ARTIFICIELLE (Phase 2)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  AI-01  API Claude (Anthropic)     [A]    latest     anthropic.com
+            Usage : Recommandations produits, chatbot,
+            quiz avance, rapports PDF, scoring nutritionnel
+  AI-02  Fallback IA (OpenAI GPT)   [A]    latest     openai.com (option)
+  AI-03  IA locale (Ollama/LMStudio)[A]    n/a        option self-hosted
+
+1.5 COUCHE CARTOGRAPHIE & GEO (Phase 2)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  GEO-01  Mapbox GL JS              [A]    3.x        mapbox.com (payant)
+  GEO-02  Leaflet + OpenStreetMap     [A]    1.9+       openstreetmap.org (GRATUIT)
+
+1.6 COUCHE CACHE & PERFORMANCE (Phase 1-2)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  PERF-01  OPcache                  [S]    (PHP)      (natif PHP 8.4)
+  PERF-02  Redis 7                  [S]    7.x        redis.io
+  PERF-03  Object Cache Pro         [P]    latest     Delicious Brains (~99$/an)
+  PERF-04  Cloudflare R2 / CDN      [S]    latest     cloudflare.com
+  PERF-05  BunnyCDN                  [S]    latest     bunnycdn.com (alt.)
+
+1.7 COUCE EMAIL & NOTIFICATIONS (Phase 2)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  MAIL-01  Email transactionnel WP   [S]    WP native  (WordPress natif)
+  MAIL-02  Service SMTP externe      [A]    varies     (SendGrid/Mailgun/SES)
+  MAIL-03  SMS Provider              [A]    varies     (Twilio/Vonage)
+  MAIL-04  Web Push (VAPID)         [A]    natif      (Service Worker API)
+
+1.8 COUCÉ TRADUCTION & I18N (Phase 2)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  I18N-01  WPML                      [P]    4.x        onthegosystems.com (payant)
+  I18N-02  WooCommerce Multilingual  [P]    latest     onthegosystems.com
+  I18N-03  Multi-currency API        [A]    varies     (taux de change temps reel)
+
+1.9 COUCHE SEO & SCHEMA (Phase 1)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  SEO-01  Google Search Console     [A]    free       google.com
+  SEO-02  Schema.org (natif)        [C]    2026       (generé par le theme)
+            Types : Product, NutritionInformation, FAQPage,
+            BreadcrumbList, Organization, Review,
+            HowTo, VideoObject
+
+1.10 COUCHE ANALYTICS & TRACKING (Phase 1-2)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  ANA-01  Google Analytics 4        [A]    latest     google.com
+  ANA-02  Google Consent Mode v3    [A]    latest     google.com
+  ANA-03  Facebook Pixel             [A]    latest     meta.com
+  ANA-04  Chart.js                  [S]    4.x        chartjs.org
+            Usage : Graphiques dashboard admin
+
+1.11 COUCÉ ACCESSIBILITE & RGPD (Phase 1)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  A11Y-01  WPCS (WordPress Coding     [S]    plugin     wordpress.org
+              Standards)             ---  Accessibilité automatisée
+  RGPD-01  CookieYes / Complianz     [P]    latest     (plugin RGPD tiers)
+  RGPD-02  Consent Mode v3           [A]    latest     google.com
+
+1.12 COUCÉ SOCIAL & COMMERCE (Phase 3)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  SOC-01  TikTok Shop                [A]    latest     tiktok.com
+  SOC-02  Instagram Shopping         [A]    latest     meta.com
+  SOC-03  Pinterest Catalogs          [A]    latest     pinterest.com
+  SOC-04  YouTube Live                [A]    latest     google.com
+  SOC-05  Zoom API                   [A]    latest     zoom.us
+  SOC-06  Partage reseaux sociaux     [S]    natif      (Web Share API)
+
+1.13 COUCÉ REALITE AUGMENTEE (Phase 3)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  AR-01  WebXR API                  [S]    natif      (Chrome/Safari mobile)
+  AR-02  Modele-3D Viewer           [A]    varies     (Google/Three.js)
+  AR-03  QR Code Generator           [S]    natif      (bibliothèque JS)
+
+1.14 COUCÉ SANTE & BIEN-ETRE (Phase 3)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  HLTH-01  MyFitnessPal API          [A]    latest     underarmour.com
+  HLTH-02  Garmin Connect API        [A]    latest     garmin.com
+  HLTH-03  Apple HealthKit            [A]    latest     apple.com
+  HLTH-04  Google Fit API             [A]    latest     google.com
+
+1.15 COUCÉ BLOCKCHAIN (Phase 3 — Optionnel)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  BC-01  Polygon Network             [A]    latest     polygon.technology
+  BC-02  Wallet Web3                 [A]    varies     (MetaMask/WalletConnect)
+
+1.16 COUCÉ ERP & B2B (Phase 3)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  ERP-01  SAP                        [A]    varies     sap.com
+  ERP-02  Sage                       [A]    varies     sage.com
+  ERP-03  Cegid                      [A]    varies     cegid.com
+
+1.17 COUCÉ VIDEO & MEDIA (Phase 1-3)
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  MED-01  Rev.ai (sous-titres auto)  [A]    latest     rev.ai (payant)
+  MED-02  WebM / Fallback image      [S]    natif      (HTML5 <video>)
+  MED-03  Google Places API          [A]    latest     google.com (payant)
+
+1.18 COUCÉ DEVOPS & CI/CD
+  ID    Integration                 Type   Version    Fournisseur
+  ----  --------------------------  ----   --------   --------------------
+  DEV-01  GitHub Actions             [S]    latest     github.com
+  DEV-02  PHPUnit 11                  [S]    11.x       phpunit.de
+  DEV-03  Playwright 1.4x             [S]    1.4x       playwright.dev
+  DEV-04  WP-CLI                     [S]    2.x        wp-cli.org
+
+================================================================================
+  TOTAUX PAR CATEGORIE
+================================================================================
+
+  Catégorie                    Core   Plugin   API    Service  DB   Theme
+  -------------------------   -----  ------   ----   -------  --   -----
+  Plateforme                   6      0       0      3       1    0
+  Front-end Build              0      0       1      6       0    0
+  WooCommerce                  0      11      1      2       0    0
+  Intelligence Artificielle    0      0       3      0       0    0
+  Cartographie & Geo           0      0       2      0       0    0
+  Cache & Performance          0      1       0      5       0    0
+  Email & Notifications        0      0       3      1       0    0
+  Traduction & I18N            0      2       1      0       0    0
+  SEO & Schema                 0      0       1      0       0    1
+  Analytics & Tracking         0      0       2      2       0    0
+  Accessibilite & RGPD         0      1       1      1       0    0
+  Social & Commerce            0      0       4      2       0    0
+  Réalité Augmentée            0      0       1      2       0    0
+  Santé & Bien-être            0      0       4      0       0    0
+  Blockchain (optionnel)       0      0       2      0       0    0
+  ERP & B2B                    0      0       3      0       0    0
+  Video & Media                0      0       2      1       0    0
+  DevOps & CI/CD               0      0       0      4       0    0
+  -------------------------   -----  ------   ----   -------  --   -----
+  TOTAL                        6      15      31     29      1    1
+
+  Note : Certaines integrations sont a la fois plugin et API (ex:
+  WooCommerce REST API). Le comptage reflete l'usage principal.
+
+  INTEGRATIONS PAYANTES IDENTIFIEES : 12
+    - WooCommerce Subscriptions (~279$/an)
+    - Object Cache Pro (~99$/an)
+    - Stripe (transaction fees)
+    - Klarna (transaction fees)
+    - Alma (transaction fees)
+    - Coinbase Commerce (transaction fees)
+    - WPML + WooCommerce Multilingual (~99$/an)
+    - Mapbox (tarifs par utilisation)
+    - Google Places API (tarifs par requete)
+    - Rev.ai (tarifs par minute)
+    - SMS Provider (Twilio/Vonage)
+    - Claude API (tarifs par token)
+
+  INTEGRATIONS GRATUITES / OPEN SOURCE : 28
+
+
+================================================================================
+  2. CLASSIFICATION PAR COUCHE
+================================================================================
+
+  COUCHE 1 — HARD & REQUIS (bloquant si absent)
+  Ces integrations sont indispensables au fonctionnement du theme.
+  Sans elles, rien ne fonctionne.
+
+  [CORE-01] WordPress 6.7+
+  [CORE-03] PHP 8.3+ (nous avons 8.4.21 — OK)
+  [CORE-04] MariaDB / MySQL
+  [CORE-05] Apache / Nginx
+  [CORE-06] Gutenberg Editor
+  [CORE-07] theme.json
+  [CORE-02] WooCommerce 9.x
+  [WOO-01] Cart Blocks
+  [WOO-02] Checkout Blocks
+  [WOO-03] HPOS
+
+  COUCHE 2 — FONDATION THEME (requis pour le MVP Phase 1)
+  Integrations necessaires pour que le theme MVP soit fonctionnel.
+
+  [FE-01] React 18 (via @wordpress/scripts)
+  [FE-05] Google Fonts API (5 polices)
+  [SEO-01] Schema.org (genere par le theme, pas externe)
+  [ANA-01] Google Analytics 4 (recommande)
+  [RGPD-01] CookieYes / Complianz (plugin tiers)
+  [WOO-13] WP-CLI (outil dev)
+  [PERF-01] OPcache (PHP natif)
+
+  COUCHE 3 — EXTENSIONS E-COMMERCE (Phase 1-2)
+  Integrations pour enrichir la boutique WooCommerce.
+
+  [WOO-07] Stripe (paiement)
+  [WOO-08] PayPal Express (paiement)
+  [WOO-11] Apple Pay / Google Pay
+  [WOO-14] WooCommerce CSV Import
+
+  COUCHE 4 — INTELLIGENCE ARTIFICIELLE (Phase 2)
+  Integrations pour les fonctionnalites IA avancees.
+
+  [AI-01] API Claude (Anthropic)
+  [AI-02] Fallback OpenAI (option)
+  [AI-03] IA locale (option self-hosted)
+
+  COUCHE 5 — SERVICES AVANCES (Phase 2)
+  Integrations pour fonctionnalites premium.
+
+  [WOO-06] WooCommerce Subscriptions
+  [WOO-09] Klarna
+  [WOO-10] Alma
+  [GEO-01/02] Carte (Mapbox ou Leaflet/OSM)
+  [I18N-01/02] WPML + WCML
+  [ANA-04] Chart.js (dashboard)
+  [MAIL-02] SMTP externe
+  [MAIL-03] SMS Provider
+
+  COUCHE 6 — PERFORMANCE OPTIMALE (Phase 2)
+  Integrations pour atteindre les objectifs Core Web Vitals extremes.
+
+  [PERF-02] Redis 7
+  [PERF-03] Object Cache Pro
+  [PERF-04/05] CDN (Cloudflare R2 ou BunnyCDN)
+
+  COUCHE 7 — INNOVATION (Phase 3)
+  Integrations pour fonctionnalites innovantes.
+
+  [AR-01] WebXR API
+  [SOC-01] TikTok Shop
+  [SOC-02] Instagram Shopping
+  [SOC-03] Pinterest Catalogs
+  [SOC-04/05] YouTube Live / Zoom
+  [HLTH-01-04] Health APIs
+  [BC-01/02] Blockchain Polygon
+  [WOO-12] Coinbase Commerce
+  [MED-01] Rev.ai
+  [ERP-01-03] ERP SAP/Sage/Cegid
+
+
+================================================================================
+  3. MATRICE DE DEPENDANCE ENTRE COMPOSANTS
+================================================================================
+
+Ce chapitre identifie les relations de dependance entre les composants
+internes du theme NutriVitaX Pro. Une fleche ---> signifie "depend de"
+(c'est-a-dire que le composant source ne peut pas fonctionner sans le
+composant cible).
+
+3.1 DEPENDANCES CRITIQUES (Chaines de dependance)
+
+  CHAINE 1 : ARCHITECTURE THEME
+    [C] functions.php
+         ---> [C] setup.php
+         ---> [C] theme.json
+         ---> [C] style.css (design tokens)
+         ---> [FE-01] React 18 (via @wordpress/scripts)
+         ---> [CORE-01] WordPress 6.7+
+         ---> [CORE-06] Gutenberg Editor
+
+  CHAINE 2 : WOOCOMMERCE CORE
+    [C] woo-enhancements.php
+         ---> [CORE-02] WooCommerce 9.x
+         ---> [WOO-03] HPOS (High Performance Order Storage)
+         ---> [WOO-01] Cart Blocks
+         ---> [WOO-02] Checkout Blocks
+         ---> [CORE-04] MariaDB (tables wp_posts, wp_woocommerce*)
+
+  CHAINE 3 : IA NUTRITIONNELLE
+    [C] ai-recommendations.php
+         ---> [AI-01] API Claude (Anthropic)
+         ---> [D] nvx_health_profiles (table custom)
+         ---> [D] nvx_ai_recommendations (table custom)
+         ---> [C] quiz-engine.php
+         ---> [D] nvx_quiz_responses (table custom)
+         ---> [CORE-02] WooCommerce (produits a recommander)
+
+  CHAINE 4 : STACK BUILDER
+    [C] stack-builder.php
+         ---> [CORE-02] WooCommerce (produits)
+         ---> [D] nvx_supplement_stacks (table custom)
+         ---> [D] nvx_health_profiles (profil utilisateur)
+         ---> [C] ai-recommendations.php (recommandations IA)
+         ---> [FE-01] React 18 (drag-and-drop UI)
+         ---> [WOO-06] WooCommerce Subscriptions (abonnement stack)
+
+  CHAINE 5 : FIDELITE NUTRIPOINTS
+    [C] loyalty-points (logique)
+         ---> [D] nvx_loyalty_points (table custom)
+         ---> [CORE-01] WordPress (user_id)
+         ---> [CORE-02] WooCommerce (commandes, produits achetes)
+         ---> [C] quiz-engine.php (points quiz)
+
+  CHAINE 6 : TRAÇABILITE INGREDIENTS
+    [C] ingredient-transparency (logique)
+         ---> [D] nvx_ingredient_origins (table custom)
+         ---> [GEO-01/02] Mapbox ou Leaflet (carte)
+         ---> [C] woo-enhancements.php (meta boxes produit)
+
+  CHAINE 7 : QUIZ SANTE
+    [C] quiz-engine.php
+         ---> [D] nvx_quiz_responses (table custom)
+         ---> [D] nvx_health_profiles (profil resultant)
+         ---> [C] ai-recommendations.php (recommandations)
+              ---> [AI-01] API Claude (si IA active)
+         ---> [C] templates/page-quiz.html (template FSE)
+         ---> [FE-01] React 18 (UI interactive)
+
+3.2 TABLEAU DE DEPENDANCE DETAILLE
+
+  Composant Source          Depande de                          Type
+  -----------------------  ----------------------------------  --------
+  functions.php             WordPress 6.7+, PHP 8.3+           critique
+  theme.json                WordPress 6.7+                     critique
+  setup.php                 functions.php, WooCommerce 9.x     critique
+  woo-enhancements.php      WooCommerce 9.x, HPOS              critique
+  quiz-engine.php           nvx_quiz_responses, nvx_health     critique
+  ai-recommendations.php   Claude API, quiz-engine, nvx_*     critique (P2)
+  stack-builder.php         WooCommerce, React 18, IA, Subs  critique (P2)
+  loyalty-points            nvx_loyalty_points, WooCommerce    critique (P2)
+  ingredient-transparency   nvx_ingredient_origins, Geo API   moyenne  (P2)
+  templates/home.html       theme.json, WooCommerce, IA       critique
+  templates/single-product  WooCommerce, ingredient-transp, IA critique
+  templates/archive-product WooCommerce, filtres AJAX, IA       critique
+  templates/page-quiz       quiz-engine.php, React 18          critique
+  templates/page-stack      stack-builder.php, React 18       critique (P2)
+  patterns/hero-homepage    theme.json, React 18, IA          moyenne
+  patterns/product-card    WooCommerce, IA scoring            moyenne
+  assets/js/blocks/*        React 18, @wordpress/scripts      critique
+  assets/js/modules/*       React 18, Interactivity API v2     moyenne
+  assets/css/layers/*       theme.json tokens, CSS Layers      moyenne
+  Dark Mode                 theme.json, JS preference detect   moyenne
+  SEO Schema.org            WooCommerce data, custom fields     critique
+  Newsletter                SMTP externe (MAIL-02)             faible
+  Email abandon panier      SMTP + SMS providers               faible
+  Admin Dashboard           WooCommerce orders, Chart.js       moyenne (P2)
+  i18n systeme              WPML plugin                       faible   (P2)
+  PWA                       Service Worker API                moyenne  (P3)
+  NutriAR                   WebXR API, modeles 3D             faible   (P3)
+
+3.3 GRAPHES DE DEPENDANCE CIRCULAIRE (a eviter)
+
+  ATTENTION : Certaines dependances risquent de creer des cycles :
+
+  Cycle potentiel 1 :
+    quiz-engine ---> ai-recommendations ---> nvx_health_profiles
+    ---> quiz-engine (re-scoring apres quiz)
+
+  Resolution : Le quiz-engine ecrit le profil PUIS appelle l'IA en
+  callback (pas en dependance synchrone). L'IA lit le profil sans
+  modifier les reponses du quiz.
+
+  Cycle potentiel 2 :
+    stack-builder ---> ai-recommendations ---> nvx_supplement_stacks
+    ---> stack-builder (recommandation "produit manquant")
+
+  Resolution : L'IA retourne des suggestions qui sont affichees dans
+  le stack builder sans modifier le stack existant. L'utilisateur
+  decide manuellement d'ajouter ou non.
+
+
+================================================================================
+  4. DIAGRAMME D'ARCHITECTURE ASCII
+================================================================================
+
+Ce diagramme montre l'architecture complete des integrations de
+NutriVitaX Pro, organisee en couches.
+
+                    +---------------------------------------------------+
+                    |              COUCHE UTILISATEUR                     |
+                    |  Navigateur (Chrome/Safari/Firefox/Edge)          |
+                    |  Mobile iOS/Android | Desktop                       |
+                    +---------------------------------------------------+
+                                       |
+                    +---------------------------------------------------+
+                    |           COUCHE FRONT-END THEME                     |
+                    |                                                     |
+                    |  +-------------+  +-------------+  +--------------+ |
+                    |  | Templates   |  | Template    |  | Block        | |
+                    |  | FSE (HTML)  |  | Parts       |  | Patterns     | |
+                    |  | home.html   |  | header.html |  | hero-home    | |
+                    |  | single-*    |  | footer.html |  | product-card | |
+                    |  | archive-*   |  | sidebar     |  | trust-badge  | |
+                    |  | page-quiz   |  | sticky-bar  |  | testimonial  | |
+                    |  | page-stack  |  +-------------+  +--------------+ |
+                    |  +-------------+                                   |
+                    |         |                                           |
+                    |  +-------------+  +-------------+                   |
+                    |  | theme.json  |  | Assets      |                   |
+                    |  | (Design     |  | css/ layers |                   |
+                    |  |  Tokens)    |  | js/ blocks  |                   |
+                    |  |  Colors     |  |    modules  |                   |
+                    |  |  Typography |  | images/     |                   |
+                    |  |  Spacing    |  | fonts/      |                   |
+                    |  +-------------+  +-------------+                   |
+                    +---------------------------------------------------+
+                                       |
+              +------------------------+------------------------+
+              |                                                 |
+    +---------v-----------+                       +-------------v----------+
+    |  COUCHE LOGIQUE      |                       |  COUCÉ EXTENSIONS      |
+    |  THEME (PHP)         |                       |  WOOCOMMERCE           |
+    |                      |                       |                       |
+    |  +-----------------+ |                       |  +-----------------+  |
+    |  | functions.php    | |                       |  | Woo Subscriptions| |
+    |  | setup.php        | |                       |  | Stripe          |  |
+    |  +-----------------+ |                       |  | PayPal          |  |
+    |  +-----------------+ |                       |  | Klarna / Alma   |  |
+    |  | inc/             | |                       |  | Apple/Google Pay|  |
+    |  | ai-recommend.php |--+                      |  | Coinbase (opt.) |  |
+    |  | quiz-engine.php  |  |                      |  +-----------------+  |
+    |  | stack-builder.php|  |                      |  +-----------------+  |
+    |  | woo-enhance.php  |  |                      |  | Cart Blocks     |  |
+    |  | loyalty-points   |  |                      |  | Checkout Blocks |  |
+    |  | ingredient-trace |  |                      |  | HPOS / HPPOS    |  |
+    |  +-----------------+  |                      |  | REST API        |  |
+    |                      |                      |  +-----------------+  |
+    +----------------------+----------------------+-----------------------+
+                                       |
+              +------------------------+------------------------+
+              |                        |                        |
+    +---------v----------+    +--------v--------+    +----------v---------+
+    |  COUCHE IA          |    |  COUCÉ DONNÉES  |    |  COUCÉ SERVICES    |
+    |                    |    |                 |    |                   |
+    |  +--------------+  |    |  +-----------+  |    |  +-------------+  |
+    |  | Claude API   |  |    |  | MariaDB   |  |    |  | Redis 7     |  |
+    |  | (Anthropic)  |  |    |  |-----------|  |    |  +-------------+  |
+    |  | Fallback:   |  |    |  | wp_*      |  |    |  +-------------+  |
+    |  |  OpenAI GPT  |  |    |  | nvx_health |  |    |  | CDN         |  |
+    |  |  IA locale   |  |    |  | nvx_stack  |  |    |  | (CF R2/    |  |
+    |  +--------------+  |    |  | nvx_ai_rec |  |    |  |  BunnyCDN) |  |
+    +--------------------+    |  | nvx_loyalt |  |    |  +-------------+  |
+                             |  | nvx_ingred |  |    |  +-------------+  |
+                             |  | nvx_quiz   |  |    |  | SMTP externe|  |
+                             |  +-----------+  |    |  | (SendGrid)  |  |
+                             +-----------------+    |  +-------------+  |
+                                                    |  +-------------+  |
+                                                    |  | SMS (Twilio)|  |
+                                                    |  +-------------+  |
+                                                    |  +-------------+  |
+                                                    |  | Mapbox /    |  |
+                                                    |  | Leaflet OSM |  |
+                                                    |  +-------------+  |
+                                                    |  +-------------+  |
+                                                    |  | Google Fonts|  |
+                                                    |  +-------------+  |
+                                                    |  +-------------+  |
+                                                    |  | Analytics   |  |
+                                                    |  | GA4, Pixel  |  |
+                                                    +---------------+--+
+                                                                       |
+                                                    +-------------------v--+
+                                                    |  COUCÉ OPTIONNELLE  |
+                                                    |  (Phase 3)        |
+                                                    |                   |
+                                                    |  +-------------+  |
+                                                    |  | WebXR / AR  |  |
+                                                    |  | TikTok Shop |  |
+                                                    |  | Instagram    |  |
+                                                    |  | Health APIs  |  |
+                                                    |  | NFT Polygon  |  |
+                                                    |  | ERP SAP/Sage|  |
+                                                    |  | Live Shopping|  |
+                                                    |  | PWA + Push   |  |
+                                                    |  +-------------+  |
+                                                    +-------------------+
+
+
+================================================================================
+  5. DIAGRAMME DE FLUX DE DONNEES
+================================================================================
+
+Ce diagramme montre le parcours des donnees dans les principaux flux
+fonctionnels de NutriVitaX Pro.
+
+5.1 FLUX : UTILISATEUR NOUVEAU -> RECOMMANDATION -> ACHAT
+
+  [1] Utilisateur arrive sur homepage
+       |
+       v
+  [2] CTA "Decouvrez votre programme" ---> [C] templates/home.html
+       |
+       v
+  [3] Quiz sante (5-8 questions)         ---> [C] quiz-engine.php
+       |                                       ---> [D] nvx_quiz_responses (INSERT)
+       v
+  [4] Calcul profil sante               ---> [C] quiz-engine.php
+       |                                 ---> [D] nvx_health_profiles (INSERT/UPDATE)
+       v
+  [5] Recommandations produits           ---> [C] ai-recommendations.php
+       |  (Phase 1: rule-based)               [Phase 1: mapping regles]
+       |  (Phase 2: IA)                       [Phase 2: [AI-01] Claude API]
+       |                                 ---> [D] nvx_ai_recommendations (INSERT)
+       v
+  [6] Affichage produits recommandes    ---> [C] patterns/product-card-premium.php
+       |                                 ---> [SEO] NutritionInformation Schema
+       v
+  [7] Ajout panier                      ---> [WOO-01] Cart Blocks
+       |
+       v
+  [8] Checkout 1-page                   ---> [WOO-02] Checkout Blocks
+       |                                 ---> [WOO-07] Stripe (paiement)
+       |                                 ---> [SEO] Recap nutritionnel
+       v
+  [9] Creation commande                 ---> [WOO-03] HPOS
+       |                                 ---> [D] wp_posts / wp_wc_orders
+       v
+  [10] Attribution points fidelite      ---> [D] nvx_loyalty_points (INSERT)
+       |                                 1 pt / EUR depense
+       v
+  [11] Email confirmation               ---> [MAIL-01] Email WP
+                                           ---> [MAIL-02] SMTP externe
+
+5.2 FLUX : STACK BUILDER -> ABONNEMENT
+
+  [1] Utilisateur accede au Stack Builder  ---> [C] templates/page-stack-builder.html
+       |
+       v
+  [2] Interface Kanban (Morning/Afternoon/Evening)
+       ---> [FE-01] React 18 (drag-and-drop)
+       ---> [C] stack-builder.php (API endpoint)
+       |
+       v
+  [3] Selection produits par slot        ---> [WOO-05] REST API WooCommerce
+       |                                 ---> [C] stack-builder.php (validation)
+       |                                 ---> Detection interactions/compatibilites
+       v
+  [4] Analyse nutritionnelle cumulee     ---> [C] stack-builder.php
+       |                                 ---> Vitamines, mineraux, BCAA totaux
+       v
+  [5] Calcul cout journalier/mensuel     ---> [C] stack-builder.php
+       |
+       v
+  [6] Sauvegarde stack                   ---> [D] nvx_supplement_stacks (INSERT)
+       |                                 ---> user_id + products JSON
+       v
+  [7] Abonnement au stack               ---> [WOO-06] WooCommerce Subscriptions
+       |                                 ---> Frequence flexible
+       |                                 ---> [WOO-07] Stripe (paiement recurrent)
+       v
+  [8] Attribution points fidelite        ---> [D] nvx_loyalty_points (INSERT)
+       |                                 Quiz complete = 75 pts
+       v
+  [9] Dashboard client                  ---> Recap stack, prochains livraisons,
+                                           historique, modification
+
+5.3 FLUX : IA NUTRITIONNELLE (Phase 2)
+
+  [1] Profil utilisateur existe           ---> [D] nvx_health_profiles
+       |
+       v
+  [2] Evenement declencheur              ---> Connexion / Page produit / Panier
+       |
+       v
+  [3] Appel API Claude                   ---> [C] ai-recommendations.php
+       |                                 ---> [AI-01] API Claude (Anthropic)
+       |  Payload : profil + contexte    ---> Prompt ingenierie nutritionnelle
+       v
+  [4] Reponse IA (recommandations)      ---> Score de pertinence (ex: 94%)
+       |                                 ---> Sources scientifiques
+       |                                 ---> Niveau de confiance
+       v
+  [5] Stockage recommandation           ---> [D] nvx_ai_recommendations (INSERT)
+       |                                 user_id, context, recommended, score
+       v
+  [6] Affichage dans UI                 ---> Bloc "Recommande pour vous"
+       |                                 ---> Badge IA sur product-card
+       |                                 ---> Hero personnalise (homepage)
+       v
+  [7] Disclaimer medical                ---> Affichage systematique
+       |                                 "L'IA ne remplace pas un avis medical"
+       v
+  [8] Tracking conversion               ---> [ANA-01] GA4 (event "ia_recommend_click")
+       ---> [D] nvx_ai_recommendations (UPDATE: conversion = true)
+
+5.4 FLUX : TRANSPARENCE PRODUIT
+
+  [1] Produit avec meta "ingredients"    ---> [C] woo-enhancements.php
+       |                                 ---> Meta boxes custom admin
+       |                                 ---> Onglet "Composition"
+       v
+  [2] Tableau nutritionnel visuel       ---> [C] patterns/ingredient-transparency.php
+       |                                 ---> Infographie interactive
+       |                                 ---> % AJR par ingredient
+       v
+  [3] Carte d'origine ingredients       ---> [GEO-02] Leaflet + OpenStreetMap
+       |                                 ---> [D] nvx_ingredient_origins
+       |                                 ---> Marqueurs par pays d'origine
+       v
+  [4] Certificats COA                   ---> Upload via admin
+       |                                 ---> Telechargement PDF par le client
+       v
+  [5] Etudes cliniques                  ---> Liens PubMed + schema HowTo
+       |                                 ---> Note methodologique
+
+
+================================================================================
+  6. DIAGRAMME DE DEPENDANCE PHASES
+================================================================================
+
+Ce diagramme montre l'ordre de dependance entre les phases de
+developpement et les integrations a activer a chaque phase.
+
+  PHASE 1 — MVP (Mois 1-4)
+  ===========================
+
+  +-----------------------------------------+
+  |          FONDEMENTS                      |
+  |                                         |
+  |  [CORE-01] WordPress 6.7+              |
+  |  [CORE-02] WooCommerce 9.x             |
+  |  [CORE-03] PHP 8.4                     |
+  |  [CORE-04] MariaDB                     |
+  |  [CORE-07] theme.json                  |
+  |  [FE-01] React 18 + Vite 6             |
+  |  [FE-05] Google Fonts (5 polices)      |
+  |  [PERF-01] OPcache                     |
+  |                                         |
+  |  Livre : Theme FSE, design tokens,      |
+  |          templates core, dark mode       |
+  +-----------------+-----------------------+
+                    |
+                    v
+  +-----------------------------------------+
+  |          WOOCOMMERCE CORE                |
+  |                                         |
+  |  [WOO-01] Cart Blocks                  |
+  |  [WOO-02] Checkout Blocks               |
+  |  [WOO-03] HPOS                          |
+  |  [WOO-07] Stripe (test)                |
+  |  [WOO-08] PayPal (test)                |
+  |  [WOO-13] WP-CLI                       |
+  |  [WOO-14] CSV Import                   |
+  |  [SEO-01] Schema.org (genere)           |
+  |  [ANA-01] GA4                          |
+  |  [RGPD-01] Cookie consent              |
+  |                                         |
+  |  Livre : Page produit enrichie,         |
+  |          catalogue, checkout, quiz base  |
+  +-----------------+-----------------------+
+                    |
+                    v
+  +-----------------------------------------+
+  |          DATABASE CUSTOM                 |
+  |                                         |
+  |  [D] nvx_health_profiles               |
+  |  [D] nvx_quiz_responses                |
+  |  [D] nvx_ingredient_origins            |
+  |                                         |
+  |  Livre : Quiz rule-based, transparence  |
+  +-----------------+-----------------------+
+                    |
+                    v
+  PHASE 1 COMPLETE
+
+  PHASE 2 — PREMIUM (Mois 5-8)
+  =============================
+
+  +-----------------------------------------+
+  |          INTELLIGENCE ARTIFICIELLE       |
+  |                                         |
+  |  [AI-01] Claude API (Anthropic)          |
+  |  [AI-02] Fallback OpenAI (option)        |
+  |                                         |
+  |  +---------------------+                |
+  |  | nvx_ai_recommendations (nouvelle DB) |
+  |  | nvx_supplement_stacks   (nouvelle DB) |
+  |  | nvx_loyalty_points      (nouvelle DB) |
+  |  +---------------------+                |
+  |                                         |
+  |  Livre : IA nutritionnelle, Stack        |
+  |          Builder, fidelite NutriPoints    |
+  +-----------------+-----------------------+
+                    |
+                    v
+  +-----------------------------------------+
+  |          ABONNEMENTS & PAIEMENTS         |
+  |                                         |
+  |  [WOO-06] WooCommerce Subscriptions     |
+  |  [WOO-09] Klarna                        |
+  |  [WOO-10] Alma (3x/4x)                  |
+  |  [WOO-11] Apple Pay / Google Pay        |
+  |                                         |
+  |  Livre : Abonnements intelligents,       |
+  |          swap, pause, portail client     |
+  +-----------------+-----------------------+
+                    |
+                    v
+  +-----------------------------------------+
+  |          SERVICES AVANCES                |
+  |                                         |
+  |  [GEO-01/02] Carte (Mapbox ou OSM)      |
+  |  [ANA-04] Chart.js (dashboard admin)    |
+  |  [MAIL-02] SMTP externe                 |
+  |  [MAIL-03] SMS Provider                  |
+  |  [I18N-01/02] WPML + WCML               |
+  |  [PERF-02] Redis 7                       |
+  |  [PERF-03] Object Cache Pro             |
+  |  [PERF-04] CDN Cloudflare R2             |
+  |                                         |
+  |  Livre : Dashboard admin KPIs,             |
+  |          i18n, performance optimale       |
+  +-----------------+-----------------------+
+                    |
+                    v
+  PHASE 2 COMPLETE
+
+  PHASE 3 — ENTERPRISE AI (Mois 9-12)
+  ====================================
+
+  +-----------------------------------------+
+  |          INNOVATION                       |
+  |                                         |
+  |  [AR-01] WebXR API                       |
+  |  [SOC-01-03] TikTok/Instagram/Pinterest |
+  |  [SOC-04/05] YouTube Live / Zoom         |
+  |  [HLTH-01-04] Health APIs               |
+  |  [MED-01] Rev.ai sous-titres            |
+  |  [MAIL-04] Web Push (VAPID)             |
+  |                                         |
+  |  Livre : AR, Live Shopping, PWA,         |
+  |          Social Commerce                  |
+  +-----------------+-----------------------+
+                    |
+                    v
+  +-----------------------------------------+
+  |          B2B & OPTIONS                    |
+  |                                         |
+  |  [BC-01/02] Polygon NFT (optionnel)     |
+  |  [ERP-01-03] SAP/Sage/Cegid             |
+  |  [WOO-12] Coinbase Commerce (optionnel) |
+  |                                         |
+  |  Livre : B2B Portal, NFT fidelite        |
+  +-----------------+-----------------------+
+                    |
+                    v
+  PHASE 3 COMPLETE — PRODUIT FINAL
+
+
+================================================================================
+  7. ANALYSE DES RISQUES D'INTEGRATION
+================================================================================
+
+7.1 RISQUES CRITIQUES (Bloquants potentiels)
+
+  R01 | CONFLIT ELEMENTOR vs FSE
+  Composants : [Elementor] vs [CORE-07] theme.json FSE
+  Nature : Incompatibilite architecturale
+  Probabilite : HAUTE (90%)
+  Impact : Eleve — Elementor utilise son propre systeme de templates
+            qui entre en conflit avec les templates FSE de WordPress 6.7+
+  Mitigation :
+    - Desactiver Elementor quand NutriVitaX Pro est actif
+    - Ou utiliser Elementor uniquement pour les pages specifiques
+      (pas les templates WooCommerce)
+    - Tester la coexistence avec Elementor 4.x+ qui a un support
+      FSE partiel
+
+  R02 | API CLAUDE INDISPONIBLE
+  Composants : [AI-01] API Claude
+  Nature : Dependance externe unique (Single Point of Failure)
+  Probabilite : MOYENNE (30%)
+  Impact : Eleve — Toutes fonctionnalites IA bloquées sans l'API
+  Mitigation :
+    - Implementer un systeme rule-based complet en fallback (Phase 1)
+    - Architecture multi-provider : Claude -> OpenAI -> IA locale
+    - Cache des recommandations IA dans nvx_ai_recommendations
+      (ne pas rappeler l'API pour le meme profil)
+
+  R03 | WOOCOMMERCE SUBSCRIPTIONS NON DISPONIBLE
+  Composants : [WOO-06] WooCommerce Subscriptions (~279$/an)
+  Nature : Licence payante non acquise
+  Probabilite : MOYENNE (40%)
+  Impact : Moyen — Abonnements bloqués, mais stack builder peut
+            fonctionner sans
+  Mitigation :
+    - Developper un systeme d'abonnement simplifie custom en PHP
+    - Ou utiliser WooCommerce Subscriptions en mode trial
+    - Lier l'achat du theme a une licence incluse si possible
+
+7.2 RISQUES MODERES
+
+  R04 | PERFORMANCE SANS REDIS
+  Composants : [PERF-02] Redis, [PERF-03] Object Cache Pro
+  Nature : Infrastructure non disponible en dev local
+  Probabilite : HAUTE en dev (100%), FAIBLE en prod (20%)
+  Impact : Moyen — Objectifs Core Web Vitals non atteignables en
+            environnement de developpement
+  Mitigation : Utiliser transient API WordPress + OPcache comme
+            substitut. Les objectifs extremes sont des cibles production.
+
+  R05 | GOOGLE PLACES API PAYANTE
+  Composants : [MED-03] Google Places API (adresse auto-complete)
+  Nature : Cout par requete
+  Probabilite : FAIBLE
+  Impact : Faible — fonctionnalite optionnelle checkout
+  Mitigation : Implementer un autocomplete base sur la base de donnees
+            locale (codes postaux + villes) comme alternative gratuite.
+
+  R06 | MAPBOX TROP CHER
+  Composants : [GEO-01] Mapbox GL JS
+  Nature : Cout par utilisation (map loads)
+  Probabilite : MOYENNE (50%)
+  Impact : Faible — carte interactive ingredients
+  Mitigation : Utiliser [GEO-02] Leaflet + OpenStreetMap (100% gratuit)
+            comme alternative immediate. Mapbox reste optionnel.
+
+7.3 RISQUES FAIBLES
+
+  R07 | RETARD DEPENDANCE NPM
+  Composants : [FE-01] React 18, [FE-03] Vite 6, [FE-04] @wordpress/scripts
+  Nature : Probleme d'installation en user-space
+  Probabilite : FAIBLE (15%)
+  Impact : Faible — Build JS bloque
+  Mitigation : Installer nvm en user-space, version pinnee dans
+            package.json
+
+  R08 | CHANGEMENT D'API CLAUDE
+  Composants : [AI-01] API Claude
+  Nature : Breaking changes sur l'API
+  Probabilite : FAIBLE (20%)
+  Impact : Moyen — IA ne fonctionne plus temporairement
+  Mitigation : Versionner les appels API, implementer un proxy
+            WordPress qui fait abstraction du provider.
+
+  R09 | WPML INCOMPATIBLE FSE
+  Composants : [I18N-01] WPML
+  Nature : WPML peut ne pas supporter pleinement les templates FSE
+  Probabilite : MOYENNE (40%)
+  Impact : Faible — Traductions manuelles necessaires
+  Mitigation : Utiliser le systeme de traduction natif WordPress
+            (textdomain) en priorite. WPML comme couche superieure.
+
+
+================================================================================
+  8. GLOSSAIRE DES CONNECTEURS
+================================================================================
+
+  Symbole    Definition
+  --------   -------------------------------------------------------
+  [C]        Composant interne du theme NutriVitaX Pro
+  [P]        Plugin WordPress (installe dans /wp-content/plugins/)
+  [A]        API externe (service web tiers, cles API requises)
+  [S]        Service d'infrastructure (serveur, outil de build, navigateur)
+  [D]        Table de base de donnees (MariaDB)
+  --->       Dependance forte (le source ne fonctionne pas sans la cible)
+  - ->       Dependance faible (optionnel, fallback existant)
+  <-->       Communication bidirectionnelle
+  CORE       Plateforme fondamentale (WordPress, PHP, MariaDB)
+  FE         Front-End (React, Vite, TypeScript, CSS, Google Fonts)
+  WOO        WooCommerce et extensions
+  AI         Intelligence Artificielle
+  GEO        Cartographie et localisation
+  PERF       Performance et cache
+  MAIL       Email et notifications
+  I18N       Internationalisation
+  SEO        Referencement et donnees structurees
+  ANA        Analytics et tracking
+  A11Y       Accessibilite
+  RGPD       Protection des donnees
+  SOC        Reseaux sociaux et commerce social
+  AR         Realite augmentee
+  HLTH       Sante et bien-etre
+  BC         Blockchain
+  ERP        Planification ressources entreprise
+  MED        Media et video
+  DEV        DevOps et deploiement
+
+  ABREVIATIONS TECHNIQUES
+  FSE        Full Site Editing (WordPress 6.7+)
+  HPOS       High Performance Order Storage (WooCommerce)
+  HPPOS      High Performance Product Order Storage
+  GPT        Generative Pre-trained Transformer
+  PWA        Progressive Web App
+  LCP        Largest Contentful Paint
+  INP        Interaction to Next Paint
+  CLS        Cumulative Layout Shift
+  TTFB       Time to First Byte
+  VAPID      Voluntary Application Server Identification (Web Push)
+  COA        Certificate of Analysis
+  AJR        Apport Journalier Recommande
+  GTIN       Global Trade Item Number
+  SKU        Stock Keeping Unit
+  LTV        Life-Time Value
+  CAC        Customer Acquisition Cost
+  DTC        Direct-to-Consumer
+  B2B        Business-to-Business
+  NPS        Net Promoter Score
+
+================================================================================
+  RESUME DES INTEGRATIONS PAR PHASE
+================================================================================
+
+  Phase 1 (MVP)         : 16 integrations
+    - 9 core/infrastructure
+    - 5 WooCommerce core
+    - 2 services front-end
+    - 3 tables custom DB
+    - 1 plugin RGPD
+
+  Phase 2 (Premium)     : +14 integrations (total: 30)
+    - 2 APIs IA
+    - 5 plugins/paiements
+    - 2 cartographie
+    - 2 traduction
+    - 3 cache/performance
+    - 2 analytics/services
+    - 3 tables custom DB supplementaires
+
+  Phase 3 (Enterprise)  : +14 integrations (total: 44)
+    - 4 social commerce
+    - 4 health APIs
+    - 2 AR/XR
+    - 2 media
+    - 1 push
+    - 1 ERP (multiple options)
+    - 1 blockchain
+    - 1 crypto paiement
+
+  Integrations payantes identifiees : 12
+  Integrations gratuites/open-source : 32
+
+================================================================================
+  FIN DU DOCUMENT — 0.1.4 Cartographie des Integrations
+  Fichier genere le 1er juillet 2026
+================================================================================
