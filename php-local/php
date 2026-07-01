@@ -1,0 +1,6 @@
+#!/bin/bash
+BASE="$(cd "$(dirname "$0")/install" && pwd)"
+export LD_LIBRARY_PATH="$BASE/usr/lib/x86_64-linux-gnu:$BASE/lib/x86_64-linux-gnu${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+export PHPRC="$BASE/etc/php/8.4/cli"
+export PHP_INI_SCAN_DIR="$PHPRC/conf.d"
+exec "$BASE/usr/bin/php8.4" "$@"

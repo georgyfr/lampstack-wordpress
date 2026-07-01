@@ -1,0 +1,2 @@
+php8.4-cli: embedded-library usr/bin/php8.4: file
+php8.4-cli: php-script-with-unusual-interpreter usr/bin/phar8.4.phar /usr/bin/php8.4
