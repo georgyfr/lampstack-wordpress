@@ -95,3 +95,24 @@ if ( document.readyState === 'loading' ) {
 } else {
         NVX.init();
 }
+
+
+/**
+ * Replace data-nvx-dynamic attributes with real values.
+ * Works in FSE template parts where shortcodes are not processed.
+ */
+NVX.footerDynamic = function() {
+        document.querySelectorAll( '[data-nvx-dynamic="year"]' ).forEach( function( el ) {
+                el.textContent = new Date().getFullYear();
+        });
+        document.querySelectorAll( '[data-nvx-dynamic="version"]' ).forEach( function( el ) {
+                el.textContent = typeof nvxData !== 'undefined' ? '' : '0.3.0';
+        });
+};
+
+// Initialize footer dynamics
+if ( document.readyState === 'loading' ) {
+        document.addEventListener( 'DOMContentLoaded', () => NVX.footerDynamic() );
+} else {
+        NVX.footerDynamic();
+}

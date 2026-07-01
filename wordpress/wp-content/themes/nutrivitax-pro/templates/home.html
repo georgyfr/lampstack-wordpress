@@ -23,6 +23,11 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+     MAIN CONTENT WRAPPER
+     ═══════════════════════════════════════════════════════════════════════ -->
+<main id="nvx-woo-content" class="nvx-main-content" role="main">
+
+<!-- ═══════════════════════════════════════════════════════════════════════
      1. SECTION HERO — Cinématique Immersive
      Vidéo WebM en fond, titre fluide responsive, CTA Quiz, particules CSS
      ═══════════════════════════════════════════════════════════════════════ -->
@@ -389,7 +394,7 @@
 
         <!-- Product Grid -->
         <!-- wp:query {"queryId":"nvx-featured","query":{"perPage":6,"postType":"product","order":"desc","orderBy":"popularity","taxQuery":[{"taxonomy":"product_visibility","terms":["featured"],"field":"slug","operator":"IN"}],"inherit":false},"displayLayout":{"type":"flex","columns":3,"columnsTablet":2,"columnsMobile":1},"align":"wide"} -->
-        <div class="wp-block-query alignwide nvx-featured-grid" id="nvx-woo-content">
+        <div class="wp-block-query alignwide nvx-featured-grid">
                 <!-- wp:post-template {"className":"nvx-product-card-wrapper"} -->
 
                 <!-- Product Card (Flip 3D) -->
@@ -820,6 +825,8 @@
 </section>
 <!-- /wp:group -->
 
+
+</main>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
      10. MEGA-FOOTER (template part réutilisable)

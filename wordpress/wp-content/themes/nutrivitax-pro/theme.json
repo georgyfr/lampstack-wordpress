@@ -77,28 +77,28 @@
                 "typography": {
                         "fontFamilies": [
                                 {
-                                        "fontFamily": "'Clash Display', 'Inter', sans-serif",
+                                        "fontFamily": "'Outfit', 'Inter', sans-serif",
                                         "slug": "nvx-heading",
-                                        "name": "Clash Display",
+                                        "name": "Outfit (Display)",
                                         "fontFace": [
                                                 {
-                                                        "fontFamily": "Clash Display",
-                                                        "src": ["file:./assets/fonts/ClashDisplay-Variable.woff2"],
-                                                        "fontWeight": "200 700",
+                                                        "fontFamily": "Outfit",
+                                                        "src": ["https://fonts.gstatic.com/s/outfit/v14/QGYyz_MVcBeNP4NjuGObqx1XmO1I4e.woff2"],
+                                                        "fontWeight": "100 900",
                                                         "fontStyle": "normal",
                                                         "fontDisplay": "swap"
                                                 }
                                         ]
                                 },
                                 {
-                                        "fontFamily": "'Cabinet Grotesk', 'Inter', sans-serif",
+                                        "fontFamily": "'Space Grotesk', 'Inter', sans-serif",
                                         "slug": "nvx-subheading",
-                                        "name": "Cabinet Grotesk",
+                                        "name": "Space Grotesk (Subheading)",
                                         "fontFace": [
                                                 {
-                                                        "fontFamily": "Cabinet Grotesk",
-                                                        "src": ["file:./assets/fonts/CabinetGrotesk-Variable.woff2"],
-                                                        "fontWeight": "100 900",
+                                                        "fontFamily": "Space Grotesk",
+                                                        "src": ["https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2"],
+                                                        "fontWeight": "300 700",
                                                         "fontStyle": "normal",
                                                         "fontDisplay": "swap"
                                                 }
@@ -209,8 +209,7 @@
                         "spacingScale": {
                                 "operator": "*",
                                 "increment": 1.5,
-                                "steps": 8,
-                                "mediumStep": 1
+                                "steps": 8
                         },
                         "units": [
                                 "px",

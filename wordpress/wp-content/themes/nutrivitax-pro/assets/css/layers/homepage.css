@@ -46,15 +46,7 @@
 }
 
 
-/* H2 on dark backgrounds — override theme.json global H2 color */
-.nvx-hero h2,
-.nvx-hero .wp-block-heading,
-.nvx-social-proof h2,
-.nvx-social-proof .wp-block-heading,
-.nvx-mega-footer h2,
-.nvx-mega-footer .wp-block-heading {
-        color: #FFFFFF !important;
-}
+
 
 /* ═══════════════════════════════════════════════════════════════════════
    1. HERO CINÉMATIQUE
@@ -1834,4 +1826,52 @@ a.is-style-nvx-outline {
         }
 }
 
+
+/* Quiz validation shake animation */
+@keyframes nvx-shake {
+        0%, 100% { transform: translateX(0); }
+        20% { transform: translateX(-8px); }
+        40% { transform: translateX(8px); }
+        60% { transform: translateX(-4px); }
+        80% { transform: translateX(4px); }
+}
 } /* @layer nvx-homepage */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FOOTER BOTTOM BAR — Responsive (unlayered for specificity)
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+        .nvx-mega-footer__bottom-inner {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 0.5rem !important;
+        }
+        .nvx-mega-footer__copy,
+        .nvx-mega-footer__compat {
+                text-align: center !important;
+        }
+        .nvx-footer-payments {
+                justify-content: center !important;
+                flex-wrap: wrap !important;
+        }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   H2 ON DARK BACKGROUNDS — UNLAYERED (overrides theme.json)
+   theme.json generates unlayered CSS which beats @layer declarations.
+   These overrides MUST be unlayered to win. (#fff on dark = readable)
+   ═══════════════════════════════════════════════════════════════════════ */
+.nvx-hero h2,
+.nvx-hero .wp-block-heading,
+.nvx-social-proof h2,
+.nvx-social-proof .wp-block-heading,
+.nvx-newsletter-section h2,
+.nvx-newsletter-section .wp-block-heading {
+        color: #FFFFFF !important;
+}
+
+.nvx-mega-footer h2,
+.nvx-mega-footer .wp-block-heading {
+        color: #FFFFFF !important;
+}

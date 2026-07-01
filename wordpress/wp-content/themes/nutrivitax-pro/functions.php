@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 
 // ─── Constantes du thème ───────────────────────────────────────────────
 if ( ! defined( 'NVX_VERSION' ) ) {
-        define( 'NVX_VERSION', '0.3.0' );
+        define( 'NVX_VERSION', '0.3.1' );
 }
 if ( ! defined( 'NVX_DIR' ) ) {
         define( 'NVX_DIR', get_template_directory() );

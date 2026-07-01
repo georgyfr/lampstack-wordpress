@@ -19,6 +19,49 @@
  */
 
 /* ─── Custom Properties ──────────────────────────────────────────────── */
+:root {
+        /* Header dimensions */
+        --nvx-header-height: 80px;
+        --nvx-header-height-scrolled: 64px;
+        --nvx-topbar-height: 32px;
+        --nvx-header-total-height: 112px;
+
+        /* Colors */
+        --nvx-header-bg: #FFFFFF;
+        --nvx-header-border: #E9ECEF;
+        --nvx-header-text: #212529;
+        --nvx-header-text-muted: #6C757D;
+        --nvx-header-text-hover: #1A6B3A;
+        --nvx-topbar-bg: #F8F9FA;
+        --nvx-topbar-text: #6C757D;
+        --nvx-topbar-text-hover: #1A6B3A;
+        --nvx-search-border: #E9ECEF;
+        --nvx-search-border-focus: #2ECC71;
+        --nvx-search-placeholder: #6C757D;
+        --nvx-cta-bg: #1A6B3A;
+        --nvx-cta-bg-hover: #165A30;
+        --nvx-cta-text: #FFFFFF;
+        --nvx-badge-bg: #F4A900;
+        --nvx-badge-text: #1A6B3A;
+        --nvx-mega-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        --nvx-mobile-overlay: rgba(0, 0, 0, 0.5);
+
+        /* Focus */
+        --nvx-focus-ring: 2px solid #2ECC71;
+        --nvx-focus-offset: 2px;
+
+        /* Transitions */
+        --nvx-transition-fast: 0.2s ease;
+        --nvx-transition-base: 0.3s ease;
+
+        /* Z-index layers */
+        --nvx-z-header: 1000;
+        --nvx-z-mega: 1001;
+        --nvx-z-mobile-overlay: 1999;
+        --nvx-z-mobile-menu: 2000;
+        --nvx-z-hamburger: 2001;
+}
+
 @layer nvx-header {
 
 :root {
