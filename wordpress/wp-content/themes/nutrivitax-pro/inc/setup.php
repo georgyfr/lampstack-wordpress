@@ -207,21 +207,11 @@ add_action( 'wp_enqueue_scripts', 'nvx_enqueue_assets' );
  * @return string
  */
 function nvx_get_google_fonts_url(): string {
-        $fonts = array(
-                'Inter:wght@400;500;600;700' => 'Inter',
-                'Space+Mono:wght@400'         => 'Space Mono',
-                'DM+Serif+Display:ital@0;1'   => 'DM Serif Display',
-        );
-
-        // Fonts non Google (Clash Display, Cabinet Grotesk) = locales
-        // Elles sont gérées via @font-face dans le CSS si les fichiers existent.
-
-        $url = 'https://fonts.googleapis.com/css2?';
-        $families = array_keys( $fonts );
-        $url .= implode( '&family=', array_map( 'rawurlencode', $families ) );
-        $url .= '&display=swap';
-
-        return $url;
+        // theme.json handles all fontFace definitions including Google Fonts CDN URLs.
+        // This function is kept as a fallback for non-FSE contexts (classic templates).
+        // Inter, Space Mono, and DM Serif Display are loaded via theme.json fontFace.
+        // Cabinet Grotesk and Clash Display use local woff2 files in /assets/fonts/.
+        return '';
 }
 
 

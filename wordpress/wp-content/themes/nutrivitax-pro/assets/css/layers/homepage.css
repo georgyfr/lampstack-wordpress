@@ -46,6 +46,16 @@
 }
 
 
+/* H2 on dark backgrounds — override theme.json global H2 color */
+.nvx-hero h2,
+.nvx-hero .wp-block-heading,
+.nvx-social-proof h2,
+.nvx-social-proof .wp-block-heading,
+.nvx-mega-footer h2,
+.nvx-mega-footer .wp-block-heading {
+        color: #FFFFFF !important;
+}
+
 /* ═══════════════════════════════════════════════════════════════════════
    1. HERO CINÉMATIQUE
    ═══════════════════════════════════════════════════════════════════════ */
