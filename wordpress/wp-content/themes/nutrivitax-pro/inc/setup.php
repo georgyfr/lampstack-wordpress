@@ -96,7 +96,7 @@ function nvx_enqueue_assets(): void {
         );
 
         // Charger homepage.css uniquement sur la page d'accueil
-        $is_home = is_page_template( 'home' ) || ( is_front_page() && 'page' === get_option( 'show_on_front' ) );
+        $is_home = ( get_page_template_slug() === 'home' ) || is_page_template( 'home' ) || is_page_template( 'templates/home.html' ) || ( is_front_page() && 'page' === get_option( 'show_on_front' ) );
         if ( ! $is_home && isset( $layer_files['homepage'] ) ) {
                 unset( $layer_files['homepage'] );
         }
@@ -267,17 +267,17 @@ add_filter( 'body_class', 'nvx_body_classes' );
  *
  * @since  0.1.0
  */
-function nvx_html_attributes(): void {
+function nvx_html_attributes( string $output ): string {
         $dark_mode = get_option( 'nvx_dark_mode', 'auto' );
         $ia_enabled = get_option( 'nvx_ia_enabled', 'no' );
-
-        printf(
+        $output .= sprintf(
                 ' data-nvx-dark-mode="%s" data-nvx-ia="%s"',
                 esc_attr( $dark_mode ),
                 esc_attr( $ia_enabled )
         );
+        return $output;
 }
-add_action( 'wp_head', 'nvx_html_attributes', 1 );
+add_filter( 'language_attributes', 'nvx_html_attributes' );
 
 
 /**
@@ -355,3 +355,47 @@ function nvx_content_width(): void {
         $GLOBALS['content_width'] = apply_filters( 'nvx_content_width', 1200 );
 }
 add_action( 'after_setup_theme', 'nvx_content_width', 6 );
+
+
+// ─── Shortcodes for FSE templates (replaces PHP in .html files) ──────
+/**
+ * Returns a theme asset URL. Usage: [nvx_asset_url path="assets/images/photo.jpg"]
+ *
+ * @since  0.3.0
+ * @param  array $atts
+ * @return string
+ */
+function nvx_shortcode_asset_url( $atts ): string {
+        $atts = shortcode_atts( array( 'path' => '' ), $atts, 'nvx_asset_url' );
+        if ( empty( $atts['path'] ) ) {
+                return '';
+        }
+        return esc_url( NVX_URI . '/' . ltrim( $atts['path'], '/' ) );
+}
+add_shortcode( 'nvx_asset_url', 'nvx_shortcode_asset_url' );
+
+/**
+ * Returns the current year. Usage: [nvx_year]
+ *
+ * @since  0.3.0
+ * @return string
+ */
+function nvx_shortcode_year(): string {
+        return esc_html( date_i18n( 'Y' ) );
+}
+add_shortcode( 'nvx_year', 'nvx_year' );
+
+/**
+ * Returns the theme version. Usage: [nvx_version]
+ *
+ * @since  0.3.0
+ * @return string
+ */
+function nvx_shortcode_version(): string {
+        return esc_html( NVX_VERSION );
+}
+add_shortcode( 'nvx_version', 'nvx_shortcode_version' );
+
+
+// ─── AJAX Handlers ────────────────────────────────────────────────────
+nvx_load( 'ajax-handlers.php' );

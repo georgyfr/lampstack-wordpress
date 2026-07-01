@@ -1541,42 +1541,6 @@ a.is-style-nvx-outline {
         margin: 0 auto 2.5rem;
 }
 
-/* Dark Mode Overrides */
-.nvx-dark .nvx-quiz-mini__option-card {
-        background: rgba(255, 255, 255, 0.05);
-        border-color: rgba(255, 255, 255, 0.1);
-        color: #fff;
-}
-
-.nvx-dark .nvx-quiz-mini__legend {
-        color: #fff;
-}
-
-.nvx-dark .nvx-univers-card {
-        background: rgba(255, 255, 255, 0.05);
-}
-
-.nvx-dark .nvx-univers-card__title {
-        color: #fff !important;
-}
-
-.nvx-dark .nvx-univers-card__desc {
-        color: rgba(255, 255, 255, 0.6);
-}
-
-.nvx-dark .nvx-blog-card {
-        background: rgba(255, 255, 255, 0.05);
-        border-color: rgba(255, 255, 255, 0.08);
-}
-
-.nvx-dark .nvx-blog-card__title {
-        color: #fff !important;
-}
-
-.nvx-dark .nvx-blog-card__author-name {
-        color: rgba(255, 255, 255, 0.8);
-}
-
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
         .nvx-particle,

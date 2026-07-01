@@ -79,17 +79,7 @@
 				{
 					"fontFamily": "'Clash Display', 'Inter Variable', sans-serif",
 					"slug": "nvx-heading",
-					"name": "Clash Display",
-					"fontFace": [
-						{
-							"fontFamily": "'Clash Display'",
-							"fontWeight": "400 800",
-							"fontStyle": "normal",
-							"src": [
-								"file:./assets/fonts/ClashDisplay-Variable.woff2"
-							]
-						}
-					]
+					"name": "Clash Display"
 				},
 				{
 					"fontFamily": "'Cabinet Grotesk', 'Inter Variable', sans-serif",
@@ -329,27 +319,37 @@
 		{
 			"name": "home",
 			"title": "Homepage",
-			"postTypes": ["page"]
+			"postTypes": [
+				"page"
+			]
 		},
 		{
 			"name": "single-product",
 			"title": "Page Produit",
-			"postTypes": ["product"]
+			"postTypes": [
+				"product"
+			]
 		},
 		{
 			"name": "archive-product",
 			"title": "Catalogue Produits",
-			"postTypes": ["product"]
+			"postTypes": [
+				"product"
+			]
 		},
 		{
 			"name": "page-quiz",
 			"title": "Quiz Santé",
-			"postTypes": ["page"]
+			"postTypes": [
+				"page"
+			]
 		},
 		{
 			"name": "page-stack-builder",
 			"title": "Configurateur Stack",
-			"postTypes": ["page"]
+			"postTypes": [
+				"page"
+			]
 		}
 	]
 }

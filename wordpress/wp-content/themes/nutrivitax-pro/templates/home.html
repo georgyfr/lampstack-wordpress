@@ -29,95 +29,90 @@
 <!-- wp:group {"align":"full","className":"nvx-hero","tagName":"section","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull nvx-hero" id="nvx-hero" aria-label="Section principale">
 
-	<!-- Video Background -->
-	<div class="nvx-hero__video-bg">
-		<video autoplay muted loop playsinline preload="metadata"
-			   poster="<?php echo esc_url( NVX_URI . '/assets/images/hero-fallback.webp' ); ?>"
-			   aria-hidden="true">
-			<source src="<?php echo esc_url( NVX_URI . '/assets/videos/hero-lab.webm' ); ?>" type="video/webm">
-		</video>
-		<div class="nvx-hero__video-overlay" aria-hidden="true"></div>
-	</div>
+        <!-- Video Background (CSS-only, no PHP needed in FSE) -->
+        <div class="nvx-hero__video-bg" aria-hidden="true">
+                <div class="nvx-hero__video-overlay"></div>
+        </div>
 
-	<!-- CSS Particles Container -->
-	<div class="nvx-hero__particles" aria-hidden="true" id="nvx-particles"></div>
+        <!-- CSS Particles Container -->
+        <div class="nvx-hero__particles" aria-hidden="true" id="nvx-particles"></div>
 
-	<!-- Hero Content -->
-	<!-- wp:group {"align":"full","className":"nvx-hero__content","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull nvx-hero__content">
-		<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"center"},"style":{"spacing":{"padding":{"top":"clamp(6rem,15vh,10rem)","bottom":"clamp(4rem,10vh,8rem)"}}}} -->
-		<div class="wp-block-group" style="padding-top:clamp(6rem,15vh,10rem);padding-bottom:clamp(4rem,10vh,8rem)">
+        <!-- Hero Content -->
+        <!-- wp:group {"align":"full","className":"nvx-hero__content","layout":{"type":"constrained"}} -->
+        <div class="wp-block-group alignfull nvx-hero__content">
+                <!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"center"},"style":{"spacing":{"padding":{"top":"clamp(6rem,15vh,10rem)","bottom":"clamp(4rem,10vh,8rem)"}}}} -->
+                <div class="wp-block-group" style="padding-top:clamp(6rem,15vh,10rem);padding-bottom:clamp(4rem,10vh,8rem)">
 
-			<!-- Badge -->
-			<!-- wp:group {"className":"nvx-hero__badge","layout":{"type":"flex","justifyContent":"center"}} -->
-			<div class="wp-block-group nvx-hero__badge">
-				<!-- wp:paragraph {"align":"center","className":"nvx-hero__badge-text"} -->
-				<p class="has-text-align-center nvx-hero__badge-text">NUTRACEUTIQUE PREMIUM VALIDÉ PAR LA SCIENCE</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:group -->
+                        <!-- Badge -->
+                        <!-- wp:group {"className":"nvx-hero__badge","layout":{"type":"flex","justifyContent":"center"}} -->
+                        <div class="wp-block-group nvx-hero__badge">
+                                <!-- wp:paragraph {"align":"center","className":"nvx-hero__badge-text"} -->
+                                <p class="has-text-align-center nvx-hero__badge-text">NUTRACEUTIQUE PREMIUM VALIDÉ PAR LA SCIENCE</p>
+                                <!-- /wp:paragraph -->
+                        </div>
+                        <!-- /wp:group -->
 
-			<!-- Spacer -->
-			<!-- wp:spacer {"height":"clamp(1rem,2vw,2rem)"} -->
-			<div style="height:clamp(1rem,2vw,2rem)" aria-hidden="true" class="wp-block-spacer"></div>
-			<!-- /wp:spacer -->
+                        <!-- Spacer -->
+                        <!-- wp:spacer {"height":"clamp(1rem,2vw,2rem)"} -->
+                        <div style="height:clamp(1rem,2vw,2rem)" aria-hidden="true" class="wp-block-spacer"></div>
+                        <!-- /wp:spacer -->
 
-			<!-- Titre Fluide (utilise les tokens de design réactifs) -->
-			<!-- wp:heading {"textAlign":"center","level":1,"className":"nvx-hero__title"} -->
-			<h1 class="wp-block-heading has-text-align-center nvx-hero__title">
-				<span class="nvx-hero__title-main">Optimisez votre</span><br>
-				<span class="nvx-hero__title-accent">santé naturelle</span>
-			</h1>
-			<!-- /wp:heading -->
+                        <!-- Titre Fluide (utilise les tokens de design réactifs) -->
+                        <!-- wp:heading {"textAlign":"center","level":1,"className":"nvx-hero__title"} -->
+                        <h1 class="wp-block-heading has-text-align-center nvx-hero__title">
+                                <span class="nvx-hero__title-main">Optimisez votre</span><br>
+                                <span class="nvx-hero__title-accent">santé naturelle</span>
+                        </h1>
+                        <!-- /wp:heading -->
 
-			<!-- Sous-titre -->
-			<!-- wp:paragraph {"align":"center","className":"nvx-hero__subtitle"} -->
-			<p class="has-text-align-center nvx-hero__subtitle">
-				Compléments alimentaires formulés par des chercheurs, testés en laboratoire,
-				délivrés chez vous. Votre programme personnalisé en 3 minutes.
-			</p>
-			<!-- /wp:paragraph -->
+                        <!-- Sous-titre -->
+                        <!-- wp:paragraph {"align":"center","className":"nvx-hero__subtitle"} -->
+                        <p class="has-text-align-center nvx-hero__subtitle">
+                                Compléments alimentaires formulés par des chercheurs, testés en laboratoire,
+                                délivrés chez vous. Votre programme personnalisé en 3 minutes.
+                        </p>
+                        <!-- /wp:paragraph -->
 
-			<!-- Spacer -->
-			<!-- wp:spacer {"height":"clamp(1.5rem,3vw,2.5rem)"} -->
-			<div style="height:clamp(1.5rem,3vw,2.5rem)" aria-hidden="true" class="wp-block-spacer"></div>
-			<!-- /wp:spacer -->
+                        <!-- Spacer -->
+                        <!-- wp:spacer {"height":"clamp(1.5rem,3vw,2.5rem)"} -->
+                        <div style="height:clamp(1.5rem,3vw,2.5rem)" aria-hidden="true" class="wp-block-spacer"></div>
+                        <!-- /wp:spacer -->
 
-			<!-- CTA Buttons -->
-			<!-- wp:group {"className":"nvx-hero__ctas","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"1rem"}}} -->
-			<div class="wp-block-group nvx-hero__ctas">
-				<!-- wp:button {"className":"nvx-hero__cta-primary nvx-btn-animated","backgroundColor":"nvx-accent","textColor":"nvx-dark"} -->
-				<a class="wp-block-button__link has-nvx-accent-background-color has-nvx-dark-color has-text-color has-background nvx-hero__cta-primary nvx-btn-animated" href="/quiz-sante">
-					<span class="nvx-btn-animated__text">COMMENCER LE QUIZ SANTÉ</span>
-					<span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
-				</a>
-				<!-- /wp:button -->
+                        <!-- CTA Buttons -->
+                        <!-- wp:group {"className":"nvx-hero__ctas","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"1rem"}}} -->
+                        <div class="wp-block-group nvx-hero__ctas">
+                                <!-- wp:button {"className":"nvx-hero__cta-primary nvx-btn-animated","backgroundColor":"nvx-accent","textColor":"nvx-dark"} -->
+                                <a class="wp-block-button__link has-nvx-accent-background-color has-nvx-dark-color has-text-color has-background nvx-hero__cta-primary nvx-btn-animated" href="/quiz-sante">
+                                        <span class="nvx-btn-animated__text">COMMENCER LE QUIZ SANTÉ</span>
+                                        <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+                                </a>
+                                <!-- /wp:button -->
 
-				<!-- wp:button {"className":"nvx-hero__cta-secondary is-style-nvx-outline","textColor":"nvx-white"} -->
-				<a class="wp-block-button__link has-nvx-white-color has-text-color nvx-hero__cta-secondary is-style-nvx-outline" href="/boutique">
-					EXPLORER LA BOUTIQUE
-				</a>
-				<!-- /wp:button -->
-			</div>
-			<!-- /wp:group -->
+                                <!-- wp:button {"className":"nvx-hero__cta-secondary is-style-nvx-outline","textColor":"nvx-white"} -->
+                                <a class="wp-block-button__link has-nvx-white-color has-text-color nvx-hero__cta-secondary is-style-nvx-outline" href="/boutique">
+                                        EXPLORER LA BOUTIQUE
+                                </a>
+                                <!-- /wp:button -->
+                        </div>
+                        <!-- /wp:group -->
 
-			<!-- Personalisation dynamique (si utilisateur connecté) -->
-			<div class="nvx-hero__personalized" data-nvx-personalized="true" hidden>
-				<!-- wp:paragraph {"align":"center","className":"nvx-hero__welcome-back"} -->
-				<p class="has-text-align-center nvx-hero__welcome-back"></p>
-				<!-- /wp:paragraph -->
-			</div>
+                        <!-- Personalisation dynamique (si utilisateur connecté) -->
+                        <div class="nvx-hero__personalized" data-nvx-personalized="true" hidden>
+                                <!-- wp:paragraph {"align":"center","className":"nvx-hero__welcome-back"} -->
+                                <p class="has-text-align-center nvx-hero__welcome-back"></p>
+                                <!-- /wp:paragraph -->
+                        </div>
 
-		</div>
-		<!-- /wp:group -->
-	</div>
-	<!-- /wp:group -->
+                </div>
+                <!-- /wp:group -->
+        </div>
+        <!-- /wp:group -->
 
-	<!-- Scroll Indicator -->
-	<div class="nvx-hero__scroll-indicator" aria-hidden="true">
-		<span class="nvx-hero__scroll-text">Découvrir</span>
-		<span class="nvx-hero__scroll-line"></span>
-	</div>
+        <!-- Scroll Indicator -->
+        <div class="nvx-hero__scroll-indicator" aria-hidden="true">
+                <span class="nvx-hero__scroll-text">Découvrir</span>
+                <span class="nvx-hero__scroll-line"></span>
+        </div>
 </section>
 <!-- /wp:group -->
 
@@ -128,57 +123,57 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <!-- wp:group {"align":"full","className":"nvx-trust-bar","tagName":"section","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"backgroundColor":"nvx-light","layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull nvx-trust-bar has-nvx-light-background-color has-background" aria-label="Barre de confiance">
-	<!-- wp:group {"className":"nvx-trust-bar__grid","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|40)"}}} -->
-	<div class="wp-block-group nvx-trust-bar__grid">
+        <!-- wp:group {"className":"nvx-trust-bar__grid","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|40)"}}} -->
+        <div class="wp-block-group nvx-trust-bar__grid">
 
-		<!-- Certification Badges -->
-		<!-- wp:group {"className":"nvx-trust-bar__certs","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"clamp(1rem,2vw,2rem)"}}} -->
-		<div class="wp-block-group nvx-trust-bar__certs">
-			<div class="nvx-trust-badge" aria-label="Certifié Bio">
-				<span class="nvx-trust-badge__icon" aria-hidden="true">🛡</span>
-				<span class="nvx-trust-badge__label">Certifié Bio</span>
-			</div>
-			<div class="nvx-trust-badge" aria-label="Bonnes Pratiques de Fabrication">
-				<span class="nvx-trust-badge__icon" aria-hidden="true">⚗</span>
-				<span class="nvx-trust-badge__label">GMP</span>
-			</div>
-			<div class="nvx-trust-badge" aria-label="Norme ISO">
-				<span class="nvx-trust-badge__icon" aria-hidden="true">✓</span>
-				<span class="nvx-trust-badge__label">ISO 22000</span>
-			</div>
-			<div class="nvx-trust-badge" aria-label="HACCP">
-				<span class="nvx-trust-badge__icon" aria-hidden="true">◉</span>
-				<span class="nvx-trust-badge__label">HACCP</span>
-			</div>
-		</div>
-		<!-- /wp:group -->
+                <!-- Certification Badges -->
+                <!-- wp:group {"className":"nvx-trust-bar__certs","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"clamp(1rem,2vw,2rem)"}}} -->
+                <div class="wp-block-group nvx-trust-bar__certs">
+                        <div class="nvx-trust-badge" aria-label="Certifié Bio">
+                                <span class="nvx-trust-badge__icon" aria-hidden="true">🛡</span>
+                                <span class="nvx-trust-badge__label">Certifié Bio</span>
+                        </div>
+                        <div class="nvx-trust-badge" aria-label="Bonnes Pratiques de Fabrication">
+                                <span class="nvx-trust-badge__icon" aria-hidden="true">⚗</span>
+                                <span class="nvx-trust-badge__label">GMP</span>
+                        </div>
+                        <div class="nvx-trust-badge" aria-label="Norme ISO">
+                                <span class="nvx-trust-badge__icon" aria-hidden="true">✓</span>
+                                <span class="nvx-trust-badge__label">ISO 22000</span>
+                        </div>
+                        <div class="nvx-trust-badge" aria-label="HACCP">
+                                <span class="nvx-trust-badge__icon" aria-hidden="true">◉</span>
+                                <span class="nvx-trust-badge__label">HACCP</span>
+                        </div>
+                </div>
+                <!-- /wp:group -->
 
-		<!-- Trust Items -->
-		<!-- wp:group {"className":"nvx-trust-bar__items","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"clamp(1.5rem,3vw,2.5rem)"}}} -->
-		<div class="wp-block-group nvx-trust-bar__items">
-			<div class="nvx-trust-item">
-				<span class="nvx-trust-item__icon" aria-hidden="true">🚚</span>
-				<span class="nvx-trust-item__text">Livraison Gratuite <strong>50€+</strong></span>
-			</div>
-			<div class="nvx-trust-item">
-				<span class="nvx-trust-item__icon" aria-hidden="true">↩</span>
-				<span class="nvx-trust-item__text">Retour <strong>30 jours</strong></span>
-			</div>
-			<div class="nvx-trust-item">
-				<span class="nvx-trust-item__icon" aria-hidden="true">🔒</span>
-				<span class="nvx-trust-item__text">Paiement <strong>sécurisé</strong></span>
-			</div>
-		</div>
-		<!-- /wp:group -->
+                <!-- Trust Items -->
+                <!-- wp:group {"className":"nvx-trust-bar__items","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"clamp(1.5rem,3vw,2.5rem)"}}} -->
+                <div class="wp-block-group nvx-trust-bar__items">
+                        <div class="nvx-trust-item">
+                                <span class="nvx-trust-item__icon" aria-hidden="true">🚚</span>
+                                <span class="nvx-trust-item__text">Livraison Gratuite <strong>50€+</strong></span>
+                        </div>
+                        <div class="nvx-trust-item">
+                                <span class="nvx-trust-item__icon" aria-hidden="true">↩</span>
+                                <span class="nvx-trust-item__text">Retour <strong>30 jours</strong></span>
+                        </div>
+                        <div class="nvx-trust-item">
+                                <span class="nvx-trust-item__icon" aria-hidden="true">🔒</span>
+                                <span class="nvx-trust-item__text">Paiement <strong>sécurisé</strong></span>
+                        </div>
+                </div>
+                <!-- /wp:group -->
 
-		<!-- Compteur Clients Dynamique -->
-		<div class="nvx-trust-bar__counter" aria-label="Nombre de clients satisfaits">
-			<span class="nvx-trust-bar__counter-number" data-nvx-target="15847" data-nvx-duration="2000">0</span>
-			<span class="nvx-trust-bar__counter-label">clients satisfaits</span>
-		</div>
+                <!-- Compteur Clients Dynamique -->
+                <div class="nvx-trust-bar__counter" aria-label="Nombre de clients satisfaits">
+                        <span class="nvx-trust-bar__counter-number" data-nvx-target="15847" data-nvx-duration="2000">0</span>
+                        <span class="nvx-trust-bar__counter-label">clients satisfaits</span>
+                </div>
 
-	</div>
-	<!-- /wp:group -->
+        </div>
+        <!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 
@@ -189,188 +184,188 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <!-- wp:group {"align":"full","className":"nvx-quiz-section","tagName":"section","style":{"spacing":{"padding":{"top":"clamp(4rem,8vw,6rem)","bottom":"clamp(4rem,8vw,6rem)"}}},"layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull nvx-quiz-section" id="nvx-quiz-mini" aria-label="Quiz santé rapide">
-	<!-- wp:group {"className":"nvx-quiz-section__header","layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|20)"}}} -->
-	<div class="wp-block-group nvx-quiz-section__header">
-		<!-- wp:heading {"textAlign":"center","level":2} -->
-		<h2 class="wp-block-heading has-text-align-center">Quel programme de santé est fait pour vous ?</h2>
-		<!-- /wp:heading -->
-		<!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
-		<p class="has-text-align-center has-nvx-gray-color has-text-color">Répondez à 5 questions rapides et recevez votre stack personnalisé gratuitement.</p>
-		<!-- /wp:paragraph -->
-	</div>
-	<!-- /wp:group -->
+        <!-- wp:group {"className":"nvx-quiz-section__header","layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|20)"}}} -->
+        <div class="wp-block-group nvx-quiz-section__header">
+                <!-- wp:heading {"textAlign":"center","level":2} -->
+                <h2 class="wp-block-heading has-text-align-center">Quel programme de santé est fait pour vous ?</h2>
+                <!-- /wp:heading -->
+                <!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
+                <p class="has-text-align-center has-nvx-gray-color has-text-color">Répondez à 5 questions rapides et recevez votre stack personnalisé gratuitement.</p>
+                <!-- /wp:paragraph -->
+        </div>
+        <!-- /wp:group -->
 
-	<!-- Quiz Form -->
-	<form class="nvx-quiz-mini__form" id="nvx-quiz-mini-form" aria-label="Quiz santé rapide" novalidate>
+        <!-- Quiz Form -->
+        <form class="nvx-quiz-mini__form" id="nvx-quiz-mini-form" aria-label="Quiz santé rapide" novalidate>
 
-		<!-- Progress Bar -->
-		<div class="nvx-quiz-mini__progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5">
-			<div class="nvx-quiz-mini__progress-bar">
-				<div class="nvx-quiz-mini__progress-fill" style="width:0%"></div>
-			</div>
-			<span class="nvx-quiz-mini__progress-text">Question 1 / 5</span>
-		</div>
+                <!-- Progress Bar -->
+                <div class="nvx-quiz-mini__progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5">
+                        <div class="nvx-quiz-mini__progress-bar">
+                                <div class="nvx-quiz-mini__progress-fill" style="width:0%"></div>
+                        </div>
+                        <span class="nvx-quiz-mini__progress-text">Question 1 / 5</span>
+                </div>
 
-		<!-- Questions Container (JS-driven) -->
-		<div class="nvx-quiz-mini__questions" aria-live="polite">
+                <!-- Questions Container (JS-driven) -->
+                <div class="nvx-quiz-mini__questions" aria-live="polite">
 
-			<!-- Q1 -->
-			<div class="nvx-quiz-mini__step" data-step="1" hidden>
-				<fieldset>
-					<legend class="nvx-quiz-mini__legend">Quel est votre objectif principal ?</legend>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q1" value="energy" required>
-						<span class="nvx-quiz-mini__option-card">
-							<span class="nvx-quiz-mini__option-icon" aria-hidden="true">⚡</span>
-							<span class="nvx-quiz-mini__option-text">Plus d'énergie</span>
-						</span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q1" value="immunity">
-						<span class="nvx-quiz-mini__option-card">
-							<span class="nvx-quiz-mini__option-icon" aria-hidden="true">🛡</span>
-							<span class="nvx-quiz-mini__option-text">Renforcer mon immunité</span>
-						</span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q1" value="cognition">
-						<span class="nvx-quiz-mini__option-card">
-							<span class="nvx-quiz-mini__option-icon" aria-hidden="true">🧠</span>
-							<span class="nvx-quiz-mini__option-text">Améliorer ma concentration</span>
-						</span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q1" value="sport">
-						<span class="nvx-quiz-mini__option-card">
-							<span class="nvx-quiz-mini__option-icon" aria-hidden="true">💪</span>
-							<span class="nvx-quiz-mini__option-text">Performance sportive</span>
-						</span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q1" value="weight">
-						<span class="nvx-quiz-mini__option-card">
-							<span class="nvx-quiz-mini__option-icon" aria-hidden="true">⚖</span>
-							<span class="nvx-quiz-mini__option-text">Gestion du poids</span>
-						</span>
-					</label>
-				</fieldset>
-			</div>
+                        <!-- Q1 -->
+                        <div class="nvx-quiz-mini__step" data-step="1" hidden>
+                                <fieldset>
+                                        <legend class="nvx-quiz-mini__legend">Quel est votre objectif principal ?</legend>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q1" value="energy" required>
+                                                <span class="nvx-quiz-mini__option-card">
+                                                        <span class="nvx-quiz-mini__option-icon" aria-hidden="true">⚡</span>
+                                                        <span class="nvx-quiz-mini__option-text">Plus d'énergie</span>
+                                                </span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q1" value="immunity">
+                                                <span class="nvx-quiz-mini__option-card">
+                                                        <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🛡</span>
+                                                        <span class="nvx-quiz-mini__option-text">Renforcer mon immunité</span>
+                                                </span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q1" value="cognition">
+                                                <span class="nvx-quiz-mini__option-card">
+                                                        <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🧠</span>
+                                                        <span class="nvx-quiz-mini__option-text">Améliorer ma concentration</span>
+                                                </span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q1" value="sport">
+                                                <span class="nvx-quiz-mini__option-card">
+                                                        <span class="nvx-quiz-mini__option-icon" aria-hidden="true">💪</span>
+                                                        <span class="nvx-quiz-mini__option-text">Performance sportive</span>
+                                                </span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q1" value="weight">
+                                                <span class="nvx-quiz-mini__option-card">
+                                                        <span class="nvx-quiz-mini__option-icon" aria-hidden="true">⚖</span>
+                                                        <span class="nvx-quiz-mini__option-text">Gestion du poids</span>
+                                                </span>
+                                        </label>
+                                </fieldset>
+                        </div>
 
-			<!-- Q2 -->
-			<div class="nvx-quiz-mini__step" data-step="2" hidden>
-				<fieldset>
-					<legend class="nvx-quiz-mini__legend">Quel est votre âge ?</legend>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q2" value="18-25" required>
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">18 – 25 ans</span></span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q2" value="26-35">
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">26 – 35 ans</span></span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q2" value="36-50">
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">36 – 50 ans</span></span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q2" value="50+">
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">50+ ans</span></span>
-					</label>
-				</fieldset>
-			</div>
+                        <!-- Q2 -->
+                        <div class="nvx-quiz-mini__step" data-step="2" hidden>
+                                <fieldset>
+                                        <legend class="nvx-quiz-mini__legend">Quel est votre âge ?</legend>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q2" value="18-25" required>
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">18 – 25 ans</span></span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q2" value="26-35">
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">26 – 35 ans</span></span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q2" value="36-50">
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">36 – 50 ans</span></span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q2" value="50+">
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">50+ ans</span></span>
+                                        </label>
+                                </fieldset>
+                        </div>
 
-			<!-- Q3 -->
-			<div class="nvx-quiz-mini__step" data-step="3" hidden>
-				<fieldset>
-					<legend class="nvx-quiz-mini__legend">Avez-vous des allergies ou restrictions alimentaires ?</legend>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q3" value="none" required>
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Aucune</span></span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q3" value="gluten">
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Sans gluten</span></span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q3" value="lactose">
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Sans lactose</span></span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q3" value="vegan">
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Végétarien / Végan</span></span>
-					</label>
-				</fieldset>
-			</div>
+                        <!-- Q3 -->
+                        <div class="nvx-quiz-mini__step" data-step="3" hidden>
+                                <fieldset>
+                                        <legend class="nvx-quiz-mini__legend">Avez-vous des allergies ou restrictions alimentaires ?</legend>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q3" value="none" required>
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Aucune</span></span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q3" value="gluten">
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Sans gluten</span></span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q3" value="lactose">
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Sans lactose</span></span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q3" value="vegan">
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Végétarien / Végan</span></span>
+                                        </label>
+                                </fieldset>
+                        </div>
 
-			<!-- Q4 -->
-			<div class="nvx-quiz-mini__step" data-step="4" hidden>
-				<fieldset>
-					<legend class="nvx-quiz-mini__legend">Quel est votre niveau d'activité physique ?</legend>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q4" value="sedentary" required>
-						<span class="nvx-quiz-mini__option-card">
-							<span class="nvx-quiz-mini__option-icon" aria-hidden="true">🪑</span>
-							<span class="nvx-quiz-mini__option-text">Sédentaire</span>
-						</span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q4" value="moderate">
-						<span class="nvx-quiz-mini__option-card">
-							<span class="nvx-quiz-mini__option-icon" aria-hidden="true">🚶</span>
-							<span class="nvx-quiz-mini__option-text">Activité modérée</span>
-						</span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q4" value="intense">
-						<span class="nvx-quiz-mini__option-card">
-							<span class="nvx-quiz-mini__option-icon" aria-hidden="true">🏋</span>
-							<span class="nvx-quiz-mini__option-text">Sportif régulier</span>
-						</span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q4" value="athlete">
-						<span class="nvx-quiz-mini__option-card">
-							<span class="nvx-quiz-mini__option-icon" aria-hidden="true">🏆</span>
-							<span class="nvx-quiz-mini__option-text">Athlète / Compétition</span>
-						</span>
-					</label>
-				</fieldset>
-			</div>
+                        <!-- Q4 -->
+                        <div class="nvx-quiz-mini__step" data-step="4" hidden>
+                                <fieldset>
+                                        <legend class="nvx-quiz-mini__legend">Quel est votre niveau d'activité physique ?</legend>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q4" value="sedentary" required>
+                                                <span class="nvx-quiz-mini__option-card">
+                                                        <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🪑</span>
+                                                        <span class="nvx-quiz-mini__option-text">Sédentaire</span>
+                                                </span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q4" value="moderate">
+                                                <span class="nvx-quiz-mini__option-card">
+                                                        <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🚶</span>
+                                                        <span class="nvx-quiz-mini__option-text">Activité modérée</span>
+                                                </span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q4" value="intense">
+                                                <span class="nvx-quiz-mini__option-card">
+                                                        <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🏋</span>
+                                                        <span class="nvx-quiz-mini__option-text">Sportif régulier</span>
+                                                </span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q4" value="athlete">
+                                                <span class="nvx-quiz-mini__option-card">
+                                                        <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🏆</span>
+                                                        <span class="nvx-quiz-mini__option-text">Athlète / Compétition</span>
+                                                </span>
+                                        </label>
+                                </fieldset>
+                        </div>
 
-			<!-- Q5 -->
-			<div class="nvx-quiz-mini__step" data-step="5" hidden>
-				<fieldset>
-					<legend class="nvx-quiz-mini__legend">Prenez-vous actuellement des compléments ?</legend>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q5" value="never" required>
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Jamais, c'est ma première fois</span></span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q5" value="sometimes">
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Parfois, de façon occasionnelle</span></span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q5" value="daily">
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Oui, quotidiennement</span></span>
-					</label>
-					<label class="nvx-quiz-mini__option">
-						<input type="radio" name="nvx_q5" value="stack">
-						<span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Oui, un programme complet (stack)</span></span>
-					</label>
-				</fieldset>
-			</div>
-		</div>
+                        <!-- Q5 -->
+                        <div class="nvx-quiz-mini__step" data-step="5" hidden>
+                                <fieldset>
+                                        <legend class="nvx-quiz-mini__legend">Prenez-vous actuellement des compléments ?</legend>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q5" value="never" required>
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Jamais, c'est ma première fois</span></span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q5" value="sometimes">
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Parfois, de façon occasionnelle</span></span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q5" value="daily">
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Oui, quotidiennement</span></span>
+                                        </label>
+                                        <label class="nvx-quiz-mini__option">
+                                                <input type="radio" name="nvx_q5" value="stack">
+                                                <span class="nvx-quiz-mini__option-card"><span class="nvx-quiz-mini__option-text">Oui, un programme complet (stack)</span></span>
+                                        </label>
+                                </fieldset>
+                        </div>
+                </div>
 
-		<!-- Navigation Buttons -->
-		<div class="nvx-quiz-mini__nav">
-			<button type="button" class="nvx-quiz-mini__btn nvx-quiz-mini__btn--prev" id="nvx-quiz-prev" hidden>← Précédent</button>
-			<button type="button" class="nvx-quiz-mini__btn nvx-quiz-mini__btn--next" id="nvx-quiz-next">Suivant →</button>
-			<button type="submit" class="nvx-quiz-mini__btn nvx-quiz-mini__btn--submit nvx-btn-animated" id="nvx-quiz-submit" hidden>
-				<span class="nvx-btn-animated__text">Obtenir mon programme</span>
-				<span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
-			</button>
-		</div>
-	</form>
+                <!-- Navigation Buttons -->
+                <div class="nvx-quiz-mini__nav">
+                        <button type="button" class="nvx-quiz-mini__btn nvx-quiz-mini__btn--prev" id="nvx-quiz-prev" hidden>← Précédent</button>
+                        <button type="button" class="nvx-quiz-mini__btn nvx-quiz-mini__btn--next" id="nvx-quiz-next">Suivant →</button>
+                        <button type="submit" class="nvx-quiz-mini__btn nvx-quiz-mini__btn--submit nvx-btn-animated" id="nvx-quiz-submit" hidden>
+                                <span class="nvx-btn-animated__text">Obtenir mon programme</span>
+                                <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+                        </button>
+                </div>
+        </form>
 </section>
 <!-- /wp:group -->
 
@@ -381,83 +376,83 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <!-- wp:group {"align":"full","className":"nvx-featured-section","tagName":"section","style":{"spacing":{"padding":{"top":"clamp(4rem,8vw,6rem)","bottom":"clamp(4rem,8vw,6rem)"}}},"layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull nvx-featured-section" aria-label="Produits vedettes">
-	<!-- wp:group {"className":"nvx-section-header","layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|20)"}}} -->
-	<div class="wp-block-group nvx-section-header">
-		<!-- wp:heading {"textAlign":"center","level":2} -->
-		<h2 class="wp-block-heading has-text-align-center">Nos Formulations Vedettes</h2>
-		<!-- /wp:heading -->
-		<!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
-		<p class="has-text-align-center has-nvx-gray-color has-text-color">Validées par la science. Approuvées par nos clients.</p>
-		<!-- /wp:paragraph -->
-	</div>
-	<!-- /wp:group -->
+        <!-- wp:group {"className":"nvx-section-header","layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|20)"}}} -->
+        <div class="wp-block-group nvx-section-header">
+                <!-- wp:heading {"textAlign":"center","level":2} -->
+                <h2 class="wp-block-heading has-text-align-center">Nos Formulations Vedettes</h2>
+                <!-- /wp:heading -->
+                <!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
+                <p class="has-text-align-center has-nvx-gray-color has-text-color">Validées par la science. Approuvées par nos clients.</p>
+                <!-- /wp:paragraph -->
+        </div>
+        <!-- /wp:group -->
 
-	<!-- Product Grid -->
-	<!-- wp:query {"queryId":"nvx-featured","query":{"perPage":6,"postType":"product","order":"desc","orderBy":"popularity","taxQuery":[{"taxonomy":"product_visibility","terms":["featured"],"field":"slug","operator":"IN"}],"inherit":false},"displayLayout":{"type":"flex","columns":3,"columnsTablet":2,"columnsMobile":1},"align":"wide"} -->
-	<div class="wp-block-query alignwide nvx-featured-grid" id="nvx-woo-content">
-		<!-- wp:post-template {"className":"nvx-product-card-wrapper"} -->
+        <!-- Product Grid -->
+        <!-- wp:query {"queryId":"nvx-featured","query":{"perPage":6,"postType":"product","order":"desc","orderBy":"popularity","taxQuery":[{"taxonomy":"product_visibility","terms":["featured"],"field":"slug","operator":"IN"}],"inherit":false},"displayLayout":{"type":"flex","columns":3,"columnsTablet":2,"columnsMobile":1},"align":"wide"} -->
+        <div class="wp-block-query alignwide nvx-featured-grid" id="nvx-woo-content">
+                <!-- wp:post-template {"className":"nvx-product-card-wrapper"} -->
 
-		<!-- Product Card (Flip 3D) -->
-		<article class="nvx-product-card" aria-label="Produit">
-			<div class="nvx-product-card__flipper">
-				<!-- FRONT -->
-				<div class="nvx-product-card__front">
-					<div class="nvx-product-card__image-wrap">
-						<!-- wp:post-featured-image {"size":"woocommerce_thumbnail","link":"none","className":"nvx-product-card__image"} /-->
-						<!-- AI Badge -->
-						<span class="nvx-product-card__ai-badge" aria-label="Score de pertinence IA">
-							<span class="nvx-product-card__ai-score">98%</span>
-							<span class="nvx-product-card__ai-label">Match IA</span>
-						</span>
-					</div>
-					<div class="nvx-product-card__body">
-						<!-- wp:post-title {"isLink":true,"className":"nvx-product-card__title"} /-->
-						<div class="nvx-product-card__rating" aria-label="Note moyenne vérifiée">
-							<span class="nvx-product-card__stars" aria-hidden="true">★★★★★</span>
-							<span class="nvx-product-card__rating-count">(124 avis vérifiés)</span>
-							<span class="nvx-product-card__verified-icon" aria-label="Avis vérifiés" title="Avis vérifiés">✓</span>
-						</div>
-						<div class="nvx-product-card__price-row">
-							<!-- wp:html -->
-							<span class="nvx-product-card__price">29,90 €</span>
-							<!-- /wp:html -->
-						</div>
-						<button class="nvx-product-card__cart-btn nvx-btn-animated" aria-label="Ajouter au panier">
-							<span class="nvx-btn-animated__text">Ajouter au panier</span>
-							<span class="nvx-btn-animated__icon" aria-hidden="true">🛒</span>
-						</button>
-					</div>
-				</div>
-				<!-- BACK -->
-				<div class="nvx-product-card__back">
-					<!-- wp:post-excerpt {"className":"nvx-product-card__excerpt"} /-->
-					<!-- wp:html -->
-					<div class="nvx-product-card__back-cta">
-						<a href="#" class="nvx-product-card__details-link">Voir les détails →</a>
-					</div>
-					<!-- /wp:html -->
-				</div>
-			</div>
-		</article>
+                <!-- Product Card (Flip 3D) -->
+                <article class="nvx-product-card" aria-label="Produit">
+                        <div class="nvx-product-card__flipper">
+                                <!-- FRONT -->
+                                <div class="nvx-product-card__front">
+                                        <div class="nvx-product-card__image-wrap">
+                                                <!-- wp:post-featured-image {"size":"woocommerce_thumbnail","link":"none","className":"nvx-product-card__image"} /-->
+                                                <!-- AI Badge -->
+                                                <span class="nvx-product-card__ai-badge" aria-label="Score de pertinence IA">
+                                                        <span class="nvx-product-card__ai-score">98%</span>
+                                                        <span class="nvx-product-card__ai-label">Match IA</span>
+                                                </span>
+                                        </div>
+                                        <div class="nvx-product-card__body">
+                                                <!-- wp:post-title {"isLink":true,"className":"nvx-product-card__title"} /-->
+                                                <div class="nvx-product-card__rating" aria-label="Note moyenne vérifiée">
+                                                        <span class="nvx-product-card__stars" aria-hidden="true">★★★★★</span>
+                                                        <span class="nvx-product-card__rating-count">(124 avis vérifiés)</span>
+                                                        <span class="nvx-product-card__verified-icon" aria-label="Avis vérifiés" title="Avis vérifiés">✓</span>
+                                                </div>
+                                                <div class="nvx-product-card__price-row">
+                                                        <!-- wp:html -->
+                                                        <span class="nvx-product-card__price">29,90 €</span>
+                                                        <!-- /wp:html -->
+                                                </div>
+                                                <button class="nvx-product-card__cart-btn nvx-btn-animated" aria-label="Ajouter au panier">
+                                                        <span class="nvx-btn-animated__text">Ajouter au panier</span>
+                                                        <span class="nvx-btn-animated__icon" aria-hidden="true">🛒</span>
+                                                </button>
+                                        </div>
+                                </div>
+                                <!-- BACK -->
+                                <div class="nvx-product-card__back">
+                                        <!-- wp:post-excerpt {"className":"nvx-product-card__excerpt"} /-->
+                                        <!-- wp:html -->
+                                        <div class="nvx-product-card__back-cta">
+                                                <a href="#" class="nvx-product-card__details-link">Voir les détails →</a>
+                                        </div>
+                                        <!-- /wp:html -->
+                                </div>
+                        </div>
+                </article>
 
-		<!-- /wp:post-template -->
+                <!-- /wp:post-template -->
 
-		<!-- wp:query-no-results -->
-		<div class="wp-block-query-no-results">
-			<p>Aucun produit vedette pour le moment.</p>
-		</div>
-		<!-- /wp:query-no-results -->
-	</div>
-	<!-- /wp:query -->
+                <!-- wp:query-no-results -->
+                <div class="wp-block-query-no-results">
+                        <p>Aucun produit vedette pour le moment.</p>
+                </div>
+                <!-- /wp:query-no-results -->
+        </div>
+        <!-- /wp:query -->
 
-	<!-- Voir tout -->
-	<!-- wp:group {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40)"}}} -->
-	<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40)">
-		<!-- wp:button {"className":"is-style-nvx-outline","textAlign":"center"} -->
-		<a class="wp-block-button__link is-style-nvx-outline" href="/boutique">Voir tous les produits</a>
-		<!-- /wp:button -->
-	</div>
-	<!-- /wp:group -->
+        <!-- Voir tout -->
+        <!-- wp:group {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40)"}}} -->
+        <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40)">
+                <!-- wp:button {"className":"is-style-nvx-outline","textAlign":"center"} -->
+                <a class="wp-block-button__link is-style-nvx-outline" href="/boutique">Voir tous les produits</a>
+                <!-- /wp:button -->
+        </div>
+        <!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 
@@ -469,106 +464,106 @@
 <!-- wp:group {"align":"full","className":"nvx-social-proof","tagName":"section","style":{"spacing":{"padding":{"top":"clamp(4rem,8vw,6rem)","bottom":"clamp(4rem,8vw,6rem)"}}},"backgroundColor":"nvx-dark","textColor":"nvx-white","layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull nvx-social-proof has-nvx-dark-background-color has-background" aria-label="Avis et témoignages clients">
 
-	<!-- Section Header -->
-	<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|20)"}}} -->
-	<div class="wp-block-group">
-		<!-- wp:heading {"textAlign":"center","level":2,"textColor":"nvx-white"} -->
-		<h2 class="wp-block-heading has-text-align-center has-nvx-white-color has-text-color">Ils ont transformé leur santé</h2>
-		<!-- /wp:heading -->
-		<!-- wp:paragraph {"align":"center","textColor":"nvx-secondary"} -->
-		<p class="has-text-align-center has-nvx-secondary-color has-text-color">+2 500 avis vérifiés sur Google et Trustpilot</p>
-		<!-- /wp:paragraph -->
-	</div>
-	<!-- /wp:group -->
+        <!-- Section Header -->
+        <!-- wp:group {"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|20)"}}} -->
+        <div class="wp-block-group">
+                <!-- wp:heading {"textAlign":"center","level":2,"textColor":"nvx-white"} -->
+                <h2 class="wp-block-heading has-text-align-center nvx-heading--on-dark">Ils ont transformé leur santé</h2>
+                <!-- /wp:heading -->
+                <!-- wp:paragraph {"align":"center","textColor":"nvx-secondary"} -->
+                <p class="has-text-align-center has-nvx-secondary-color has-text-color">+2 500 avis vérifiés sur Google et Trustpilot</p>
+                <!-- /wp:paragraph -->
+        </div>
+        <!-- /wp:group -->
 
-	<!-- Aggregate Rating Banner -->
-	<div class="nvx-social-proof__aggregate" aria-label="Note globale agrégée">
-		<div class="nvx-social-proof__aggregate-score">
-			<span class="nvx-social-proof__aggregate-number">4.9</span>
-			<span class="nvx-social-proof__aggregate-stars">★★★★★</span>
-			<span class="nvx-social-proof__aggregate-count">sur 2 547 avis vérifiés</span>
-		</div>
-		<div class="nvx-social-proof__aggregate-sources">
-			<span class="nvx-social-proof__source">
-				<span class="nvx-social-proof__source-icon">G</span> Google 4.9
-			</span>
-			<span class="nvx-social-proof__source">
-				<span class="nvx-social-proof__source-icon">T</span> Trustpilot 4.8
-			</span>
-		</div>
-	</div>
+        <!-- Aggregate Rating Banner -->
+        <div class="nvx-social-proof__aggregate" aria-label="Note globale agrégée">
+                <div class="nvx-social-proof__aggregate-score">
+                        <span class="nvx-social-proof__aggregate-number">4.9</span>
+                        <span class="nvx-social-proof__aggregate-stars">★★★★★</span>
+                        <span class="nvx-social-proof__aggregate-count">sur 2 547 avis vérifiés</span>
+                </div>
+                <div class="nvx-social-proof__aggregate-sources">
+                        <span class="nvx-social-proof__source">
+                                <span class="nvx-social-proof__source-icon">G</span> Google 4.9
+                        </span>
+                        <span class="nvx-social-proof__source">
+                                <span class="nvx-social-proof__source-icon">T</span> Trustpilot 4.8
+                        </span>
+                </div>
+        </div>
 
-	<!-- Testimonials Grid -->
-	<!-- wp:group {"className":"nvx-social-proof__grid","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|30)"}}} -->
-	<div class="wp-block-group nvx-social-proof__grid">
+        <!-- Testimonials Grid -->
+        <!-- wp:group {"className":"nvx-social-proof__grid","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|30)"}}} -->
+        <div class="wp-block-group nvx-social-proof__grid">
 
-		<!-- Video Testimonial -->
-		<div class="nvx-testimonial nvx-testimonial--video">
-			<div class="nvx-testimonial__video" aria-label="Témoignage vidéo">
-				<div class="nvx-testimonial__video-placeholder">
-					<span class="nvx-testimonial__play-btn" aria-hidden="true">▶</span>
-					<span class="nvx-testimonial__video-label">Témoignage vidéo</span>
-				</div>
-			</div>
-			<div class="nvx-testimonial__content">
-				<p class="nvx-testimonial__quote">"Après 3 mois de stack personnalisé, mon énergie est revenue et mes analyses sanguines sont parfaites."</p>
-				<div class="nvx-testimonial__author">
-					<strong class="nvx-testimonial__name">Sophie M.</strong>
-					<span class="nvx-testimonial__badge">Achat vérifié</span>
-				</div>
-			</div>
-		</div>
+                <!-- Video Testimonial -->
+                <div class="nvx-testimonial nvx-testimonial--video">
+                        <div class="nvx-testimonial__video" aria-label="Témoignage vidéo">
+                                <div class="nvx-testimonial__video-placeholder">
+                                        <span class="nvx-testimonial__play-btn" aria-hidden="true">▶</span>
+                                        <span class="nvx-testimonial__video-label">Témoignage vidéo</span>
+                                </div>
+                        </div>
+                        <div class="nvx-testimonial__content">
+                                <p class="nvx-testimonial__quote">"Après 3 mois de stack personnalisé, mon énergie est revenue et mes analyses sanguines sont parfaites."</p>
+                                <div class="nvx-testimonial__author">
+                                        <strong class="nvx-testimonial__name">Sophie M.</strong>
+                                        <span class="nvx-testimonial__badge">Achat vérifié</span>
+                                </div>
+                        </div>
+                </div>
 
-		<!-- Text Testimonials -->
-		<div class="nvx-testimonial">
-			<div class="nvx-testimonial__stars" aria-label="5 étoiles">★★★★★</div>
-			<p class="nvx-testimonial__quote">"Les meilleurs oméga-3 que j'ai testés. Pureté certifiée COA, aucun goût de poisson. Je recommande à 100%."</p>
-			<div class="nvx-testimonial__author">
-				<strong class="nvx-testimonial__name">Dr. Laurent P.</strong>
-				<span class="nvx-testimonial__role">Médecin nutritionniste</span>
-			</div>
-		</div>
+                <!-- Text Testimonials -->
+                <div class="nvx-testimonial">
+                        <div class="nvx-testimonial__stars" aria-label="5 étoiles">★★★★★</div>
+                        <p class="nvx-testimonial__quote">"Les meilleurs oméga-3 que j'ai testés. Pureté certifiée COA, aucun goût de poisson. Je recommande à 100%."</p>
+                        <div class="nvx-testimonial__author">
+                                <strong class="nvx-testimonial__name">Dr. Laurent P.</strong>
+                                <span class="nvx-testimonial__role">Médecin nutritionniste</span>
+                        </div>
+                </div>
 
-		<div class="nvx-testimonial">
-			<div class="nvx-testimonial__stars" aria-label="5 étoiles">★★★★★</div>
-			<p class="nvx-testimonial__quote">"Le quiz m'a recommandé le stack Énergie et en 4 semaines je sens une vraie différence à l'entraînement."</p>
-			<div class="nvx-testimonial__author">
-				<strong class="nvx-testimonial__name">Thomas R.</strong>
-				<span class="nvx-testimonial__badge">Achat vérifié</span>
-			</div>
-		</div>
+                <div class="nvx-testimonial">
+                        <div class="nvx-testimonial__stars" aria-label="5 étoiles">★★★★★</div>
+                        <p class="nvx-testimonial__quote">"Le quiz m'a recommandé le stack Énergie et en 4 semaines je sens une vraie différence à l'entraînement."</p>
+                        <div class="nvx-testimonial__author">
+                                <strong class="nvx-testimonial__name">Thomas R.</strong>
+                                <span class="nvx-testimonial__badge">Achat vérifié</span>
+                        </div>
+                </div>
 
-	</div>
-	<!-- /wp:group -->
+        </div>
+        <!-- /wp:group -->
 
-	<!-- Before / After Photos -->
-	<div class="nvx-social-proof__before-after">
-		<h3 class="nvx-social-proof__ba-title">Résultats vérifiés de nos clients</h3>
-		<div class="nvx-social-proof__ba-grid">
-			<div class="nvx-ba-card">
-				<div class="nvx-ba-card__images">
-					<div class="nvx-ba-card__image nvx-ba-card__image--before">
-						<span>Avant</span>
-					</div>
-					<div class="nvx-ba-card__image nvx-ba-card__image--after">
-						<span>Après (90 jours)</span>
-					</div>
-				</div>
-				<p class="nvx-ba-card__caption">Marie L. — Stack Immunité + Vitamine D3</p>
-			</div>
-			<div class="nvx-ba-card">
-				<div class="nvx-ba-card__images">
-					<div class="nvx-ba-card__image nvx-ba-card__image--before">
-						<span>Avant</span>
-					</div>
-					<div class="nvx-ba-card__image nvx-ba-card__image--after">
-						<span>Après (60 jours)</span>
-					</div>
-				</div>
-				<p class="nvx-ba-card__caption">Alex D. — Stack Sport + BCAA Premium</p>
-			</div>
-		</div>
-	</div>
+        <!-- Before / After Photos -->
+        <div class="nvx-social-proof__before-after">
+                <h3 class="nvx-social-proof__ba-title">Résultats vérifiés de nos clients</h3>
+                <div class="nvx-social-proof__ba-grid">
+                        <div class="nvx-ba-card">
+                                <div class="nvx-ba-card__images">
+                                        <div class="nvx-ba-card__image nvx-ba-card__image--before">
+                                                <span>Avant</span>
+                                        </div>
+                                        <div class="nvx-ba-card__image nvx-ba-card__image--after">
+                                                <span>Après (90 jours)</span>
+                                        </div>
+                                </div>
+                                <p class="nvx-ba-card__caption">Marie L. — Stack Immunité + Vitamine D3</p>
+                        </div>
+                        <div class="nvx-ba-card">
+                                <div class="nvx-ba-card__images">
+                                        <div class="nvx-ba-card__image nvx-ba-card__image--before">
+                                                <span>Avant</span>
+                                        </div>
+                                        <div class="nvx-ba-card__image nvx-ba-card__image--after">
+                                                <span>Après (60 jours)</span>
+                                        </div>
+                                </div>
+                                <p class="nvx-ba-card__caption">Alex D. — Stack Sport + BCAA Premium</p>
+                        </div>
+                </div>
+        </div>
 
 </section>
 <!-- /wp:group -->
@@ -580,54 +575,54 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <!-- wp:group {"align":"full","className":"nvx-univers","tagName":"section","style":{"spacing":{"padding":{"top":"clamp(4rem,8vw,6rem)","bottom":"clamp(4rem,8vw,6rem)"}}},"layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull nvx-univers" aria-label="Univers produits">
-	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">Explorez par objectif</h2>
-	<!-- /wp:heading -->
-	<!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
-	<p class="has-text-align-center has-nvx-gray-color has-text-color">Trouvez les compléments adaptés à VOS besoins, pas l'inverse.</p>
-	<!-- /wp:paragraph -->
+        <!-- wp:heading {"textAlign":"center","level":2} -->
+        <h2 class="wp-block-heading has-text-align-center">Explorez par objectif</h2>
+        <!-- /wp:heading -->
+        <!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
+        <p class="has-text-align-center has-nvx-gray-color has-text-color">Trouvez les compléments adaptés à VOS besoins, pas l'inverse.</p>
+        <!-- /wp:paragraph -->
 
-	<!-- Univers Grid -->
-	<!-- wp:group {"className":"nvx-univers__grid","layout":{"type":"grid","minimumColumnWidth":"200px"}} -->
-	<div class="wp-block-group nvx-univers__grid">
+        <!-- Univers Grid -->
+        <!-- wp:group {"className":"nvx-univers__grid","layout":{"type":"grid","minimumColumnWidth":"200px"}} -->
+        <div class="wp-block-group nvx-univers__grid">
 
-		<a href="/boutique/?objectif=energie" class="nvx-univers-card" aria-label="Parcourir la gamme Énergie">
-			<div class="nvx-univers-card__icon" aria-hidden="true">⚡</div>
-			<h3 class="nvx-univers-card__title">Énergie</h3>
-			<p class="nvx-univers-card__desc">Vitamines B, CoQ10, Fer, Magnésium pour retrouver vitalité et endurance.</p>
-			<span class="nvx-univers-card__cta">Explorer →</span>
-		</a>
+                <a href="/boutique/?objectif=energie" class="nvx-univers-card" aria-label="Parcourir la gamme Énergie">
+                        <div class="nvx-univers-card__icon" aria-hidden="true">⚡</div>
+                        <h3 class="nvx-univers-card__title">Énergie</h3>
+                        <p class="nvx-univers-card__desc">Vitamines B, CoQ10, Fer, Magnésium pour retrouver vitalité et endurance.</p>
+                        <span class="nvx-univers-card__cta">Explorer →</span>
+                </a>
 
-		<a href="/boutique/?objectif=immunite" class="nvx-univers-card" aria-label="Parcourir la gamme Immunité">
-			<div class="nvx-univers-card__icon" aria-hidden="true">🛡</div>
-			<h3 class="nvx-univers-card__title">Immunité</h3>
-			<p class="nvx-univers-card__desc">Vitamine C, D3, Zinc, Sélénium pour renforcer vos défenses naturelles.</p>
-			<span class="nvx-univers-card__cta">Explorer →</span>
-		</a>
+                <a href="/boutique/?objectif=immunite" class="nvx-univers-card" aria-label="Parcourir la gamme Immunité">
+                        <div class="nvx-univers-card__icon" aria-hidden="true">🛡</div>
+                        <h3 class="nvx-univers-card__title">Immunité</h3>
+                        <p class="nvx-univers-card__desc">Vitamine C, D3, Zinc, Sélénium pour renforcer vos défenses naturelles.</p>
+                        <span class="nvx-univers-card__cta">Explorer →</span>
+                </a>
 
-		<a href="/boutique/?objectif=cognition" class="nvx-univers-card" aria-label="Parcourir la gamme Cognition">
-			<div class="nvx-univers-card__icon" aria-hidden="true">🧠</div>
-			<h3 class="nvx-univers-card__title">Cognition</h3>
-			<p class="nvx-univers-card__desc">Oméga-3 DHA, Bacopa, Rhodiola pour mémoire, focus et clarté mentale.</p>
-			<span class="nvx-univers-card__cta">Explorer →</span>
-		</a>
+                <a href="/boutique/?objectif=cognition" class="nvx-univers-card" aria-label="Parcourir la gamme Cognition">
+                        <div class="nvx-univers-card__icon" aria-hidden="true">🧠</div>
+                        <h3 class="nvx-univers-card__title">Cognition</h3>
+                        <p class="nvx-univers-card__desc">Oméga-3 DHA, Bacopa, Rhodiola pour mémoire, focus et clarté mentale.</p>
+                        <span class="nvx-univers-card__cta">Explorer →</span>
+                </a>
 
-		<a href="/boutique/?objectif=sport" class="nvx-univers-card" aria-label="Parcourir la gamme Sport">
-			<div class="nvx-univers-card__icon" aria-hidden="true">💪</div>
-			<h3 class="nvx-univers-card__title">Sport</h3>
-			<p class="nvx-univers-card__desc">Créatine, BCAA, Protéines, Bêta-Alanine pour vos performances.</p>
-			<span class="nvx-univers-card__cta">Explorer →</span>
-		</a>
+                <a href="/boutique/?objectif=sport" class="nvx-univers-card" aria-label="Parcourir la gamme Sport">
+                        <div class="nvx-univers-card__icon" aria-hidden="true">💪</div>
+                        <h3 class="nvx-univers-card__title">Sport</h3>
+                        <p class="nvx-univers-card__desc">Créatine, BCAA, Protéines, Bêta-Alanine pour vos performances.</p>
+                        <span class="nvx-univers-card__cta">Explorer →</span>
+                </a>
 
-		<a href="/boutique/?objectif=minceur" class="nvx-univers-card" aria-label="Parcourir la gamme Minceur">
-			<div class="nvx-univers-card__icon" aria-hidden="true">⚖</div>
-			<h3 class="nvx-univers-card__title">Minceur</h3>
-			<p class="nvx-univers-card__desc">Chromium, Garcinia, Thé Vert, CLA pour métabolisme et composition corporelle.</p>
-			<span class="nvx-univers-card__cta">Explorer →</span>
-		</a>
+                <a href="/boutique/?objectif=minceur" class="nvx-univers-card" aria-label="Parcourir la gamme Minceur">
+                        <div class="nvx-univers-card__icon" aria-hidden="true">⚖</div>
+                        <h3 class="nvx-univers-card__title">Minceur</h3>
+                        <p class="nvx-univers-card__desc">Chromium, Garcinia, Thé Vert, CLA pour métabolisme et composition corporelle.</p>
+                        <span class="nvx-univers-card__cta">Explorer →</span>
+                </a>
 
-	</div>
-	<!-- /wp:group -->
+        </div>
+        <!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 
@@ -638,77 +633,77 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <!-- wp:group {"align":"full","className":"nvx-lab-section","tagName":"section","style":{"spacing":{"padding":{"top":"clamp(4rem,8vw,6rem)","bottom":"clamp(4rem,8vw,6rem)"}}},"backgroundColor":"nvx-light","layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull nvx-lab-section has-nvx-light-background-color has-background" aria-label="Transparence laboratoire">
-	<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|20)"}}} -->
-	<div class="wp-block-group">
-		<!-- wp:heading {"textAlign":"center","level":2} -->
-		<h2 class="wp-block-heading has-text-align-center">Notre Laboratoire, Votre Garantie</h2>
-		<!-- /wp:heading -->
-		<!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
-		<p class="has-text-align-center has-nvx-gray-color has-text-color">De la recherche à votre porte, chaque étape est traçable et vérifiable.</p>
-		<!-- /wp:paragraph -->
-	</div>
-	<!-- /wp:group -->
+        <!-- wp:group {"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|20)"}}} -->
+        <div class="wp-block-group nvx-section-header">
+                <!-- wp:heading {"textAlign":"center","level":2} -->
+                <h2 class="wp-block-heading has-text-align-center">Notre Laboratoire, Votre Garantie</h2>
+                <!-- /wp:heading -->
+                <!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
+                <p class="has-text-align-center has-nvx-gray-color has-text-color">De la recherche à votre porte, chaque étape est traçable et vérifiable.</p>
+                <!-- /wp:paragraph -->
+        </div>
+        <!-- /wp:group -->
 
-	<!-- Timeline -->
-	<div class="nvx-lab-timeline" aria-label="Étapes de fabrication">
-		<div class="nvx-lab-timeline__item">
-			<div class="nvx-lab-timeline__marker">1</div>
-			<div class="nvx-lab-timeline__content">
-				<h3 class="nvx-lab-timeline__title">Recherche & Formulation</h3>
-				<p class="nvx-lab-timeline__desc">Nos chercheurs analysent 500+ études PubMed pour chaque formule. Doses cliniques validées, synergies optimisées.</p>
-			</div>
-		</div>
-		<div class="nvx-lab-timeline__item">
-			<div class="nvx-lab-timeline__marker">2</div>
-			<div class="nvx-lab-timeline__content">
-				<h3 class="nvx-lab-timeline__title">Sourcing des Matières Premières</h3>
-				<p class="nvx-lab-timeline__desc">Ingrédients certifiés, traçabilité complète depuis le fournisseur. Audits annuels de nos partenaires.</p>
-			</div>
-		</div>
-		<div class="nvx-lab-timeline__item">
-			<div class="nvx-lab-timeline__marker">3</div>
-			<div class="nvx-lab-timeline__content">
-				<h3 class="nvx-lab-timeline__title">Fabrication en Laboratoire GMP</h3>
-				<p class="nvx-lab-timeline__desc">Production en France dans des usines certifiées GMP. Contrôle qualité à chaque lot.</p>
-			</div>
-		</div>
-		<div class="nvx-lab-timeline__item">
-			<div class="nvx-lab-timeline__marker">4</div>
-			<div class="nvx-lab-timeline__content">
-				<h3 class="nvx-lab-timeline__title">Tests & Certificats d'Analyse (COA)</h3>
-				<p class="nvx-lab-timeline__desc">Chaque lot est testé par un laboratoire indépendant. <a href="/coa" class="nvx-lab-timeline__link">Voir les COA →</a></p>
-			</div>
-		</div>
-		<div class="nvx-lab-timeline__item">
-			<div class="nvx-lab-timeline__marker">5</div>
-			<div class="nvx-lab-timeline__content">
-				<h3 class="nvx-lab-timeline__title">Livraison chez vous</h3>
-				<p class="nvx-lab-timeline__desc">Emballage éco-responsable, livraison sécurisée avec suivi. Satisfaction garantie 30 jours.</p>
-			</div>
-		</div>
-	</div>
+        <!-- Timeline -->
+        <div class="nvx-lab-timeline" aria-label="Étapes de fabrication">
+                <div class="nvx-lab-timeline__item">
+                        <div class="nvx-lab-timeline__marker">1</div>
+                        <div class="nvx-lab-timeline__content">
+                                <h3 class="nvx-lab-timeline__title">Recherche & Formulation</h3>
+                                <p class="nvx-lab-timeline__desc">Nos chercheurs analysent 500+ études PubMed pour chaque formule. Doses cliniques validées, synergies optimisées.</p>
+                        </div>
+                </div>
+                <div class="nvx-lab-timeline__item">
+                        <div class="nvx-lab-timeline__marker">2</div>
+                        <div class="nvx-lab-timeline__content">
+                                <h3 class="nvx-lab-timeline__title">Sourcing des Matières Premières</h3>
+                                <p class="nvx-lab-timeline__desc">Ingrédients certifiés, traçabilité complète depuis le fournisseur. Audits annuels de nos partenaires.</p>
+                        </div>
+                </div>
+                <div class="nvx-lab-timeline__item">
+                        <div class="nvx-lab-timeline__marker">3</div>
+                        <div class="nvx-lab-timeline__content">
+                                <h3 class="nvx-lab-timeline__title">Fabrication en Laboratoire GMP</h3>
+                                <p class="nvx-lab-timeline__desc">Production en France dans des usines certifiées GMP. Contrôle qualité à chaque lot.</p>
+                        </div>
+                </div>
+                <div class="nvx-lab-timeline__item">
+                        <div class="nvx-lab-timeline__marker">4</div>
+                        <div class="nvx-lab-timeline__content">
+                                <h3 class="nvx-lab-timeline__title">Tests & Certificats d'Analyse (COA)</h3>
+                                <p class="nvx-lab-timeline__desc">Chaque lot est testé par un laboratoire indépendant. <a href="/coa" class="nvx-lab-timeline__link">Voir les COA →</a></p>
+                        </div>
+                </div>
+                <div class="nvx-lab-timeline__item">
+                        <div class="nvx-lab-timeline__marker">5</div>
+                        <div class="nvx-lab-timeline__content">
+                                <h3 class="nvx-lab-timeline__title">Livraison chez vous</h3>
+                                <p class="nvx-lab-timeline__desc">Emballage éco-responsable, livraison sécurisée avec suivi. Satisfaction garantie 30 jours.</p>
+                        </div>
+                </div>
+        </div>
 
-	<!-- Lab Photos Placeholder -->
-	<div class="nvx-lab-photos" aria-label="Photos de nos laboratoires">
-		<div class="nvx-lab-photo">
-			<div class="nvx-lab-photo__placeholder" aria-label="Laboratoire de recherche">
-				<span>🔬</span>
-				<p>Labo de Recherche</p>
-			</div>
-		</div>
-		<div class="nvx-lab-photo">
-			<div class="nvx-lab-photo__placeholder" aria-label="Ligne de production GMP">
-				<span>🏭</span>
-				<p>Ligne de Production GMP</p>
-			</div>
-		</div>
-		<div class="nvx-lab-photo">
-			<div class="nvx-lab-photo__placeholder" aria-label="Contrôle qualité">
-				<span>🧪</span>
-				<p>Contrôle Qualité</p>
-			</div>
-		</div>
-	</div>
+        <!-- Lab Photos Placeholder -->
+        <div class="nvx-lab-photos" aria-label="Photos de nos laboratoires">
+                <div class="nvx-lab-photo">
+                        <div class="nvx-lab-photo__placeholder" aria-label="Laboratoire de recherche">
+                                <span>🔬</span>
+                                <p>Labo de Recherche</p>
+                        </div>
+                </div>
+                <div class="nvx-lab-photo">
+                        <div class="nvx-lab-photo__placeholder" aria-label="Ligne de production GMP">
+                                <span>🏭</span>
+                                <p>Ligne de Production GMP</p>
+                        </div>
+                </div>
+                <div class="nvx-lab-photo">
+                        <div class="nvx-lab-photo__placeholder" aria-label="Contrôle qualité">
+                                <span>🧪</span>
+                                <p>Contrôle Qualité</p>
+                        </div>
+                </div>
+        </div>
 
 </section>
 <!-- /wp:group -->
@@ -720,51 +715,51 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <!-- wp:group {"align":"full","className":"nvx-blog-section","tagName":"section","style":{"spacing":{"padding":{"top":"clamp(4rem,8vw,6rem)","bottom":"clamp(4rem,8vw,6rem)"}}},"layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull nvx-blog-section" aria-label="Blog expert">
-	<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|20)"}}} -->
-	<div class="wp-block-group">
-		<!-- wp:heading {"textAlign":"center","level":2} -->
-		<h2 class="wp-block-heading has-text-align-center">Le Blog Expert</h2>
-		<!-- /wp:heading -->
-		<!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
-		<p class="has-text-align-center has-nvx-gray-color has-text-color">Recherche nutritionnelle décryptée par des professionnels de santé.</p>
-		<!-- /wp:paragraph -->
-	</div>
-	<!-- /wp:group -->
+        <!-- wp:group {"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|20)"}}} -->
+        <div class="wp-block-group nvx-section-header">
+                <!-- wp:heading {"textAlign":"center","level":2} -->
+                <h2 class="wp-block-heading has-text-align-center">Le Blog Expert</h2>
+                <!-- /wp:heading -->
+                <!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
+                <p class="has-text-align-center has-nvx-gray-color has-text-color">Recherche nutritionnelle décryptée par des professionnels de santé.</p>
+                <!-- /wp:paragraph -->
+        </div>
+        <!-- /wp:group -->
 
-	<!-- Blog Posts Grid -->
-	<!-- wp:query {"queryId":"nvx-blog-home","query":{"perPage":3,"postType":"post","order":"desc","orderBy":"date","inherit":false},"displayLayout":{"type":"flex","columns":3},"align":"wide"} -->
-	<div class="wp-block-query alignwide nvx-blog-grid">
-		<!-- wp:post-template {"className":"nvx-blog-card-wrapper"} -->
-		<article class="nvx-blog-card">
-			<!-- wp:post-featured-image {"size":"medium_large","link":"none","className":"nvx-blog-card__image"} /-->
-			<div class="nvx-blog-card__body">
-				<div class="nvx-blog-card__meta">
-					<span class="nvx-blog-card__category">Nutrition</span>
-					<span class="nvx-blog-card__reading-time" aria-label="Temps de lecture">5 min de lecture</span>
-				</div>
-				<!-- wp:post-title {"isLink":true,"className":"nvx-blog-card__title"} /-->
-				<!-- wp:post-excerpt {"className":"nvx-blog-card__excerpt"} /-->
-				<div class="nvx-blog-card__author">
-					<span class="nvx-blog-card__author-avatar" aria-hidden="true">👤</span>
-					<span class="nvx-blog-card__author-name">
-						<!-- wp:post-author {"className":"nvx-blog-card__author-link"} /-->
-					</span>
-					<span class="nvx-blog-card__author-cred" aria-label="Auteur certifié">✓ Certifié</span>
-				</div>
-			</div>
-		</article>
-		<!-- /wp:post-template -->
-	</div>
-	<!-- /wp:query -->
+        <!-- Blog Posts Grid -->
+        <!-- wp:query {"queryId":"nvx-blog-home","query":{"perPage":3,"postType":"post","order":"desc","orderBy":"date","inherit":false},"displayLayout":{"type":"flex","columns":3},"align":"wide"} -->
+        <div class="wp-block-query alignwide nvx-blog-grid">
+                <!-- wp:post-template {"className":"nvx-blog-card-wrapper"} -->
+                <article class="nvx-blog-card">
+                        <!-- wp:post-featured-image {"size":"medium_large","link":"none","className":"nvx-blog-card__image"} /-->
+                        <div class="nvx-blog-card__body">
+                                <div class="nvx-blog-card__meta">
+                                        <span class="nvx-blog-card__category">Nutrition</span>
+                                        <span class="nvx-blog-card__reading-time" aria-label="Temps de lecture">5 min de lecture</span>
+                                </div>
+                                <!-- wp:post-title {"isLink":true,"className":"nvx-blog-card__title"} /-->
+                                <!-- wp:post-excerpt {"className":"nvx-blog-card__excerpt"} /-->
+                                <div class="nvx-blog-card__author">
+                                        <span class="nvx-blog-card__author-avatar" aria-hidden="true">👤</span>
+                                        <span class="nvx-blog-card__author-name">
+                                                <!-- wp:post-author {"className":"nvx-blog-card__author-link"} /-->
+                                        </span>
+                                        <span class="nvx-blog-card__author-cred" aria-label="Auteur certifié">✓ Certifié</span>
+                                </div>
+                        </div>
+                </article>
+                <!-- /wp:post-template -->
+        </div>
+        <!-- /wp:query -->
 
-	<!-- Blog CTA -->
-	<!-- wp:group {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40)"}}} -->
-	<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40)">
-		<!-- wp:button {"className":"is-style-nvx-outline","textAlign":"center"} -->
-		<a class="wp-block-button__link is-style-nvx-outline" href="/blog">Tous les articles →</a>
-		<!-- /wp:button -->
-	</div>
-	<!-- /wp:group -->
+        <!-- Blog CTA -->
+        <!-- wp:group {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40)"}}} -->
+        <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40)">
+                <!-- wp:button {"className":"is-style-nvx-outline","textAlign":"center"} -->
+                <a class="wp-block-button__link is-style-nvx-outline" href="/blog">Tous les articles →</a>
+                <!-- /wp:button -->
+        </div>
+        <!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 
@@ -776,52 +771,52 @@
 <!-- wp:group {"align":"full","className":"nvx-newsletter-section","tagName":"section","layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull nvx-newsletter-section" aria-label="Inscription newsletter">
 
-	<!-- wp:group {"className":"nvx-newsletter__inner","style":{"spacing":{"padding":{"top":"clamp(3rem,6vw,5rem)","bottom":"clamp(3rem,6vw,5rem)","left":"clamp(1.5rem,4vw,3rem)","right":"clamp(1.5rem,4vw,3rem)"}}},"backgroundColor":"nvx-primary","textColor":"nvx-white","layout":{"type":"flex","orientation":"column","verticalAlignment":"center","justifyContent":"center"},"borderRadius":"20px"} -->
-	<div class="wp-block-group nvx-newsletter__inner has-nvx-primary-background-color has-background has-nvx-white-color has-text-color" style="border-radius:20px;padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);padding-left:clamp(1.5rem,4vw,3rem);padding-right:clamp(1.5rem,4vw,3rem)">
+        <!-- wp:group {"className":"nvx-newsletter__inner","style":{"spacing":{"padding":{"top":"clamp(3rem,6vw,5rem)","bottom":"clamp(3rem,6vw,5rem)","left":"clamp(1.5rem,4vw,3rem)","right":"clamp(1.5rem,4vw,3rem)"}}},"backgroundColor":"nvx-primary","textColor":"nvx-white","layout":{"type":"flex","orientation":"column","verticalAlignment":"center","justifyContent":"center"},"borderRadius":"20px"} -->
+        <div class="wp-block-group nvx-newsletter__inner has-nvx-primary-background-color has-background has-nvx-white-color has-text-color" style="border-radius:20px;padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);padding-left:clamp(1.5rem,4vw,3rem);padding-right:clamp(1.5rem,4vw,3rem)">
 
-		<!-- wp:heading {"textAlign":"center","level":2,"textColor":"nvx-white"} -->
-		<h2 class="wp-block-heading has-text-align-center has-nvx-white-color has-text-color">Votre Programme Nutritionnel Personnel — Gratuit</h2>
-		<!-- /wp:heading -->
+                <!-- wp:heading {"textAlign":"center","level":2,"textColor":"nvx-white"} -->
+                <h2 class="wp-block-heading has-text-align-center has-nvx-white-color has-text-color">Votre Programme Nutritionnel Personnel — Gratuit</h2>
+                <!-- /wp:heading -->
 
-		<!-- wp:paragraph {"align":"center","textColor":"nvx-white"} -->
-		<p class="has-text-align-center has-nvx-white-color has-text-color">
-			Recevez un plan de compléments personnalisé généré par IA, adapté à votre profil.
-			Plus des articles exclusifs, offres privées et nouveautés.
-		</p>
-		<!-- /wp:paragraph -->
+                <!-- wp:paragraph {"align":"center","textColor":"nvx-white"} -->
+                <p class="has-text-align-center has-nvx-white-color has-text-color">
+                        Recevez un plan de compléments personnalisé généré par IA, adapté à votre profil.
+                        Plus des articles exclusifs, offres privées et nouveautés.
+                </p>
+                <!-- /wp:paragraph -->
 
-		<!-- Spacer -->
-		<!-- wp:spacer {"height":"var:preset|spacing|30"} -->
-		<div style="height:var(--wp--preset--spacing--30)" aria-hidden="true" class="wp-block-spacer"></div>
-		<!-- /wp:spacer -->
+                <!-- Spacer -->
+                <!-- wp:spacer {"height":"var:preset|spacing|30"} -->
+                <div style="height:var(--wp--preset--spacing--30)" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
 
-		<!-- Newsletter Form -->
-		<form class="nvx-newsletter__form" id="nvx-newsletter-form" aria-label="Inscription newsletter">
-			<div class="nvx-newsletter__form-row">
-				<label for="nvx-nl-email" class="screen-reader-text">Votre adresse e-mail</label>
-				<input type="email" id="nvx-nl-email" name="email"
-					   placeholder="votre@email.com"
-					   required autocomplete="email"
-					   class="nvx-newsletter__input">
-				<button type="submit" class="nvx-newsletter__btn nvx-btn-animated">
-					<span class="nvx-btn-animated__text">Obtenir mon programme IA</span>
-					<span class="nvx-btn-animated__icon" aria-hidden="true">✨</span>
-				</button>
-			</div>
-			<p class="nvx-newsletter__disclaimer">
-				Aucun spam. Désinscription en 1 clic. Vos données sont protégées conformément au RGPD.
-			</p>
-		</form>
+                <!-- Newsletter Form -->
+                <form class="nvx-newsletter__form" id="nvx-newsletter-form" aria-label="Inscription newsletter">
+                        <div class="nvx-newsletter__form-row">
+                                <label for="nvx-nl-email" class="screen-reader-text">Votre adresse e-mail</label>
+                                <input type="email" id="nvx-nl-email" name="email"
+                                           placeholder="votre@email.com"
+                                           required autocomplete="email"
+                                           class="nvx-newsletter__input">
+                                <button type="submit" class="nvx-newsletter__btn nvx-btn-animated">
+                                        <span class="nvx-btn-animated__text">Obtenir mon programme IA</span>
+                                        <span class="nvx-btn-animated__icon" aria-hidden="true">✨</span>
+                                </button>
+                        </div>
+                        <p class="nvx-newsletter__disclaimer">
+                                Aucun spam. Désinscription en 1 clic. Vos données sont protégées conformément au RGPD.
+                        </p>
+                </form>
 
-		<!-- Trust indicators -->
-		<div class="nvx-newsletter__trust">
-			<span>🔒 Données RGPD</span>
-			<span>📧 +5 000 abonnés</span>
-			<span>⭐ 4.9/5 satisfaction</span>
-		</div>
+                <!-- Trust indicators -->
+                <div class="nvx-newsletter__trust">
+                        <span>🔒 Données RGPD</span>
+                        <span>📧 +5 000 abonnés</span>
+                        <span>⭐ 4.9/5 satisfaction</span>
+                </div>
 
-	</div>
-	<!-- /wp:group -->
+        </div>
+        <!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 

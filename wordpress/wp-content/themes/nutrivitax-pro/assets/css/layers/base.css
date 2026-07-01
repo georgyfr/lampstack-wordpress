@@ -1,0 +1,365 @@
+/**
+ * NutriVitaX Pro — Base Styles
+ * CSS Layer: nvx-base
+ *
+ * Foundation layer: layer ordering, reset, utilities, scroll animations, dark mode.
+ * Loaded BEFORE header.css and homepage.css via setup.php.
+ *
+ * @package NutriVitaX_Pro
+ * @since   0.3.0
+ */
+
+/* ─── Layer Ordering ─────────────────────────────────────────────────── */
+@layer nvx-base, nvx-header, nvx-homepage;
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BASE LAYER: Reset, Utilities, Animations
+   ═══════════════════════════════════════════════════════════════════════ */
+@layer nvx-base {
+
+/* 1. RESET */
+*, *::before, *::after {
+        box-sizing: border-box;
+}
+
+html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+        scrollbar-gutter: stable;
+}
+
+body {
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+}
+
+img, video, svg {
+        max-width: 100%;
+        height: auto;
+        display: block;
+}
+
+a {
+        color: inherit;
+        text-decoration: none;
+}
+
+ul, ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+}
+
+button, input, select, textarea {
+        font: inherit;
+        color: inherit;
+}
+
+button {
+        cursor: pointer;
+        border: none;
+        background: none;
+}
+
+fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+}
+
+/* 2. UTILITY: Screen Reader Only */
+.screen-reader-text,
+.sr-only {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        clip-path: inset(50%) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+}
+
+.screen-reader-text:focus,
+.sr-only:focus {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 0.5rem 1rem !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        clip: auto !important;
+        clip-path: none !important;
+        white-space: normal !important;
+        background: var(--wp--preset--color--nvx-primary);
+        color: #fff;
+        z-index: 100000;
+        border-radius: 0 0 8px 8px;
+}
+
+/* 3. UTILITY: Body scroll lock (mobile menu) */
+body.nvx-no-scroll {
+        overflow: hidden !important;
+        position: fixed;
+        inset: 0;
+        width: 100%;
+}
+
+/* 4. UTILITY: Skip Link */
+.nvx-skip-link {
+        position: absolute !important;
+        top: -100%;
+        left: 1rem;
+        z-index: 100001;
+        padding: 0.75rem 1.5rem;
+        background: var(--wp--preset--color--nvx-primary);
+        color: #fff;
+        font-weight: 600;
+        border-radius: 0 0 8px 8px;
+        transition: top 0.2s ease;
+}
+
+.nvx-skip-link:focus {
+        top: 0;
+}
+
+/* 5. UTILITY: Heading on dark background */
+.nvx-heading--on-dark {
+        color: #FFFFFF !important;
+}
+
+/* 6. SCROLL ANIMATIONS (.nvx-in-view) */
+.nvx-trust-bar,
+.nvx-quiz-section,
+.nvx-featured-section,
+.nvx-social-proof,
+.nvx-univers,
+.nvx-lab-section,
+.nvx-blog-section,
+.nvx-newsletter-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nvx-trust-bar.nvx-in-view,
+.nvx-quiz-section.nvx-in-view,
+.nvx-featured-section.nvx-in-view,
+.nvx-social-proof.nvx-in-view,
+.nvx-univers.nvx-in-view,
+.nvx-lab-section.nvx-in-view,
+.nvx-blog-section.nvx-in-view,
+.nvx-newsletter-section.nvx-in-view {
+        opacity: 1;
+        transform: translateY(0);
+}
+
+/* Staggered children */
+.nvx-trust-bar.nvx-in-view .nvx-trust-badge,
+.nvx-trust-bar.nvx-in-view .nvx-trust-item,
+.nvx-univers.nvx-in-view .nvx-univers-card,
+.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item,
+.nvx-featured-section.nvx-in-view .nvx-product-card,
+.nvx-social-proof.nvx-in-view .nvx-testimonial,
+.nvx-blog-section.nvx-in-view .nvx-blog-card {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: nvx-fade-in-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.nvx-trust-bar.nvx-in-view .nvx-trust-badge:nth-child(1),
+.nvx-trust-bar.nvx-in-view .nvx-trust-item:nth-child(1),
+.nvx-univers.nvx-in-view .nvx-univers-card:nth-child(1),
+.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item:nth-child(1),
+.nvx-featured-section.nvx-in-view .nvx-product-card:nth-child(1),
+.nvx-social-proof.nvx-in-view .nvx-testimonial:nth-child(1),
+.nvx-blog-section.nvx-in-view .nvx-blog-card:nth-child(1) {
+        animation-delay: 0.1s;
+}
+
+.nvx-trust-bar.nvx-in-view .nvx-trust-badge:nth-child(2),
+.nvx-trust-bar.nvx-in-view .nvx-trust-item:nth-child(2),
+.nvx-univers.nvx-in-view .nvx-univers-card:nth-child(2),
+.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item:nth-child(2),
+.nvx-featured-section.nvx-in-view .nvx-product-card:nth-child(2),
+.nvx-social-proof.nvx-in-view .nvx-testimonial:nth-child(2),
+.nvx-blog-section.nvx-in-view .nvx-blog-card:nth-child(2) {
+        animation-delay: 0.2s;
+}
+
+.nvx-trust-bar.nvx-in-view .nvx-trust-badge:nth-child(3),
+.nvx-trust-bar.nvx-in-view .nvx-trust-item:nth-child(3),
+.nvx-univers.nvx-in-view .nvx-univers-card:nth-child(3),
+.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item:nth-child(3),
+.nvx-featured-section.nvx-in-view .nvx-product-card:nth-child(3),
+.nvx-social-proof.nvx-in-view .nvx-testimonial:nth-child(3),
+.nvx-blog-section.nvx-in-view .nvx-blog-card:nth-child(3) {
+        animation-delay: 0.3s;
+}
+
+.nvx-univers.nvx-in-view .nvx-univers-card:nth-child(4) { animation-delay: 0.4s; }
+.nvx-univers.nvx-in-view .nvx-univers-card:nth-child(5) { animation-delay: 0.5s; }
+.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item:nth-child(4) { animation-delay: 0.4s; }
+.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes nvx-fade-in-up {
+        from {
+                opacity: 0;
+                transform: translateY(20px);
+        }
+        to {
+                opacity: 1;
+                transform: translateY(0);
+        }
+}
+
+/* 7. KEYBOARD NAVIGATION */
+body:not(.nvx-keyboard-nav) *:focus {
+        outline: none;
+}
+
+body.nvx-keyboard-nav *:focus-visible {
+        outline: 2px solid var(--wp--preset--color--nvx-secondary);
+        outline-offset: 2px;
+}
+
+/* 8. MISC UTILITIES */
+img[loading="lazy"] {
+        transition: opacity 0.3s ease;
+}
+
+::selection {
+        background: rgba(46, 204, 113, 0.3);
+        color: var(--wp--preset--color--nvx-dark);
+}
+
+} /* @layer nvx-base */
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DARK MODE — UNLAYERED (highest priority, overrides all layers)
+   Applied when <html> has class .nvx-dark
+   ═══════════════════════════════════════════════════════════════════════ */
+
+html.nvx-dark {
+        --nvx-header-bg: #0D1B2A;
+        --nvx-header-border: #1B2838;
+        --nvx-header-text: #E0E6ED;
+        --nvx-header-text-muted: #8899AA;
+        --nvx-topbar-bg: #0A1520;
+        --nvx-topbar-text: #8899AA;
+        color-scheme: dark;
+}
+
+html.nvx-dark body {
+        background: #0D1B2A;
+        color: #E0E6ED;
+}
+
+html.nvx-dark .nvx-trust-bar {
+        background: #0F2030 !important;
+        border-bottom-color: rgba(46, 204, 113, 0.15);
+}
+
+html.nvx-dark .nvx-lab-section {
+        background: #0F2030 !important;
+}
+
+html.nvx-dark .nvx-univers-card {
+        background: #152238;
+        border-color: #1B3050;
+}
+
+html.nvx-dark .nvx-univers-card__title {
+        color: #E0E6ED;
+}
+
+html.nvx-dark .nvx-univers-card__desc {
+        color: #8899AA;
+}
+
+html.nvx-dark .nvx-quiz-section {
+        background: #0D1B2A;
+}
+
+html.nvx-dark .nvx-featured-section {
+        background: #0D1B2A;
+}
+
+html.nvx-dark .nvx-blog-section {
+        background: #0D1B2A;
+}
+
+html.nvx-dark .nvx-blog-card {
+        background: #152238;
+        border-color: #1B3050;
+}
+
+html.nvx-dark .nvx-blog-card__title {
+        color: #E0E6ED;
+}
+
+html.nvx-dark .nvx-blog-card__title a {
+        color: #E0E6ED;
+}
+
+html.nvx-dark .nvx-blog-card__title a:hover {
+        color: var(--wp--preset--color--nvx-secondary);
+}
+
+html.nvx-dark .nvx-blog-card__author-name {
+        color: #8899AA;
+}
+
+html.nvx-dark .nvx-quiz-mini__option-card {
+        background: #152238;
+        border-color: #1B3050;
+        color: #E0E6ED;
+}
+
+html.nvx-dark .nvx-quiz-mini__legend {
+        color: #E0E6ED;
+}
+
+html.nvx-dark .nvx-mega-footer {
+        background: #0A1520;
+}
+
+html.nvx-dark .nvx-mega-footer__bottom {
+        background: #060E18;
+}
+
+html.nvx-dark .nvx-lab-timeline::before {
+        background: #1B3050;
+}
+
+html.nvx-dark .nvx-lab-timeline__marker {
+        background: var(--wp--preset--color--nvx-primary);
+        color: #fff;
+}
+
+html.nvx-dark .nvx-mega-footer__copy,
+html.nvx-dark .nvx-mega-footer__compat {
+        color: #8899AA;
+}
+
+html.nvx-dark .nvx-footer-links a {
+        color: #8899AA;
+}
+
+html.nvx-dark .nvx-footer-links a:hover {
+        color: var(--wp--preset--color--nvx-secondary);
+}
+
+@media (max-width: 767px) {
+        html.nvx-dark .nvx-quiz-mini__step {
+                background: #0D1B2A;
+        }
+}
