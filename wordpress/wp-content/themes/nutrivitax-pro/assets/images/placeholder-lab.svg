@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-  <rect width="400" height="300" fill="#F0F9F4"/>
-  <rect x="15" y="15" width="370" height="270" rx="12" fill="none" stroke="#2ECC71" stroke-width="2" stroke-dasharray="8 4"/>
-  <text x="200" y="140" font-family="system-ui, sans-serif" font-size="32" fill="#1A6B3A" text-anchor="middle" font-weight="700">LABO</text>
-  <text x="200" y="170" font-family="system-ui, sans-serif" font-size="14" fill="#6B7280" text-anchor="middle">Photo laboratoire</text>
-  <text x="200" y="195" font-family="system-ui, sans-serif" font-size="12" fill="#9CA3AF" text-anchor="middle">400 × 300</text>
-</svg>

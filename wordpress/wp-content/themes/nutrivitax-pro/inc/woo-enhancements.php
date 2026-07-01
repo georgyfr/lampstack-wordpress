@@ -1,63 +1,34 @@
 <?php
-/**
- * NutriVitaX Pro — Hooks WooCommerce de base (Phase 1)
- *
- * Ce fichier contient uniquement les hooks et filtres WooCommerce
- * nécessaires au fonctionnement de base du thème. Il est chargé
- * conditionnellement quand WooCommerce est actif.
- *
- * @package NutriVitaX_Pro
- * @since   0.1.0
- */
+defined('ABSPATH') || exit;
+// Guard: only run if WooCommerce is active
+if (!class_exists('WooCommerce')) return;
 
-defined( 'ABSPATH' ) || exit;
+// 1. Remove default WooCommerce wrappers (FSE theme handles layout)
+remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 
-/**
- * Enregistre les supports WooCommerce pour le thème.
- *
- * @since  0.1.0
- */
-function nvx_woo_setup(): void {
-	add_theme_support( 'woocommerce', array(
-		'thumbnail_image_width' => 400,
-		'gallery_thumbnail_image_width' => 150,
-		'single_image_width'    => 800,
-		'product_grid'           => array(
-			'default_rows'    => 3,
-			'min_rows'        => 1,
-			'max_rows'        => 8,
-			'default_columns' => 3,
-			'min_columns'     => 1,
-			'max_columns'     => 6,
-		),
-	) );
+// 2. Change products per row
+add_filter('loop_shop_columns', function() { return 3; });
+add_filter('loop_shop_per_page', function() { return 12; });
 
-	add_theme_support( 'wc-product-gallery-zoom' );
-	add_theme_support( 'wc-product-gallery-lightbox' );
-	add_theme_support( 'wc-product-gallery-slider' );
-}
-add_action( 'after_setup_theme', 'nvx_woo_setup', 10 );
+// 3. Customize product badge "En stock" / "Rupture"
+add_filter('woocommerce_get_stock_html', function($html, $product) {
+    if ($product->is_in_stock()) {
+        return '<span class="nvx-stock-badge nvx-stock-badge--in">En stock</span>';
+    }
+    return '<span class="nvx-stock-badge nvx-stock-badge--out">Rupture</span>';
+}, 10, 2);
 
+// 4. Add custom body class for product pages
+add_filter('body_class', function($classes) {
+    if (is_product()) $classes[] = 'nvx-single-product';
+    if (is_shop() || is_product_category()) $classes[] = 'nvx-shop';
+    return $classes;
+});
 
-/**
- * Modifie le wrapper HTML WooCommerce pour correspondre au design system.
- * Ces wrappers ne sont actifs QUE si NutriVitaX Pro est le thème actif
- * (garanti par le guard dans functions.php).
- *
- * @since  0.1.0
- */
-function nvx_woo_wrapper_start(): string {
-	return '<main id="nvx-woo-content" class="nvx-woo-content" role="main">';
-}
+// 5. Disable default WooCommerce styles (theme handles them)
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
-function nvx_woo_wrapper_end(): string {
-	return '</main>';
-}
-
-function nvx_woo_wrapper_before(): void {
-	echo '<div class="nvx-woo-container">';
-}
-
-function nvx_woo_wrapper_after(): void {
-	echo '</div>';
-}
+// 6. Add "Compléments alimentaires" as default product category on activation
+// (no-op if already exists)

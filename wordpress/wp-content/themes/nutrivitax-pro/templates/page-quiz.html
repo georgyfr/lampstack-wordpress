@@ -1,23 +1,359 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
-<!-- wp:group {"align":"full","layout":{"type":"constrained"}} -->
-<main class="wp-block-group alignfull">
-	<!-- wp:heading {"textAlign":"center","level":1} -->
-	<h1 class="wp-block-heading has-text-align-center">Quiz Santé NutriVitaX</h1>
-	<!-- /wp:heading -->
-	<!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
-	<p class="has-text-align-center has-nvx-gray-color has-text-color">Découvrez les compléments adaptés à vos objectifs.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:spacer {"height":"var:preset|spacing|40"} -->
-	<div style="height:var(--wp--preset--spacing--40)" aria-hidden="true" class="wp-block-spacer"></div>
-	<!-- /wp:spacer -->
-	<!-- wp:pattern {"slug":"nvx-quiz-container"} /-->
-	<!-- wp:group {"align":"center","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group aligncenter">
-		<!-- wp:paragraph -->
-		<p><em>Le formulaire de quiz sera ajouté ici en Phase 1.</em></p>
-		<!-- /wp:paragraph -->
-	</div>
-	<!-- /wp:group -->
+
+<main id="nvx-woo-content" class="nvx-main-content" role="main">
+
+        <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"3rem","bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+        <div class="wp-block-group alignfull nvx-quiz-page" style="padding-top:3rem;padding-bottom:4rem;">
+                <div style="max-width:780px;margin:0 auto;padding:0 1.5rem;">
+
+                        <!-- Quiz Header -->
+                        <div style="text-align:center;margin-bottom:2.5rem;">
+                                <h1 style="font-size:2.5rem;font-weight:800;color:#12243A;margin-bottom:0.75rem;">Quiz Santé Personnalisé</h1>
+                                <p style="font-size:1.1rem;color:#5a6a7a;max-width:560px;margin:0 auto;line-height:1.6;">Répondez à 8 questions et recevez une recommandation de stack nutritionnelle adaptée à votre profil, validée par notre équipe de professionnels de santé.</p>
+                                <p style="font-size:0.85rem;color:#8a94a6;margin-top:0.5rem;">⏱ Durée estimée : 2 minutes</p>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="nvx-quiz-progress" style="margin-bottom:2.5rem;">
+                                <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+                                        <span style="font-size:0.85rem;font-weight:600;color:#12243A;">Question <span id="nvx-current-step">1</span> / 8</span>
+                                        <span id="nvx-progress-pct" style="font-size:0.85rem;font-weight:600;color:#1A6B3A;">12%</span>
+                                </div>
+                                <div style="width:100%;height:8px;background:#e2e8f0;border-radius:8px;overflow:hidden;">
+                                        <div id="nvx-progress-bar" style="width:12.5%;height:100%;background:linear-gradient(90deg,#1A6B3A,#2ECC71);border-radius:8px;transition:width 0.4s ease;"></div>
+                                </div>
+                        </div>
+
+                        <!-- Quiz Form -->
+                        <form id="nvx-quiz-form" class="nvx-quiz-form" style="background:#fff;border-radius:16px;border:1px solid #e2e8f0;padding:2.5rem;box-shadow:0 4px 24px rgba(18,36,58,0.06);">
+
+                                <!-- Question 1: Objectif principal -->
+                                <div class="nvx-quiz-step nvx-quiz-step-active" data-step="1">
+                                        <h2 style="font-size:1.35rem;font-weight:700;color:#12243A;margin-bottom:1.5rem;">1. Quel est votre objectif principal ?</h2>
+                                        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;">
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;transition:border-color 0.2s,background 0.2s;">
+                                                        <input type="radio" name="q_objectif" value="energie" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <div>
+                                                                <span style="font-weight:600;color:#12243A;display:block;">⚡ Énergie</span>
+                                                                <span style="font-size:0.85rem;color:#8a94a6;">Combattre la fatigue</span>
+                                                        </div>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;transition:border-color 0.2s,background 0.2s;">
+                                                        <input type="radio" name="q_objectif" value="immunite" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <div>
+                                                                <span style="font-weight:600;color:#12243A;display:block;">🛡️ Immunité</span>
+                                                                <span style="font-size:0.85rem;color:#8a94a6;">Renforcer les défenses</span>
+                                                        </div>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;transition:border-color 0.2s,background 0.2s;">
+                                                        <input type="radio" name="q_objectif" value="cognition" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <div>
+                                                                <span style="font-weight:600;color:#12243A;display:block;">🧠 Cognition</span>
+                                                                <span style="font-size:0.85rem;color:#8a94a6;">Mémoire &amp; concentration</span>
+                                                        </div>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;transition:border-color 0.2s,background 0.2s;">
+                                                        <input type="radio" name="q_objectif" value="sport" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <div>
+                                                                <span style="font-weight:600;color:#12243A;display:block;">🏋️ Sport</span>
+                                                                <span style="font-size:0.85rem;color:#8a94a6;">Performance &amp; récupération</span>
+                                                        </div>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;transition:border-color 0.2s,background 0.2s;">
+                                                        <input type="radio" name="q_objectif" value="minceur" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <div>
+                                                                <span style="font-weight:600;color:#12243A;display:block;">🔥 Minceur</span>
+                                                                <span style="font-size:0.85rem;color:#8a94a6;">Métabolisme &amp; composition</span>
+                                                        </div>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;transition:border-color 0.2s,background 0.2s;">
+                                                        <input type="radio" name="q_objectif" value="sommeil" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <div>
+                                                                <span style="font-weight:600;color:#12243A;display:block;">😴 Sommeil</span>
+                                                                <span style="font-size:0.85rem;color:#8a94a6;">Qualité de repos</span>
+                                                        </div>
+                                                </label>
+                                        </div>
+                                </div>
+
+                                <!-- Question 2: Âge -->
+                                <div class="nvx-quiz-step" data-step="2" style="display:none;">
+                                        <h2 style="font-size:1.35rem;font-weight:700;color:#12243A;margin-bottom:1.5rem;">2. Quel est votre âge ?</h2>
+                                        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;">
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_age" value="18-25" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:600;color:#12243A;">18 – 25 ans</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_age" value="26-35" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:600;color:#12243A;">26 – 35 ans</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_age" value="36-50" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:600;color:#12243A;">36 – 50 ans</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_age" value="50+" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:600;color:#12243A;">50 ans et plus</span>
+                                                </label>
+                                        </div>
+                                </div>
+
+                                <!-- Question 3: Sexe -->
+                                <div class="nvx-quiz-step" data-step="3" style="display:none;">
+                                        <h2 style="font-size:1.35rem;font-weight:700;color:#12243A;margin-bottom:1.5rem;">3. Quel est votre sexe ?</h2>
+                                        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+                                                <label class="nvx-quiz-option" style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;text-align:center;">
+                                                        <input type="radio" name="q_sexe" value="homme" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:600;color:#12243A;font-size:1.1rem;">👨 Homme</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;text-align:center;">
+                                                        <input type="radio" name="q_sexe" value="femme" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:600;color:#12243A;font-size:1.1rem;">👩 Femme</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;text-align:center;">
+                                                        <input type="radio" name="q_sexe" value="autre" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:600;color:#12243A;font-size:1.1rem;">🏳️ Autre / Préfère ne pas dire</span>
+                                                </label>
+                                        </div>
+                                </div>
+
+                                <!-- Question 4: Allergies/Régime -->
+                                <div class="nvx-quiz-step" data-step="4" style="display:none;">
+                                        <h2 style="font-size:1.35rem;font-weight:700;color:#12243A;margin-bottom:0.5rem;">4. Avez-vous des allergies ou un régime particulier ?</h2>
+                                        <p style="font-size:0.9rem;color:#8a94a6;margin-bottom:1.5rem;">Sélectionnez tous les éléments qui s'appliquent.</p>
+                                        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;">
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_allergies[]" value="gluten" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Sans gluten</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_allergies[]" value="lactose" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Sans lactose</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_allergies[]" value="vegetarien" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Végétarien</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_allergies[]" value="vegan" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Végan</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_allergies[]" value="poisson" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Allergie poisson/crustacés</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_allergies[]" value="aucune" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Aucune restriction</span>
+                                                </label>
+                                        </div>
+                                </div>
+
+                                <!-- Question 5: Niveau d'activité -->
+                                <div class="nvx-quiz-step" data-step="5" style="display:none;">
+                                        <h2 style="font-size:1.35rem;font-weight:700;color:#12243A;margin-bottom:1.5rem;">5. Quel est votre niveau d'activité physique ?</h2>
+                                        <div style="display:grid;gap:1rem;">
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_activite" value="sedentaire" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <div>
+                                                                <span style="font-weight:600;color:#12243A;display:block;">🪑 Sédentaire</span>
+                                                                <span style="font-size:0.85rem;color:#8a94a6;">Peu ou pas d'activité physique</span>
+                                                        </div>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_activite" value="modere" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <div>
+                                                                <span style="font-weight:600;color:#12243A;display:block;">🚶 Modéré</span>
+                                                                <span style="font-size:0.85rem;color:#8a94a6;">1 à 3 séances d'exercice par semaine</span>
+                                                        </div>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_activite" value="actif" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <div>
+                                                                <span style="font-weight:600;color:#12243A;display:block;">🏃 Actif</span>
+                                                                <span style="font-size:0.85rem;color:#8a94a6;">4 à 6 séances d'exercice par semaine</span>
+                                                        </div>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_activite" value="athlete" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <div>
+                                                                <span style="font-weight:600;color:#12243A;display:block;">🏆 Athlète</span>
+                                                                <span style="font-size:0.85rem;color:#8a94a6;">Entraînement intensif quotidien</span>
+                                                        </div>
+                                                </label>
+                                        </div>
+                                </div>
+
+                                <!-- Question 6: Compléments actuels -->
+                                <div class="nvx-quiz-step" data-step="6" style="display:none;">
+                                        <h2 style="font-size:1.35rem;font-weight:700;color:#12243A;margin-bottom:0.5rem;">6. Prenez-vous actuellement des compléments alimentaires ?</h2>
+                                        <p style="font-size:0.9rem;color:#8a94a6;margin-bottom:1.5rem;">Cela nous aide à éviter les redondances.</p>
+                                        <div style="display:grid;gap:1rem;">
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_complements" value="aucun" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:600;color:#12243A;">Non, c'est ma première fois</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_complements" value="multivitamines" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:600;color:#12243A;">Multivitamines basiques</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_complements" value="specifiques" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:600;color:#12243A;">Compléments ciblés (vitamine D, oméga-3, etc.)</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="radio" name="q_complements" value="stack" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:600;color:#12243A;">Un stack complet / programme avancé</span>
+                                                </label>
+                                        </div>
+                                </div>
+
+                                <!-- Question 7: Budget -->
+                                <div class="nvx-quiz-step" data-step="7" style="display:none;">
+                                        <h2 style="font-size:1.35rem;font-weight:700;color:#12243A;margin-bottom:0.5rem;">7. Quel est votre budget mensuel pour les compléments ?</h2>
+                                        <p style="font-size:0.9rem;color:#8a94a6;margin-bottom:1.5rem;">Nous adapterons nos recommandations en conséquence.</p>
+                                        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;">
+                                                <label class="nvx-quiz-option" style="display:flex;flex-direction:column;align-items:center;gap:0.35rem;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;text-align:center;">
+                                                        <input type="radio" name="q_budget" value="20-30" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:700;color:#12243A;font-size:1.1rem;">20 – 30 €</span>
+                                                        <span style="font-size:0.8rem;color:#8a94a6;">Essentiel</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;flex-direction:column;align-items:center;gap:0.35rem;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;text-align:center;">
+                                                        <input type="radio" name="q_budget" value="30-50" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:700;color:#12243A;font-size:1.1rem;">30 – 50 €</span>
+                                                        <span style="font-size:0.8rem;color:#8a94a6;">Équilibré</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;flex-direction:column;align-items:center;gap:0.35rem;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;text-align:center;">
+                                                        <input type="radio" name="q_budget" value="50-80" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:700;color:#12243A;font-size:1.1rem;">50 – 80 €</span>
+                                                        <span style="font-size:0.8rem;color:#8a94a6;">Avancé</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;flex-direction:column;align-items:center;gap:0.35rem;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;text-align:center;">
+                                                        <input type="radio" name="q_budget" value="80+" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:700;color:#12243A;font-size:1.1rem;">80 € et plus</span>
+                                                        <span style="font-size:0.8rem;color:#8a94a6;">Premium</span>
+                                                </label>
+                                        </div>
+                                </div>
+
+                                <!-- Question 8: Préoccupations de santé -->
+                                <div class="nvx-quiz-step" data-step="8" style="display:none;">
+                                        <h2 style="font-size:1.35rem;font-weight:700;color:#12243A;margin-bottom:0.5rem;">8. Quelles sont vos préoccupations de santé ?</h2>
+                                        <p style="font-size:0.9rem;color:#8a94a6;margin-bottom:1.5rem;">Sélectionnez tous les éléments qui s'appliquent.</p>
+                                        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;">
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_preoccupations[]" value="stress" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Stress &amp; anxiété</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_preoccupations[]" value="digestion" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Digestion</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_preoccupations[]" value="articulations" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Articulations</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_preoccupations[]" value="peau" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Peau &amp; cheveux</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_preoccupations[]" value="sommeil" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Qualité du sommeil</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_preoccupations[]" value="cardio" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Santé cardiovasculaire</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_preoccupations[]" value="immunite" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Défenses immunitaires</span>
+                                                </label>
+                                                <label class="nvx-quiz-option" style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;">
+                                                        <input type="checkbox" name="q_preoccupations[]" value="aucune" style="accent-color:#1A6B3A;width:18px;height:18px;" />
+                                                        <span style="font-weight:500;color:#12243A;">Aucune préoccupation particulière</span>
+                                                </label>
+                                        </div>
+                                </div>
+
+                                <!-- Navigation Buttons -->
+                                <div class="nvx-quiz-nav" style="display:flex;justify-content:space-between;margin-top:2rem;gap:1rem;">
+                                        <button type="button" id="nvx-prev-btn" class="nvx-btn-prev" style="padding:0.8rem 2rem;background:transparent;color:#5a6a7a;border:2px solid #e2e8f0;border-radius:10px;font-size:0.95rem;font-weight:600;cursor:pointer;display:none;transition:border-color 0.3s;">
+                                                ← Précédent
+                                        </button>
+                                        <button type="button" id="nvx-next-btn" class="nvx-btn-next" style="padding:0.8rem 2.5rem;background:#1A6B3A;color:#fff;border:none;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;margin-left:auto;transition:background 0.3s;">
+                                                Suivant →
+                                        </button>
+                                        <button type="submit" id="nvx-submit-btn" class="nvx-btn-submit" style="padding:0.8rem 2.5rem;background:#F4A900;color:#12243A;border:none;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;margin-left:auto;display:none;transition:background 0.3s;">
+                                                Voir mes résultats 🎯
+                                        </button>
+                                </div>
+
+                        </form>
+
+                        <!-- Results Section (hidden initially) -->
+                        <div id="nvx-quiz-results" class="nvx-quiz-results" style="display:none;margin-top:3rem;">
+                                <div style="text-align:center;margin-bottom:2rem;">
+                                        <div style="font-size:3rem;margin-bottom:0.5rem;">🎯</div>
+                                        <h2 style="font-size:2rem;font-weight:800;color:#12243A;margin-bottom:0.5rem;">Votre Stack Personnalisée</h2>
+                                        <p style="font-size:1rem;color:#5a6a7a;">Basée sur vos réponses, voici la combinaison optimale pour vous.</p>
+                                </div>
+
+                                <div style="display:grid;gap:1.25rem;margin-bottom:2rem;">
+
+                                        <!-- Product 1 -->
+                                        <div class="nvx-result-product" style="display:flex;gap:1.25rem;padding:1.25rem;background:#F0F9F4;border-radius:12px;border:2px solid #1A6B3A;align-items:center;">
+                                                <div style="width:80px;height:80px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:#8a94a6;flex-shrink:0;">Image</div>
+                                                <div style="flex:1;">
+                                                        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;color:#1A6B3A;font-weight:700;">Base recommandée</span>
+                                                        <h3 style="font-size:1.1rem;font-weight:700;color:#12243A;margin:0.15rem 0;">Vitamine D3 4000 UI</h3>
+                                                        <p style="font-size:0.85rem;color:#5a6a7a;margin-bottom:0.35rem;">Support immunitaire et osseux, dose adaptée à votre profil.</p>
+                                                        <span style="font-weight:800;color:#1A6B3A;">14,90 €</span>
+                                                </div>
+                                                <a href="#" style="padding:0.6rem 1.25rem;background:#1A6B3A;color:#fff;border-radius:8px;font-size:0.85rem;font-weight:700;text-decoration:none;white-space:nowrap;">Ajouter</a>
+                                        </div>
+
+                                        <!-- Product 2 -->
+                                        <div class="nvx-result-product" style="display:flex;gap:1.25rem;padding:1.25rem;background:#fff;border-radius:12px;border:1px solid #e2e8f0;align-items:center;">
+                                                <div style="width:80px;height:80px;border-radius:8px;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:#8a94a6;flex-shrink:0;">Image</div>
+                                                <div style="flex:1;">
+                                                        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;color:#2ECC71;font-weight:700;">Synergie</span>
+                                                        <h3 style="font-size:1.1rem;font-weight:700;color:#12243A;margin:0.15rem 0;">Oméga-3 Ultra Pur EPA/DHA</h3>
+                                                        <p style="font-size:0.85rem;color:#5a6a7a;margin-bottom:0.35rem;">Anti-inflammatoire et soutien cognitif, compatibles avec votre régime.</p>
+                                                        <span style="font-weight:800;color:#1A6B3A;">24,90 €</span>
+                                                </div>
+                                                <a href="#" style="padding:0.6rem 1.25rem;background:#1A6B3A;color:#fff;border-radius:8px;font-size:0.85rem;font-weight:700;text-decoration:none;white-space:nowrap;">Ajouter</a>
+                                        </div>
+
+                                        <!-- Product 3 -->
+                                        <div class="nvx-result-product" style="display:flex;gap:1.25rem;padding:1.25rem;background:#fff;border-radius:12px;border:1px solid #e2e8f0;align-items:center;">
+                                                <div style="width:80px;height:80px;border-radius:8px;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:#8a94a6;flex-shrink:0;">Image</div>
+                                                <div style="flex:1;">
+                                                        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;color:#F4A900;font-weight:700;">Optimisation</span>
+                                                        <h3 style="font-size:1.1rem;font-weight:700;color:#12243A;margin:0.15rem 0;">Magnésium Bisglycinate 400mg</h3>
+                                                        <p style="font-size:0.85rem;color:#5a6a7a;margin-bottom:0.35rem;">Relaxation musculaire et qualité du sommeil, haute biodisponibilité.</p>
+                                                        <span style="font-weight:800;color:#1A6B3A;">19,90 €</span>
+                                                </div>
+                                                <a href="#" style="padding:0.6rem 1.25rem;background:#1A6B3A;color:#fff;border-radius:8px;font-size:0.85rem;font-weight:700;text-decoration:none;white-space:nowrap;">Ajouter</a>
+                                        </div>
+
+                                </div>
+
+                                <!-- Total + CTA -->
+                                <div style="text-align:center;padding:2rem;background:#12243A;border-radius:12px;">
+                                        <p style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:0.25rem;">Total de votre stack personnalisée</p>
+                                        <p style="font-size:2rem;font-weight:800;color:#fff;margin-bottom:1.5rem;">59,70 € <span style="font-size:1rem;font-weight:400;color:rgba(255,255,255,0.6);text-decoration:line-through;">/ mois</span></p>
+                                        <a href="#" style="display:inline-block;padding:1rem 3rem;background:#F4A900;color:#12243A;border-radius:10px;font-size:1.05rem;font-weight:800;text-decoration:none;transition:transform 0.2s;">🛒 Ajouter tout le stack au panier</a>
+                                        <p style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:0.75rem;">Livraison gratuite · Satisfait ou remboursé 60 jours</p>
+                                </div>
+
+                        </div>
+
+                </div>
+        </div>
+        <!-- /wp:group -->
+
 </main>
-<!-- /wp:group -->
+
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

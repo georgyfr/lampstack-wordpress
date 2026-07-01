@@ -1,19 +1,362 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
-<!-- wp:group {"align":"full","layout":{"type":"constrained"}} -->
-<main class="wp-block-group alignfull">
-	<!-- wp:heading {"textAlign":"center","level":1} -->
-	<h1 class="wp-block-heading has-text-align-center">Configurateur de Stack Nutritionnel</h1>
-	<!-- /wp:heading -->
-	<!-- wp:paragraph {"align":"center","textColor":"nvx-gray"} -->
-	<p class="has-text-align-center has-nvx-gray-color has-text-color">Composez votre programme de supplémentation personnalisé.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:group {"align":"center","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group aligncenter">
-		<!-- wp:paragraph -->
-		<p><em>Le Stack Builder sera ajouté ici en Phase 2.</em></p>
-		<!-- /wp:paragraph -->
+
+<main id="nvx-woo-content" class="nvx-main-content" role="main">
+
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"3rem","bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull nvx-stack-builder-page" style="padding-top:3rem;padding-bottom:4rem;">
+		<div style="max-width:1240px;margin:0 auto;padding:0 1.5rem;">
+
+			<!-- Page Header -->
+			<div style="text-align:center;margin-bottom:2.5rem;">
+				<h1 style="font-size:2.5rem;font-weight:800;color:#12243A;margin-bottom:0.75rem;">Configurez Votre Stack Personnalisée</h1>
+				<p style="font-size:1.1rem;color:#5a6a7a;max-width:600px;margin:0 auto;line-height:1.6;">Créez votre combinaison sur mesure en 4 étapes simples. Nos experts ont pré-sélectionné les meilleures synergies pour vous.</p>
+			</div>
+
+			<!-- Step Indicator -->
+			<div class="nvx-stack-steps" style="display:flex;justify-content:center;gap:0;margin-bottom:3rem;max-width:700px;margin-left:auto;margin-right:auto;">
+				<div class="nvx-step-indicator nvx-step-active" style="display:flex;align-items:center;flex:1;">
+					<div style="width:36px;height:36px;border-radius:50%;background:#1A6B3A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;flex-shrink:0;">1</div>
+					<span style="font-size:0.85rem;font-weight:600;color:#1A6B3A;margin-left:0.5rem;white-space:nowrap;">Objectif</span>
+					<div style="flex:1;height:2px;background:#1A6B3A;margin-left:0.75rem;"></div>
+				</div>
+				<div class="nvx-step-indicator" style="display:flex;align-items:center;flex:1;">
+					<div style="width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#8a94a6;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;flex-shrink:0;">2</div>
+					<span style="font-size:0.85rem;font-weight:600;color:#8a94a6;margin-left:0.5rem;white-space:nowrap;">Produits</span>
+					<div style="flex:1;height:2px;background:#e2e8f0;margin-left:0.75rem;"></div>
+				</div>
+				<div class="nvx-step-indicator" style="display:flex;align-items:center;flex:1;">
+					<div style="width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#8a94a6;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;flex-shrink:0;">3</div>
+					<span style="font-size:0.85rem;font-weight:600;color:#8a94a6;margin-left:0.5rem;white-space:nowrap;">Posologie</span>
+					<div style="flex:1;height:2px;background:#e2e8f0;margin-left:0.75rem;"></div>
+				</div>
+				<div class="nvx-step-indicator" style="display:flex;align-items:center;flex:1;">
+					<div style="width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#8a94a6;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;flex-shrink:0;">4</div>
+					<span style="font-size:0.85rem;font-weight:600;color:#8a94a6;margin-left:0.5rem;white-space:nowrap;">Récapitulatif</span>
+				</div>
+			</div>
+
+			<!-- Main Layout: Content + Sidebar -->
+			<div style="display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap;">
+
+				<!-- Main Content Area -->
+				<div class="nvx-stack-content" style="flex:1;min-width:0;">
+
+					<!-- Step 1: Choose Goal -->
+					<div class="nvx-builder-step nvx-builder-step-active" data-step="1">
+						<h2 style="font-size:1.5rem;font-weight:700;color:#12243A;margin-bottom:1.5rem;">Choisissez votre objectif principal</h2>
+						<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+
+							<label class="nvx-goal-card" style="display:flex;flex-direction:column;align-items:center;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;text-align:center;transition:border-color 0.3s,background 0.3s;">
+								<input type="radio" name="stack_goal" value="energie" style="display:none;" />
+								<div style="width:56px;height:56px;border-radius:50%;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:0.75rem;">⚡</div>
+								<span style="font-weight:700;color:#12243A;">Énergie</span>
+								<span style="font-size:0.8rem;color:#8a94a6;margin-top:0.25rem;">Vitalité &amp; endurance</span>
+							</label>
+
+							<label class="nvx-goal-card" style="display:flex;flex-direction:column;align-items:center;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;text-align:center;transition:border-color 0.3s,background 0.3s;">
+								<input type="radio" name="stack_goal" value="immunite" style="display:none;" />
+								<div style="width:56px;height:56px;border-radius:50%;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:0.75rem;">🛡️</div>
+								<span style="font-weight:700;color:#12243A;">Immunité</span>
+								<span style="font-size:0.8rem;color:#8a94a6;margin-top:0.25rem;">Défenses naturelles</span>
+							</label>
+
+							<label class="nvx-goal-card" style="display:flex;flex-direction:column;align-items:center;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;text-align:center;transition:border-color 0.3s,background 0.3s;">
+								<input type="radio" name="stack_goal" value="cognition" style="display:none;" />
+								<div style="width:56px;height:56px;border-radius:50%;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:0.75rem;">🧠</div>
+								<span style="font-weight:700;color:#12243A;">Cognition</span>
+								<span style="font-size:0.8rem;color:#8a94a6;margin-top:0.25rem;">Focus &amp; mémoire</span>
+							</label>
+
+							<label class="nvx-goal-card" style="display:flex;flex-direction:column;align-items:center;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;text-align:center;transition:border-color 0.3s,background 0.3s;">
+								<input type="radio" name="stack_goal" value="sport" style="display:none;" />
+								<div style="width:56px;height:56px;border-radius:50%;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:0.75rem;">🏋️</div>
+								<span style="font-weight:700;color:#12243A;">Sport</span>
+								<span style="font-size:0.8rem;color:#8a94a6;margin-top:0.25rem;">Performance &amp; récupération</span>
+							</label>
+
+							<label class="nvx-goal-card" style="display:flex;flex-direction:column;align-items:center;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;text-align:center;transition:border-color 0.3s,background 0.3s;">
+								<input type="radio" name="stack_goal" value="minceur" style="display:none;" />
+								<div style="width:56px;height:56px;border-radius:50%;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:0.75rem;">🔥</div>
+								<span style="font-weight:700;color:#12243A;">Minceur</span>
+								<span style="font-size:0.8rem;color:#8a94a6;margin-top:0.25rem;">Métabolisme actif</span>
+							</label>
+
+							<label class="nvx-goal-card" style="display:flex;flex-direction:column;align-items:center;padding:1.5rem 1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;text-align:center;transition:border-color 0.3s,background 0.3s;">
+								<input type="radio" name="stack_goal" value="sommeil" style="display:none;" />
+								<div style="width:56px;height:56px;border-radius:50%;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:0.75rem;">😴</div>
+								<span style="font-weight:700;color:#12243A;">Sommeil</span>
+								<span style="font-size:0.8rem;color:#8a94a6;margin-top:0.25rem;">Repos réparateur</span>
+							</label>
+
+						</div>
+					</div>
+
+					<!-- Step 2: Select Products -->
+					<div class="nvx-builder-step" data-step="2" style="display:none;">
+						<h2 style="font-size:1.5rem;font-weight:700;color:#12243A;margin-bottom:0.5rem;">Sélectionnez vos produits</h2>
+						<p style="font-size:0.95rem;color:#5a6a7a;margin-bottom:1.5rem;">Cochez les produits que vous souhaitez inclure dans votre stack.</p>
+
+						<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;">
+
+							<label class="nvx-stack-product-card" style="display:flex;gap:1rem;padding:1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;transition:border-color 0.3s;align-items:center;">
+								<input type="checkbox" name="stack_products[]" value="vitd3" style="accent-color:#1A6B3A;width:20px;height:20px;flex-shrink:0;" />
+								<div style="width:60px;height:60px;border-radius:8px;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#8a94a6;flex-shrink:0;">Image</div>
+								<div style="flex:1;">
+									<h4 style="font-size:0.95rem;font-weight:700;color:#12243A;margin-bottom:0.15rem;">Vitamine D3 4000 UI</h4>
+									<p style="font-size:0.8rem;color:#8a94a6;">90 gélules · Immunité &amp; os</p>
+									<span style="font-weight:800;color:#1A6B3A;font-size:0.95rem;">14,90 €</span>
+								</div>
+							</label>
+
+							<label class="nvx-stack-product-card" style="display:flex;gap:1rem;padding:1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;transition:border-color 0.3s;align-items:center;">
+								<input type="checkbox" name="stack_products[]" value="omega3" style="accent-color:#1A6B3A;width:20px;height:20px;flex-shrink:0;" />
+								<div style="width:60px;height:60px;border-radius:8px;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#8a94a6;flex-shrink:0;">Image</div>
+								<div style="flex:1;">
+									<h4 style="font-size:0.95rem;font-weight:700;color:#12243A;margin-bottom:0.15rem;">Oméga-3 Ultra Pur</h4>
+									<p style="font-size:0.8rem;color:#8a94a6;">60 capsules · Cœur &amp; cerveau</p>
+									<span style="font-weight:800;color:#1A6B3A;font-size:0.95rem;">24,90 €</span>
+								</div>
+							</label>
+
+							<label class="nvx-stack-product-card" style="display:flex;gap:1rem;padding:1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;transition:border-color 0.3s;align-items:center;">
+								<input type="checkbox" name="stack_products[]" value="magnesium" style="accent-color:#1A6B3A;width:20px;height:20px;flex-shrink:0;" />
+								<div style="width:60px;height:60px;border-radius:8px;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#8a94a6;flex-shrink:0;">Image</div>
+								<div style="flex:1;">
+									<h4 style="font-size:0.95rem;font-weight:700;color:#12243A;margin-bottom:0.15rem;">Magnésium Bisglycinate</h4>
+									<p style="font-size:0.8rem;color:#8a94a6;">90 gélules · Stress &amp; sommeil</p>
+									<span style="font-weight:800;color:#1A6B3A;font-size:0.95rem;">19,90 €</span>
+								</div>
+							</label>
+
+							<label class="nvx-stack-product-card" style="display:flex;gap:1rem;padding:1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;transition:border-color 0.3s;align-items:center;">
+								<input type="checkbox" name="stack_products[]" value="probiotiques" style="accent-color:#1A6B3A;width:20px;height:20px;flex-shrink:0;" />
+								<div style="width:60px;height:60px;border-radius:8px;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#8a94a6;flex-shrink:0;">Image</div>
+								<div style="flex:1;">
+									<h4 style="font-size:0.95rem;font-weight:700;color:#12243A;margin-bottom:0.15rem;">Probiotiques 50 Milliards</h4>
+									<p style="font-size:0.8rem;color:#8a94a6;">30 sachets · Microbiote</p>
+									<span style="font-weight:800;color:#1A6B3A;font-size:0.95rem;">34,90 €</span>
+								</div>
+							</label>
+
+							<label class="nvx-stack-product-card" style="display:flex;gap:1rem;padding:1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;transition:border-color 0.3s;align-items:center;">
+								<input type="checkbox" name="stack_products[]" value="zinc" style="accent-color:#1A6B3A;width:20px;height:20px;flex-shrink:0;" />
+								<div style="width:60px;height:60px;border-radius:8px;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#8a94a6;flex-shrink:0;">Image</div>
+								<div style="flex:1;">
+									<h4 style="font-size:0.95rem;font-weight:700;color:#12243A;margin-bottom:0.15rem;">Zinc Picolinate 25mg</h4>
+									<p style="font-size:0.8rem;color:#8a94a6;">90 gélules · Immunité &amp; peau</p>
+									<span style="font-weight:800;color:#1A6B3A;font-size:0.95rem;">12,90 €</span>
+								</div>
+							</label>
+
+							<label class="nvx-stack-product-card" style="display:flex;gap:1rem;padding:1rem;border:2px solid #e2e8f0;border-radius:12px;cursor:pointer;transition:border-color 0.3s;align-items:center;">
+								<input type="checkbox" name="stack_products[]" value="ashwagandha" style="accent-color:#1A6B3A;width:20px;height:20px;flex-shrink:0;" />
+								<div style="width:60px;height:60px;border-radius:8px;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#8a94a6;flex-shrink:0;">Image</div>
+								<div style="flex:1;">
+									<h4 style="font-size:0.95rem;font-weight:700;color:#12243A;margin-bottom:0.15rem;">Ashwagandha KSM-66</h4>
+									<p style="font-size:0.8rem;color:#8a94a6;">60 gélules · Adaptogène</p>
+									<span style="font-weight:800;color:#1A6B3A;font-size:0.95rem;">22,90 €</span>
+								</div>
+							</label>
+
+						</div>
+					</div>
+
+					<!-- Step 3: Customize Doses -->
+					<div class="nvx-builder-step" data-step="3" style="display:none;">
+						<h2 style="font-size:1.5rem;font-weight:700;color:#12243A;margin-bottom:0.5rem;">Personnalisez les posologies</h2>
+						<p style="font-size:0.95rem;color:#5a6a7a;margin-bottom:1.5rem;">Ajustez les doses recommandées selon vos besoins. Les valeurs par défaut sont celles recommandées par nos experts.</p>
+
+						<div style="display:flex;flex-direction:column;gap:1.25rem;">
+
+							<div class="nvx-dose-row" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem;background:#F0F9F4;border-radius:10px;flex-wrap:wrap;gap:1rem;">
+								<div>
+									<h4 style="font-size:1rem;font-weight:700;color:#12243A;">Vitamine D3</h4>
+									<p style="font-size:0.8rem;color:#5a6a7a;">Recommandé : 2 000 – 4 000 UI/jour</p>
+								</div>
+								<div style="display:flex;align-items:center;gap:0.5rem;">
+									<button type="button" class="nvx-dose-minus" style="width:36px;height:36px;border:1px solid #e2e8f0;background:#fff;border-radius:6px;cursor:pointer;font-size:1rem;color:#12243A;">−</button>
+									<input type="number" value="1" min="1" max="3" style="width:48px;height:36px;border:1px solid #e2e8f0;border-radius:6px;text-align:center;font-weight:600;color:#12243A;" />
+									<span style="font-size:0.85rem;color:#5a6a7a;">gélule(s)/jour</span>
+									<button type="button" class="nvx-dose-plus" style="width:36px;height:36px;border:1px solid #e2e8f0;background:#fff;border-radius:6px;cursor:pointer;font-size:1rem;color:#12243A;">+</button>
+								</div>
+							</div>
+
+							<div class="nvx-dose-row" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem;background:#F0F9F4;border-radius:10px;flex-wrap:wrap;gap:1rem;">
+								<div>
+									<h4 style="font-size:1rem;font-weight:700;color:#12243A;">Oméga-3 Ultra Pur</h4>
+									<p style="font-size:0.8rem;color:#5a6a7a;">Recommandé : 1 000 – 2 000 mg EPA+DHA/jour</p>
+								</div>
+								<div style="display:flex;align-items:center;gap:0.5rem;">
+									<button type="button" style="width:36px;height:36px;border:1px solid #e2e8f0;background:#fff;border-radius:6px;cursor:pointer;font-size:1rem;color:#12243A;">−</button>
+									<input type="number" value="2" min="1" max="4" style="width:48px;height:36px;border:1px solid #e2e8f0;border-radius:6px;text-align:center;font-weight:600;color:#12243A;" />
+									<span style="font-size:0.85rem;color:#5a6a7a;">capsule(s)/jour</span>
+									<button type="button" style="width:36px;height:36px;border:1px solid #e2e8f0;background:#fff;border-radius:6px;cursor:pointer;font-size:1rem;color:#12243A;">+</button>
+								</div>
+							</div>
+
+							<div class="nvx-dose-row" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem;background:#F0F9F4;border-radius:10px;flex-wrap:wrap;gap:1rem;">
+								<div>
+									<h4 style="font-size:1rem;font-weight:700;color:#12243A;">Magnésium Bisglycinate</h4>
+									<p style="font-size:0.8rem;color:#5a6a7a;">Recommandé : 200 – 400 mg/jour</p>
+								</div>
+								<div style="display:flex;align-items:center;gap:0.5rem;">
+									<button type="button" style="width:36px;height:36px;border:1px solid #e2e8f0;background:#fff;border-radius:6px;cursor:pointer;font-size:1rem;color:#12243A;">−</button>
+									<input type="number" value="2" min="1" max="3" style="width:48px;height:36px;border:1px solid #e2e8f0;border-radius:6px;text-align:center;font-weight:600;color:#12243A;" />
+									<span style="font-size:0.85rem;color:#5a6a7a;">gélule(s)/jour</span>
+									<button type="button" style="width:36px;height:36px;border:1px solid #e2e8f0;background:#fff;border-radius:6px;cursor:pointer;font-size:1rem;color:#12243A;">+</button>
+								</div>
+							</div>
+
+						</div>
+
+						<!-- Disclaimer -->
+						<div style="margin-top:1.5rem;padding:1rem;background:#fffbeb;border-left:4px solid #F4A900;border-radius:0 8px 8px 0;">
+							<p style="font-size:0.85rem;color:#5a6a7a;line-height:1.6;">
+								<strong style="color:#F4A900;">⚠️ Note :</strong> Ne dépassez pas les doses recommandées. En cas de doute, consultez un professionnel de santé.
+							</p>
+						</div>
+					</div>
+
+					<!-- Step 4: Review & Order -->
+					<div class="nvx-builder-step" data-step="4" style="display:none;">
+						<h2 style="font-size:1.5rem;font-weight:700;color:#12243A;margin-bottom:0.5rem;">Récapitulatif de votre stack</h2>
+						<p style="font-size:0.95rem;color:#5a6a7a;margin-bottom:1.5rem;">Vérifiez votre sélection avant de passer commande.</p>
+
+						<div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
+							<!-- Stack Summary -->
+							<div style="padding:1.25rem;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;">
+								<span style="font-size:0.85rem;color:#8a94a6;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Produit</span>
+								<span style="font-size:0.85rem;color:#8a94a6;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Dose / Prix</span>
+							</div>
+							<div style="padding:1.25rem;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;">
+								<div>
+									<span style="font-weight:600;color:#12243A;">Vitamine D3 4000 UI</span>
+									<p style="font-size:0.8rem;color:#8a94a6;">90 gélules</p>
+								</div>
+								<div style="text-align:right;">
+									<span style="font-size:0.8rem;color:#5a6a7a;">1 gélule/jour</span>
+									<p style="font-weight:700;color:#1A6B3A;">14,90 €</p>
+								</div>
+							</div>
+							<div style="padding:1.25rem;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;">
+								<div>
+									<span style="font-weight:600;color:#12243A;">Oméga-3 Ultra Pur</span>
+									<p style="font-size:0.8rem;color:#8a94a6;">60 capsules</p>
+								</div>
+								<div style="text-align:right;">
+									<span style="font-size:0.8rem;color:#5a6a7a;">2 capsules/jour</span>
+									<p style="font-weight:700;color:#1A6B3A;">24,90 €</p>
+								</div>
+							</div>
+							<div style="padding:1.25rem;display:flex;justify-content:space-between;align-items:center;">
+								<div>
+									<span style="font-weight:600;color:#12243A;">Magnésium Bisglycinate</span>
+									<p style="font-size:0.8rem;color:#8a94a6;">90 gélules</p>
+								</div>
+								<div style="text-align:right;">
+									<span style="font-size:0.8rem;color:#5a6a7a;">2 gélules/jour</span>
+									<p style="font-weight:700;color:#1A6B3A;">19,90 €</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Discount Banner -->
+						<div style="margin-top:1.25rem;padding:1rem;background:linear-gradient(135deg,#1A6B3A,#2ECC71);border-radius:10px;color:#fff;text-align:center;">
+							<p style="font-size:0.85rem;opacity:0.9;margin-bottom:0.25rem;">📦 Stack complet = -10% automatique</p>
+							<p style="font-size:1.5rem;font-weight:800;">Économisez 5,97 €</p>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Sidebar: Stack Summary -->
+				<div class="nvx-stack-sidebar" style="flex:0 0 320px;max-width:100%;position:sticky;top:100px;">
+					<div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:1.75rem;box-shadow:0 4px 24px rgba(18,36,58,0.06);">
+
+						<h3 style="font-size:1.1rem;font-weight:700;color:#12243A;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem;">
+							<span style="font-size:1.2rem;">📋</span> Votre Stack
+						</h3>
+
+						<!-- Empty State -->
+						<div id="nvx-stack-empty" style="text-align:center;padding:1.5rem 0;">
+							<p style="font-size:2.5rem;margin-bottom:0.5rem;">🧩</p>
+							<p style="font-size:0.9rem;color:#8a94a6;">Commencez par choisir votre objectif et sélectionner des produits.</p>
+						</div>
+
+						<!-- Stack Items (shown when products selected) -->
+						<div id="nvx-stack-items" style="display:none;">
+							<div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.25rem;">
+								<div style="display:flex;justify-content:space-between;align-items:center;">
+									<span style="font-size:0.9rem;color:#3a4a5c;">Vitamine D3</span>
+									<span style="font-size:0.9rem;font-weight:600;color:#12243A;">14,90 €</span>
+								</div>
+								<div style="display:flex;justify-content:space-between;align-items:center;">
+									<span style="font-size:0.9rem;color:#3a4a5c;">Oméga-3 Ultra Pur</span>
+									<span style="font-size:0.9rem;font-weight:600;color:#12243A;">24,90 €</span>
+								</div>
+								<div style="display:flex;justify-content:space-between;align-items:center;">
+									<span style="font-size:0.9rem;color:#3a4a5c;">Magnésium Bisglyc.</span>
+									<span style="font-size:0.9rem;font-weight:600;color:#12243A;">19,90 €</span>
+								</div>
+							</div>
+
+							<div style="border-top:1px dashed #e2e8f0;padding-top:0.75rem;margin-bottom:0.75rem;">
+								<div style="display:flex;justify-content:space-between;">
+									<span style="font-size:0.85rem;color:#8a94a6;">Sous-total</span>
+									<span style="font-size:0.85rem;color:#5a6a7a;">59,70 €</span>
+								</div>
+								<div style="display:flex;justify-content:space-between;margin-top:0.35rem;">
+									<span style="font-size:0.85rem;color:#2ECC71;font-weight:600;">Remise stack -10%</span>
+									<span style="font-size:0.85rem;color:#2ECC71;font-weight:600;">-5,97 €</span>
+								</div>
+							</div>
+
+							<div style="border-top:1px solid #12243A;padding-top:0.75rem;display:flex;justify-content:space-between;align-items:baseline;">
+								<span style="font-size:1rem;font-weight:700;color:#12243A;">Total</span>
+								<span style="font-size:1.5rem;font-weight:800;color:#1A6B3A;">53,73 €</span>
+							</div>
+						</div>
+
+						<!-- Add to Cart Button -->
+						<button type="button" id="nvx-stack-add-to-cart" style="width:100%;padding:1rem;background:#1A6B3A;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:1rem;transition:background 0.3s;opacity:0.5;" disabled>
+							🛒 Ajouter au panier
+						</button>
+
+						<!-- Trust indicators -->
+						<div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.5rem;">
+							<div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#8a94a6;">
+								<span>🚚</span> Livraison gratuite dès 49 €
+							</div>
+							<div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#8a94a6;">
+								<span>↩️</span> Retours 60 jours
+							</div>
+							<div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#8a94a6;">
+								<span>🔒</span> Paiement sécurisé
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Navigation Buttons -->
+			<div style="display:flex;justify-content:space-between;margin-top:2.5rem;max-width:calc(100% - 340px);">
+				<button type="button" id="nvx-stack-prev" style="padding:0.8rem 2rem;background:transparent;color:#5a6a7a;border:2px solid #e2e8f0;border-radius:10px;font-size:0.95rem;font-weight:600;cursor:pointer;display:none;">
+					← Précédent
+				</button>
+				<button type="button" id="nvx-stack-next" style="padding:0.8rem 2.5rem;background:#1A6B3A;color:#fff;border:none;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;margin-left:auto;transition:background 0.3s;">
+					Étape suivante →
+				</button>
+				<button type="button" id="nvx-stack-order" style="padding:0.8rem 2.5rem;background:#F4A900;color:#12243A;border:none;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;margin-left:auto;display:none;transition:background 0.3s;">
+					Valider et commander 🎯
+				</button>
+			</div>
+
+		</div>
 	</div>
 	<!-- /wp:group -->
+
 </main>
-<!-- /wp:group -->
+
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

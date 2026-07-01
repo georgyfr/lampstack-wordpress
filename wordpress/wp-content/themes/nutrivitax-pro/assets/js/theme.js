@@ -1,118 +1,67 @@
 /**
- * NutriVitaX Pro — JavaScript principal du thème
- *
- * Gère le dark mode, les interactions de base et les communications
- * AJAX avec le serveur. Minimal et sans dépendance lourde.
- *
- * @package NutriVitaX_Pro
- * @since   0.1.0
- */
-
-/* eslint-disable no-unused-vars */
-
-/**
- * NutriVitaX Pro - Objet principal du thème
+ * NutriVitaX Pro — Main theme JS
+ * Dark mode, smooth scroll, accessibility, footer dynamics
  */
 const NVX = {
+	init() {
+		this.darkMode();
+		this.smoothScroll();
+		this.accessibility();
+		this.footerDynamic();
+	},
 
-        /**
-         * Initialisation
-         */
-        init() {
-                this.darkMode();
-                this.smoothScroll();
-                this.accessibility();
-        },
+	darkMode() {
+		const html = document.documentElement;
+		const mode = html.getAttribute('data-nvx-dark');
+		if (mode === 'auto') {
+			const mq = window.matchMedia('(prefers-color-scheme: dark)');
+			html.classList.toggle('nvx-dark', mq.matches);
+			mq.addEventListener('change', e => html.classList.toggle('nvx-dark', e.matches));
+		} else if (mode === 'enabled') {
+			html.classList.add('nvx-dark');
+		}
+	},
 
-        /**
-         * Gestion du dark mode
-         * Lit l'attribut data-nvx-dark-mode sur <html>
-         */
-        darkMode() {
-                const html = document.documentElement;
-                const mode = html.getAttribute( 'data-nvx-dark-mode' );
+	smoothScroll() {
+		document.addEventListener('click', e => {
+			const a = e.target.closest('a[href^="#"]');
+			if (a) {
+				const t = document.querySelector(a.getAttribute('href'));
+				if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+			}
+		});
+	},
 
-                if ( mode === 'auto' ) {
-                        const prefersDark = window.matchMedia( '(prefers-color-scheme: dark)' );
-                        const applyDark = ( isDark ) => {
-                                html.classList.toggle( 'nvx-dark', isDark );
-                        };
-                        applyDark( prefersDark.matches );
-                        prefersDark.addEventListener( 'change', ( e ) => applyDark( e.matches ) );
-                } else if ( mode === 'enabled' ) {
-                        html.classList.add( 'nvx-dark' );
-                }
-        },
+	accessibility() {
+		const skip = document.querySelector('.nvx-skip-link');
+		if (skip) {
+			skip.addEventListener('click', e => {
+				e.preventDefault();
+				const c = document.getElementById('nvx-woo-content') || document.querySelector('main');
+				if (c) { c.setAttribute('tabindex', '-1'); c.focus(); }
+			});
+		}
+		document.addEventListener('keydown', e => {
+			if (e.key === 'Tab') document.body.classList.add('nvx-keyboard-nav');
+		});
+		document.addEventListener('mousedown', () => {
+			document.body.classList.remove('nvx-keyboard-nav');
+		});
+	},
 
-        /**
-         * Scroll fluide pour les ancres internes
-         */
-        smoothScroll() {
-                document.addEventListener( 'click', ( e ) => {
-                        const link = e.target.closest( 'a[href^="#"]' );
-                        if ( link ) {
-                                const target = document.querySelector( link.getAttribute( 'href' ) );
-                                if ( target ) {
-                                        e.preventDefault();
-                                        target.scrollIntoView( { behavior: 'smooth' } );
-                                }
-                        }
-                } );
-        },
-
-        /**
-         * Améliorations d'accessibilité
-         */
-        accessibility() {
-                // Skip to content link
-                const skipLink = document.querySelector( '.nvx-skip-link' );
-                if ( skipLink ) {
-                        skipLink.addEventListener( 'click', ( e ) => {
-                                e.preventDefault();
-                                const content = document.getElementById( 'nvx-woo-content' ) || document.querySelector( 'main' );
-                                if ( content ) {
-                                        content.setAttribute( 'tabindex', '-1' );
-                                        content.focus();
-                                }
-                        } );
-                }
-
-                // Focus visible uniquement au clavier
-                document.addEventListener( 'keydown', ( e ) => {
-                        if ( e.key === 'Tab' ) {
-                                document.body.classList.add( 'nvx-keyboard-nav' );
-                        }
-                } );
-                document.addEventListener( 'mousedown', () => {
-                        document.body.classList.remove( 'nvx-keyboard-nav' );
-                } );
-        },
+	footerDynamic() {
+		document.querySelectorAll('[data-nvx-dynamic="year"]').forEach(el => {
+			el.textContent = new Date().getFullYear();
+		});
+		document.querySelectorAll('[data-nvx-dynamic="version"]').forEach(el => {
+			el.textContent = (typeof nvxData !== 'undefined' && nvxData.themeVersion)
+				? nvxData.themeVersion : '1.0.0';
+		});
+	}
 };
 
-// Initialisation au DOM ready
-if ( document.readyState === 'loading' ) {
-        document.addEventListener( 'DOMContentLoaded', () => NVX.init() );
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', () => NVX.init());
 } else {
-        NVX.init();
-}
-
-
-/**
- * Replace data-nvx-dynamic attributes with real values.
- * Works in FSE template parts where shortcodes are not processed.
- */
-NVX.footerDynamic = function() {
-        document.querySelectorAll( '[data-nvx-dynamic="year"]' ).forEach( function( el ) {
-                el.textContent = new Date().getFullYear();
-        });
-        document.querySelectorAll( '[data-nvx-dynamic="version"]' ).forEach( function( el ) {
-                el.textContent = typeof nvxData !== 'undefined' ? '' : '0.3.0';
-        });
-};
-
-// Initialize footer dynamics
-if ( document.readyState === 'loading' ) {
-        document.addEventListener( 'DOMContentLoaded', () => NVX.footerDynamic() );
-} else {
-        NVX.footerDynamic();
+	NVX.init();
 }

@@ -1,23 +1,51 @@
-/**
- * NutriVitaX Pro — Moteur de quiz santé (Phase 1 - Rule-based)
- *
- * Ce fichier contient le moteur de quiz basique qui recommande des
- * produits selon des règles pré-définies. Il est chargé conditionnellement
- * par functions.php quand nvx_quiz_enabled = 'yes'.
- *
- * @package NutriVitaX_Pro
- * @since   0.1.0
- */
+<?php
+defined('ABSPATH') || exit;
 
-defined( 'ABSPATH' ) || exit;
+// AJAX handler for quiz submission
+add_action('wp_ajax_nvx_quiz_submit', 'nvx_ajax_quiz_submit');
+add_action('wp_ajax_nopriv_nvx_quiz_submit', 'nvx_ajax_quiz_submit');
 
-/**
- * Enregistre le custom post type pour les questions de quiz (si nécessaire).
- * Utilise un CPT préfixé nvx_ pour éviter les conflits.
- *
- * @since  0.1.0
- */
-function nvx_register_quiz_cpt(): void {
-	// Placeholder pour Phase 1 - les questions sont stockées en option
-	// et/ou via ACF fields. Pas de CPT supplémentaire en MVP.
+function nvx_ajax_quiz_submit() {
+    check_ajax_referer('nvx_nonce', 'nonce');
+
+    $answers = isset($_POST['answers']) ? json_decode(stripslashes($_POST['answers']), true) : array();
+    if (empty($answers)) {
+        wp_send_json_error(array('message' => 'Veuillez répondre à toutes les questions.'));
+    }
+
+    // Simple recommendation engine based on quiz answers
+    $goal = isset($answers['q1']) ? $answers['q1'] : '';
+    $recommendations = array(
+        'energy'    => array('whey-proteine-isolat', 'creatine-monohydrate', 'vitamine-d3-5000-ui'),
+        'immunity'  => array('vitamine-d3-5000-ui', 'omega-3-ultra-pur', 'vitamine-c-1000'),
+        'cognition' => array('omega-3-ultra-pur', 'bacopa-monnieri', 'rhodiola-rosea'),
+        'sport'     => array('whey-proteine-isolat', 'creatine-monohydrate', 'bcaa-4-1-1', 'pre-workout-extreme'),
+        'weight'    => array('cla-1000', 'garcinia-cambogia', 'the-vert-extrait', 'chromium-picolinate'),
+    );
+
+    $stack = isset($recommendations[$goal]) ? $recommendations[$goal] : $recommendations['energy'];
+
+    wp_send_json_success(array(
+        'stack' => $stack,
+        'goal'  => $goal,
+    ));
+}
+
+// AJAX handler for stack builder
+add_action('wp_ajax_nvx_stack_add', 'nvx_ajax_stack_add');
+add_action('wp_ajax_nopriv_nvx_stack_add', 'nvx_ajax_stack_add');
+
+function nvx_ajax_stack_add() {
+    check_ajax_referer('nvx_nonce', 'nonce');
+    $product_id = intval($_POST['product_id'] ?? 0);
+    if ($product_id <= 0) wp_send_json_error('Produit invalide.');
+
+    $added = WC()->cart->add_to_cart($product_id);
+    if ($added) {
+        wp_send_json_success(array(
+            'message'   => 'Produit ajouté à votre stack.',
+            'cart_count'=> WC()->cart->get_cart_contents_count(),
+        ));
+    }
+    wp_send_json_error('Impossible d\'ajouter ce produit.');
 }

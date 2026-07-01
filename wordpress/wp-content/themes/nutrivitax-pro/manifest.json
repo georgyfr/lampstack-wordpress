@@ -1,12 +1,11 @@
 {
   "name": "NutriVitaX Pro",
   "short_name": "NVX Pro",
-  "description": "Theme WooCommerce premium pour boutique de complements alimentaires - Design BioLab Luxe",
+  "description": "Compléments alimentaires premium validés par la science",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",
   "theme_color": "#1A6B3A",
-  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "assets/images/icon-192.png",

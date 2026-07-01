@@ -1,365 +1,606 @@
-/**
- * NutriVitaX Pro — Base Styles
- * CSS Layer: nvx-base
- *
- * Foundation layer: layer ordering, reset, utilities, scroll animations, dark mode.
- * Loaded BEFORE header.css and homepage.css via setup.php.
- *
- * @package NutriVitaX_Pro
- * @since   0.3.0
- */
+/* ==========================================================================
+   NutriVitaX Pro — Base / Reset / Design System Layer
+   ========================================================================== */
 
-/* ─── Layer Ordering ─────────────────────────────────────────────────── */
-@layer nvx-base, nvx-header, nvx-homepage;
+/* --------------------------------------------------------------------------
+   1. Design-System Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --nvx-primary: #1A6B3A;
+  --nvx-secondary: #2ECC71;
+  --nvx-accent: #F4A900;
+  --nvx-dark: #12243A;
+  --nvx-light: #F0F9F4;
+  --nvx-white: #FFFFFF;
+  --nvx-gray: #6B7280;
+  --nvx-danger: #EF4444;
 
+  /* Derived / semantic shades */
+  --nvx-primary-dark: #145530;
+  --nvx-primary-light: #E8F5EC;
+  --nvx-secondary-dark: #27AE60;
+  --nvx-accent-dark: #D4940A;
 
-/* ═══════════════════════════════════════════════════════════════════════
-   BASE LAYER: Reset, Utilities, Animations
-   ═══════════════════════════════════════════════════════════════════════ */
-@layer nvx-base {
+  /* Shadows */
+  --nvx-shadow-sm: 0 1px 3px rgba(18, 36, 58, 0.06), 0 1px 2px rgba(18, 36, 58, 0.04);
+  --nvx-shadow-md: 0 4px 14px rgba(18, 36, 58, 0.08), 0 2px 6px rgba(18, 36, 58, 0.04);
+  --nvx-shadow-lg: 0 10px 30px rgba(18, 36, 58, 0.1), 0 4px 10px rgba(18, 36, 58, 0.04);
+  --nvx-shadow-glow: 0 0 20px rgba(46, 204, 113, 0.35), 0 0 6px rgba(46, 204, 113, 0.15);
 
-/* 1. RESET */
-*, *::before, *::after {
-        box-sizing: border-box;
+  /* Border radius */
+  --nvx-radius-sm: 6px;
+  --nvx-radius-md: 12px;
+  --nvx-radius-lg: 20px;
+  --nvx-radius-full: 9999px;
+
+  /* Transitions */
+  --nvx-transition: 0.3s ease;
+  --nvx-transition-fast: 0.15s ease;
+  --nvx-transition-slow: 0.5s ease;
+
+  /* Focus ring */
+  --nvx-focus-ring: 2px solid #2ECC71;
+
+  /* Z-index scale */
+  --nvx-z-header: 1000;
+  --nvx-z-mobile: 1100;
+  --nvx-z-overlay: 1050;
+
+  /* Typography families */
+  --nvx-font-heading: 'Outfit', sans-serif;
+  --nvx-font-body: 'Inter', sans-serif;
+  --nvx-font-mono: 'Space Grotesk', monospace;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset / Normalize
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
-        scroll-behavior: smooth;
-        -webkit-text-size-adjust: 100%;
-        scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+  color: var(--nvx-dark);
+  background-color: var(--nvx-white);
+  overflow-x: hidden;
 }
 
-img, video, svg {
-        max-width: 100%;
-        height: auto;
-        display: block;
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 a {
-        color: inherit;
-        text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
-ul, ol {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-}
-
-button, input, select, textarea {
-        font: inherit;
-        color: inherit;
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 button {
-        cursor: pointer;
-        border: none;
-        background: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
 }
 
-fieldset {
-        border: none;
-        margin: 0;
-        padding: 0;
+/* --------------------------------------------------------------------------
+   3. Theme Root Class
+   -------------------------------------------------------------------------- */
+.nvx-theme {
+  font-family: var(--nvx-font-body);
+  color: var(--nvx-dark);
+  background-color: var(--nvx-white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* 2. UTILITY: Screen Reader Only */
+.nvx-theme main {
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   4. Selection Colors
+   -------------------------------------------------------------------------- */
+::selection {
+  background-color: var(--nvx-secondary);
+  color: var(--nvx-white);
+}
+
+::-moz-selection {
+  background-color: var(--nvx-secondary);
+  color: var(--nvx-white);
+}
+
+/* --------------------------------------------------------------------------
+   5. Focus-Visible Ring
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.35);
+  border-radius: var(--nvx-radius-sm);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.35);
+  border-radius: var(--nvx-radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   6. Screen-Reader Text
+   -------------------------------------------------------------------------- */
 .screen-reader-text,
 .sr-only {
-        position: absolute !important;
-        width: 1px !important;
-        height: 1px !important;
-        padding: 0 !important;
-        margin: -1px !important;
-        overflow: hidden !important;
-        clip: rect(0, 0, 0, 0) !important;
-        clip-path: inset(50%) !important;
-        white-space: nowrap !important;
-        border: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  word-wrap: normal !important;
 }
 
-.screen-reader-text:focus,
-.sr-only:focus {
-        position: static !important;
-        width: auto !important;
-        height: auto !important;
-        padding: 0.5rem 1rem !important;
-        margin: 0 !important;
-        overflow: visible !important;
-        clip: auto !important;
-        clip-path: none !important;
-        white-space: normal !important;
-        background: var(--wp--preset--color--nvx-primary);
-        color: #fff;
-        z-index: 100000;
-        border-radius: 0 0 8px 8px;
+/* --------------------------------------------------------------------------
+   7. Button Base Styles
+   -------------------------------------------------------------------------- */
+.nvx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--nvx-radius-md);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background-color var(--nvx-transition),
+    color var(--nvx-transition),
+    transform var(--nvx-transition-fast),
+    box-shadow var(--nvx-transition);
+  cursor: pointer;
+  border: 2px solid transparent;
+  white-space: nowrap;
 }
 
-/* 3. UTILITY: Body scroll lock (mobile menu) */
-body.nvx-no-scroll {
-        overflow: hidden !important;
-        position: fixed;
-        inset: 0;
-        width: 100%;
+.nvx-btn--primary {
+  background-color: var(--nvx-primary);
+  color: var(--nvx-white);
+  border-color: var(--nvx-primary);
 }
 
-/* 4. UTILITY: Skip Link */
-.nvx-skip-link {
-        position: absolute !important;
-        top: -100%;
-        left: 1rem;
-        z-index: 100001;
-        padding: 0.75rem 1.5rem;
-        background: var(--wp--preset--color--nvx-primary);
-        color: #fff;
-        font-weight: 600;
-        border-radius: 0 0 8px 8px;
-        transition: top 0.2s ease;
+.nvx-btn--primary:hover {
+  background-color: var(--nvx-primary-dark);
+  border-color: var(--nvx-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--nvx-shadow-md);
 }
 
-.nvx-skip-link:focus {
-        top: 0;
+.nvx-btn--accent {
+  background-color: var(--nvx-accent);
+  color: var(--nvx-dark);
+  border-color: var(--nvx-accent);
 }
 
-/* 5. UTILITY: Heading on dark background */
-.nvx-heading--on-dark {
-        color: #FFFFFF !important;
+.nvx-btn--accent:hover {
+  background-color: var(--nvx-accent-dark);
+  border-color: var(--nvx-accent-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--nvx-shadow-md);
 }
 
-/* 6. SCROLL ANIMATIONS (.nvx-in-view) */
-.nvx-trust-bar,
-.nvx-quiz-section,
-.nvx-featured-section,
-.nvx-social-proof,
-.nvx-univers,
-.nvx-lab-section,
-.nvx-blog-section,
-.nvx-newsletter-section {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+.nvx-btn--outline {
+  background-color: transparent;
+  color: var(--nvx-primary);
+  border-color: var(--nvx-primary);
 }
 
-.nvx-trust-bar.nvx-in-view,
-.nvx-quiz-section.nvx-in-view,
-.nvx-featured-section.nvx-in-view,
-.nvx-social-proof.nvx-in-view,
-.nvx-univers.nvx-in-view,
-.nvx-lab-section.nvx-in-view,
-.nvx-blog-section.nvx-in-view,
-.nvx-newsletter-section.nvx-in-view {
-        opacity: 1;
-        transform: translateY(0);
+.nvx-btn--outline:hover {
+  background-color: var(--nvx-primary);
+  color: var(--nvx-white);
+  transform: translateY(-2px);
+  box-shadow: var(--nvx-shadow-md);
 }
 
-/* Staggered children */
-.nvx-trust-bar.nvx-in-view .nvx-trust-badge,
-.nvx-trust-bar.nvx-in-view .nvx-trust-item,
-.nvx-univers.nvx-in-view .nvx-univers-card,
-.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item,
-.nvx-featured-section.nvx-in-view .nvx-product-card,
-.nvx-social-proof.nvx-in-view .nvx-testimonial,
-.nvx-blog-section.nvx-in-view .nvx-blog-card {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: nvx-fade-in-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+/* --------------------------------------------------------------------------
+   8. Animated Button Styles
+   -------------------------------------------------------------------------- */
+.nvx-btn-animated {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.nvx-trust-bar.nvx-in-view .nvx-trust-badge:nth-child(1),
-.nvx-trust-bar.nvx-in-view .nvx-trust-item:nth-child(1),
-.nvx-univers.nvx-in-view .nvx-univers-card:nth-child(1),
-.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item:nth-child(1),
-.nvx-featured-section.nvx-in-view .nvx-product-card:nth-child(1),
-.nvx-social-proof.nvx-in-view .nvx-testimonial:nth-child(1),
-.nvx-blog-section.nvx-in-view .nvx-blog-card:nth-child(1) {
-        animation-delay: 0.1s;
+.nvx-btn-animated::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
 }
 
-.nvx-trust-bar.nvx-in-view .nvx-trust-badge:nth-child(2),
-.nvx-trust-bar.nvx-in-view .nvx-trust-item:nth-child(2),
-.nvx-univers.nvx-in-view .nvx-univers-card:nth-child(2),
-.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item:nth-child(2),
-.nvx-featured-section.nvx-in-view .nvx-product-card:nth-child(2),
-.nvx-social-proof.nvx-in-view .nvx-testimonial:nth-child(2),
-.nvx-blog-section.nvx-in-view .nvx-blog-card:nth-child(2) {
-        animation-delay: 0.2s;
+.nvx-btn-animated:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
-.nvx-trust-bar.nvx-in-view .nvx-trust-badge:nth-child(3),
-.nvx-trust-bar.nvx-in-view .nvx-trust-item:nth-child(3),
-.nvx-univers.nvx-in-view .nvx-univers-card:nth-child(3),
-.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item:nth-child(3),
-.nvx-featured-section.nvx-in-view .nvx-product-card:nth-child(3),
-.nvx-social-proof.nvx-in-view .nvx-testimonial:nth-child(3),
-.nvx-blog-section.nvx-in-view .nvx-blog-card:nth-child(3) {
-        animation-delay: 0.3s;
+.nvx-btn-animated:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--nvx-shadow-lg);
 }
 
-.nvx-univers.nvx-in-view .nvx-univers-card:nth-child(4) { animation-delay: 0.4s; }
-.nvx-univers.nvx-in-view .nvx-univers-card:nth-child(5) { animation-delay: 0.5s; }
-.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item:nth-child(4) { animation-delay: 0.4s; }
-.nvx-lab-section.nvx-in-view .nvx-lab-timeline__item:nth-child(5) { animation-delay: 0.5s; }
+.nvx-btn-animated:active {
+  transform: translateY(-1px);
+  box-shadow: var(--nvx-shadow-sm);
+}
+
+/* --------------------------------------------------------------------------
+   9. Section Spacing Utilities
+   -------------------------------------------------------------------------- */
+.nvx-section {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.nvx-section--sm {
+  padding: clamp(2rem, 4vw, 3rem) 0;
+}
+
+.nvx-section--lg {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+}
+
+.nvx-section--no-pad {
+  padding: 0;
+}
+
+.nvx-section--no-pad-top {
+  padding-top: 0;
+}
+
+.nvx-section--no-pad-bottom {
+  padding-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. Container
+   -------------------------------------------------------------------------- */
+.nvx-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.nvx-container--wide {
+  max-width: 1400px;
+}
+
+.nvx-container--narrow {
+  max-width: 800px;
+}
+
+/* --------------------------------------------------------------------------
+   11. Product Card — Flip Card 3D Base
+   -------------------------------------------------------------------------- */
+.nvx-flip-card {
+  perspective: 1000px;
+}
+
+.nvx-flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.nvx-flip-card:hover .nvx-flip-card__inner {
+  transform: rotateY(180deg);
+}
+
+.nvx-flip-card__front,
+.nvx-flip-card__back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.nvx-flip-card__back {
+  transform: rotateY(180deg);
+}
+
+/* --------------------------------------------------------------------------
+   12. In-View Animation
+   -------------------------------------------------------------------------- */
+.nvx-in-view {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.nvx-in-view.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nvx-in-view--delay-1 {
+  transition-delay: 0.1s;
+}
+
+.nvx-in-view--delay-2 {
+  transition-delay: 0.2s;
+}
+
+.nvx-in-view--delay-3 {
+  transition-delay: 0.3s;
+}
+
+.nvx-in-view--delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* --------------------------------------------------------------------------
+   13. Keyframe Animations
+   -------------------------------------------------------------------------- */
+@keyframes nvx-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-4px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(4px);
+  }
+}
 
 @keyframes nvx-fade-in-up {
-        from {
-                opacity: 0;
-                transform: translateY(20px);
-        }
-        to {
-                opacity: 1;
-                transform: translateY(0);
-        }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* 7. KEYBOARD NAVIGATION */
-body:not(.nvx-keyboard-nav) *:focus {
-        outline: none;
+@keyframes nvx-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
 }
 
-body.nvx-keyboard-nav *:focus-visible {
-        outline: 2px solid var(--wp--preset--color--nvx-secondary);
-        outline-offset: 2px;
+@keyframes nvx-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* 8. MISC UTILITIES */
-img[loading="lazy"] {
-        transition: opacity 0.3s ease;
+@keyframes nvx-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-::selection {
-        background: rgba(46, 204, 113, 0.3);
-        color: var(--wp--preset--color--nvx-dark);
+@keyframes nvx-bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-12px);
+  }
+  43% {
+    transform: translateY(-8px);
+  }
+  70% {
+    transform: translateY(-4px);
+  }
+  90% {
+    transform: translateY(-2px);
+  }
 }
 
-} /* @layer nvx-base */
-
-
-/* ═══════════════════════════════════════════════════════════════════════
-   DARK MODE — UNLAYERED (highest priority, overrides all layers)
-   Applied when <html> has class .nvx-dark
-   ═══════════════════════════════════════════════════════════════════════ */
-
-html.nvx-dark {
-        --nvx-header-bg: #0D1B2A;
-        --nvx-header-border: #1B2838;
-        --nvx-header-text: #E0E6ED;
-        --nvx-header-text-muted: #8899AA;
-        --nvx-topbar-bg: #0A1520;
-        --nvx-topbar-text: #8899AA;
-        color-scheme: dark;
+/* --------------------------------------------------------------------------
+   14. Utility Classes
+   -------------------------------------------------------------------------- */
+.nvx-text-center {
+  text-align: center;
 }
 
-html.nvx-dark body {
-        background: #0D1B2A;
-        color: #E0E6ED;
+.nvx-text-left {
+  text-align: left;
 }
 
-html.nvx-dark .nvx-trust-bar {
-        background: #0F2030 !important;
-        border-bottom-color: rgba(46, 204, 113, 0.15);
+.nvx-text-right {
+  text-align: right;
 }
 
-html.nvx-dark .nvx-lab-section {
-        background: #0F2030 !important;
+.nvx-flex {
+  display: flex;
 }
 
-html.nvx-dark .nvx-univers-card {
-        background: #152238;
-        border-color: #1B3050;
+.nvx-flex--center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-html.nvx-dark .nvx-univers-card__title {
-        color: #E0E6ED;
+.nvx-flex--between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-html.nvx-dark .nvx-univers-card__desc {
-        color: #8899AA;
+.nvx-hidden {
+  display: none !important;
 }
 
-html.nvx-dark .nvx-quiz-section {
-        background: #0D1B2A;
+.nvx-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
-html.nvx-dark .nvx-featured-section {
-        background: #0D1B2A;
-}
+.nvx-mb-0 { margin-bottom: 0; }
+.nvx-mb-1 { margin-bottom: 0.5rem; }
+.nvx-mb-2 { margin-bottom: 1rem; }
+.nvx-mb-3 { margin-bottom: 1.5rem; }
+.nvx-mb-4 { margin-bottom: 2rem; }
+.nvx-mb-5 { margin-bottom: 2.5rem; }
+.nvx-mb-6 { margin-bottom: 3rem; }
 
-html.nvx-dark .nvx-blog-section {
-        background: #0D1B2A;
-}
+.nvx-mt-0 { margin-top: 0; }
+.nvx-mt-1 { margin-top: 0.5rem; }
+.nvx-mt-2 { margin-top: 1rem; }
+.nvx-mt-3 { margin-top: 1.5rem; }
+.nvx-mt-4 { margin-top: 2rem; }
 
-html.nvx-dark .nvx-blog-card {
-        background: #152238;
-        border-color: #1B3050;
-}
-
-html.nvx-dark .nvx-blog-card__title {
-        color: #E0E6ED;
-}
-
-html.nvx-dark .nvx-blog-card__title a {
-        color: #E0E6ED;
-}
-
-html.nvx-dark .nvx-blog-card__title a:hover {
-        color: var(--wp--preset--color--nvx-secondary);
-}
-
-html.nvx-dark .nvx-blog-card__author-name {
-        color: #8899AA;
-}
-
-html.nvx-dark .nvx-quiz-mini__option-card {
-        background: #152238;
-        border-color: #1B3050;
-        color: #E0E6ED;
-}
-
-html.nvx-dark .nvx-quiz-mini__legend {
-        color: #E0E6ED;
-}
-
-html.nvx-dark .nvx-mega-footer {
-        background: #0A1520;
-}
-
-html.nvx-dark .nvx-mega-footer__bottom {
-        background: #060E18;
-}
-
-html.nvx-dark .nvx-lab-timeline::before {
-        background: #1B3050;
-}
-
-html.nvx-dark .nvx-lab-timeline__marker {
-        background: var(--wp--preset--color--nvx-primary);
-        color: #fff;
-}
-
-html.nvx-dark .nvx-mega-footer__copy,
-html.nvx-dark .nvx-mega-footer__compat {
-        color: #8899AA;
-}
-
-html.nvx-dark .nvx-footer-links a {
-        color: #8899AA;
-}
-
-html.nvx-dark .nvx-footer-links a:hover {
-        color: var(--wp--preset--color--nvx-secondary);
-}
-
+/* --------------------------------------------------------------------------
+   15. Responsive Visibility Utilities
+   -------------------------------------------------------------------------- */
 @media (max-width: 767px) {
-        html.nvx-dark .nvx-quiz-mini__step {
-                background: #0D1B2A;
-        }
+  .nvx-hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nvx-hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nvx-hide-desktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .nvx-show-tablet-down {
+    display: block !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .nvx-show-tablet-up {
+    display: block !important;
+  }
 }

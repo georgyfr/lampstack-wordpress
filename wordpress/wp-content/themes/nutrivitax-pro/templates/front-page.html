@@ -1,0 +1,756 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<main id="nvx-woo-content" class="nvx-main-content" role="main">
+
+  <!-- ============================================================
+       SECTION 1 : HERO
+       ============================================================ -->
+  <section class="nvx-hero">
+    <div class="nvx-hero__particles" id="nvx-particles" aria-hidden="true"></div>
+
+    <div class="nvx-hero__content">
+      <span class="nvx-hero__badge">🛡 NUTRACEUTIQUE PREMIUM VALIDÉ PAR LA SCIENCE</span>
+
+      <h1 class="nvx-hero__title">
+        <span class="nvx-hero__title--light">Optimisez</span>
+        <span class="nvx-hero__title--bold">santé naturelle</span>
+      </h1>
+
+      <p class="nvx-hero__subtitle">
+        Compléments alimentaires formulés par des chercheurs, testés en laboratoire, délivrés chez vous. Votre programme personnalisé en 3 minutes.
+      </p>
+
+      <div class="nvx-hero__ctas">
+        <a href="/quiz" class="nvx-btn nvx-btn--primary nvx-btn-animated">
+          <span class="nvx-btn-animated__text">COMMENCER LE QUIZ SANTÉ</span>
+          <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+        </a>
+        <a href="/produits" class="nvx-btn nvx-btn--secondary nvx-btn--outline nvx-btn-animated">
+          <span class="nvx-btn-animated__text">EXPLORER LA BOUTIQUE</span>
+          <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="nvx-hero__scroll-indicator" aria-hidden="true">
+      <span class="nvx-hero__scroll-arrow">↓</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 : TRUST BAR
+       ============================================================ -->
+  <section class="nvx-trust-bar">
+    <div class="nvx-trust-bar__inner">
+      <div class="nvx-trust-bar__items">
+        <span class="nvx-trust-bar__item">🛡 Certifié Bio</span>
+        <span class="nvx-trust-bar__item">⚗ GMP</span>
+        <span class="nvx-trust-bar__item">✓ ISO 22000</span>
+        <span class="nvx-trust-bar__item">◉ HACCP</span>
+        <span class="nvx-trust-bar__item">🚚 Livraison Gratuite 50€+</span>
+        <span class="nvx-trust-bar__item">↩ Retour 30 jours</span>
+        <span class="nvx-trust-bar__item">🔒 Paiement sécurisé</span>
+      </div>
+      <div class="nvx-trust-bar__counter">
+        <span class="nvx-trust-bar__counter-number" data-nvx-target="15847" data-nvx-duration="2000">0</span>
+        <span class="nvx-trust-bar__counter-label">clients satisfaits</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 : QUIZ
+       ============================================================ -->
+  <section class="nvx-quiz-section">
+    <div class="nvx-quiz-section__header">
+      <h2 class="nvx-quiz-section__title">Quel programme de santé est fait pour vous ?</h2>
+      <p class="nvx-quiz-section__subtitle">Répondez à 5 questions rapides et recevez votre stack personnalisé gratuitement.</p>
+    </div>
+
+    <form id="nvx-quiz-mini-form" class="nvx-quiz-mini" novalidate>
+
+      <div class="nvx-quiz-mini__progress">
+        <div class="nvx-quiz-mini__progress-fill" style="width:20%;"></div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="nvx-quiz-mini__step" data-step="1">
+        <p class="nvx-quiz-mini__question">Quel est votre objectif principal ?</p>
+        <div class="nvx-quiz-mini__options">
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q1" value="energie" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">⚡</span>
+              <span class="nvx-quiz-mini__option-text">Plus d'énergie</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q1" value="immunite" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🛡</span>
+              <span class="nvx-quiz-mini__option-text">Renforcer mon immunité</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q1" value="concentration" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🧠</span>
+              <span class="nvx-quiz-mini__option-text">Améliorer ma concentration</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q1" value="sport" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">💪</span>
+              <span class="nvx-quiz-mini__option-text">Performance sportive</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q1" value="poids" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">⚖</span>
+              <span class="nvx-quiz-mini__option-text">Gestion du poids</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="nvx-quiz-mini__step" data-step="2" style="display:none;">
+        <p class="nvx-quiz-mini__question">Quel est votre âge ?</p>
+        <div class="nvx-quiz-mini__options">
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q2" value="18-25" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🔹</span>
+              <span class="nvx-quiz-mini__option-text">18-25</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q2" value="26-35" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🔸</span>
+              <span class="nvx-quiz-mini__option-text">26-35</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q2" value="36-50" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🔶</span>
+              <span class="nvx-quiz-mini__option-text">36-50</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q2" value="50+" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🔴</span>
+              <span class="nvx-quiz-mini__option-text">50+</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="nvx-quiz-mini__step" data-step="3" style="display:none;">
+        <p class="nvx-quiz-mini__question">Avez-vous des allergies ou restrictions alimentaires ?</p>
+        <div class="nvx-quiz-mini__options">
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q3" value="aucune" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">✅</span>
+              <span class="nvx-quiz-mini__option-text">Aucune</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q3" value="sans-gluten" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🌾</span>
+              <span class="nvx-quiz-mini__option-text">Sans gluten</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q3" value="sans-lactose" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🥛</span>
+              <span class="nvx-quiz-mini__option-text">Sans lactose</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q3" value="vegetarien-vegan" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🌱</span>
+              <span class="nvx-quiz-mini__option-text">Végétarien/Végan</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="nvx-quiz-mini__step" data-step="4" style="display:none;">
+        <p class="nvx-quiz-mini__question">Quel est votre niveau d'activité physique ?</p>
+        <div class="nvx-quiz-mini__options">
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q4" value="sedentaire" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🪑</span>
+              <span class="nvx-quiz-mini__option-text">Sédentaire</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q4" value="moderee" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🚶</span>
+              <span class="nvx-quiz-mini__option-text">Activité modérée</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q4" value="sportif-regulier" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🏋</span>
+              <span class="nvx-quiz-mini__option-text">Sportif régulier</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q4" value="athlete-competition" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🏆</span>
+              <span class="nvx-quiz-mini__option-text">Athlète/Compétition</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="nvx-quiz-mini__step" data-step="5" style="display:none;">
+        <p class="nvx-quiz-mini__question">Prenez-vous actuellement des compléments ?</p>
+        <div class="nvx-quiz-mini__options">
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q5" value="jamais" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🚫</span>
+              <span class="nvx-quiz-mini__option-text">Jamais</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q5" value="parfois" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">🔄</span>
+              <span class="nvx-quiz-mini__option-text">Parfois</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q5" value="quotidiennement" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">📅</span>
+              <span class="nvx-quiz-mini__option-text">Oui quotidiennement</span>
+            </span>
+          </label>
+          <label class="nvx-quiz-mini__option">
+            <input type="radio" name="nvx_q5" value="stack-complet" required>
+            <span class="nvx-quiz-mini__option-card">
+              <span class="nvx-quiz-mini__option-icon" aria-hidden="true">💊</span>
+              <span class="nvx-quiz-mini__option-text">Oui un stack complet</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="nvx-quiz-mini__nav">
+        <button type="button" class="nvx-btn nvx-btn--secondary nvx-quiz-mini__prev" style="display:none;">← Précédent</button>
+        <button type="button" class="nvx-btn nvx-btn--primary nvx-quiz-mini__next">Suivant →</button>
+        <button type="submit" class="nvx-btn nvx-btn--primary nvx-quiz-mini__submit" style="display:none;">Obtenir mes résultats ✨</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 : FEATURED PRODUCTS
+       ============================================================ -->
+  <section class="nvx-featured-section">
+    <div class="nvx-featured-section__header">
+      <h2 class="nvx-featured-section__title">Nos Formulations Vedettes</h2>
+      <p class="nvx-featured-section__subtitle">Validées par la science. Approuvées par nos clients.</p>
+    </div>
+
+    <div class="nvx-featured-grid">
+
+      <!-- Product 1 : Whey Protéine Isolat -->
+      <article class="nvx-product-card" aria-label="Whey Protéine Isolat">
+        <div class="nvx-product-card__flipper">
+          <div class="nvx-product-card__front">
+            <div class="nvx-product-card__image-wrap">
+              <div class="nvx-product-card__image" style="background:linear-gradient(135deg,#2ecc71,#27ae60);display:flex;align-items:center;justify-content:center;min-height:220px;font-size:3rem;">W</div>
+              <span class="nvx-product-card__ai-badge"><span class="nvx-product-card__ai-score">98%</span><span class="nvx-product-card__ai-label">Match IA</span></span>
+            </div>
+            <div class="nvx-product-card__body">
+              <h3 class="nvx-product-card__title">Whey Protéine Isolat</h3>
+              <div class="nvx-product-card__rating">
+                <span class="nvx-product-card__stars">★★★★★</span>
+                <span class="nvx-product-card__rating-count">(124 avis vérifiés)</span>
+                <span class="nvx-product-card__verified-icon">✓</span>
+              </div>
+              <div class="nvx-product-card__price-row">
+                <span class="nvx-product-card__price">49,99&nbsp;EUR</span>
+              </div>
+              <a href="/produit/whey-proteine-isolat" class="nvx-product-card__cart-btn nvx-btn-animated">
+                <span class="nvx-btn-animated__text">Voir les détails</span>
+                <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+          <div class="nvx-product-card__back">
+            <p class="nvx-product-card__excerpt">Protéine de lactosérum isolée, 27g par dose. Sans lactose, digestion optimale.</p>
+            <div class="nvx-product-card__back-cta">
+              <a href="/produit/whey-proteine-isolat" class="nvx-product-card__details-link">Voir les détails →</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 2 : Créatine Monohydrate -->
+      <article class="nvx-product-card" aria-label="Créatine Monohydrate">
+        <div class="nvx-product-card__flipper">
+          <div class="nvx-product-card__front">
+            <div class="nvx-product-card__image-wrap">
+              <div class="nvx-product-card__image" style="background:linear-gradient(135deg,#1abc9c,#16a085);display:flex;align-items:center;justify-content:center;min-height:220px;font-size:3rem;">C</div>
+              <span class="nvx-product-card__ai-badge"><span class="nvx-product-card__ai-score">96%</span><span class="nvx-product-card__ai-label">Match IA</span></span>
+            </div>
+            <div class="nvx-product-card__body">
+              <h3 class="nvx-product-card__title">Créatine Monohydrate</h3>
+              <div class="nvx-product-card__rating">
+                <span class="nvx-product-card__stars">★★★★★</span>
+                <span class="nvx-product-card__rating-count">(98 avis vérifiés)</span>
+                <span class="nvx-product-card__verified-icon">✓</span>
+              </div>
+              <div class="nvx-product-card__price-row">
+                <span class="nvx-product-card__price">24,99&nbsp;EUR</span>
+              </div>
+              <a href="/produit/creatine-monohydrate" class="nvx-product-card__cart-btn nvx-btn-animated">
+                <span class="nvx-btn-animated__text">Voir les détails</span>
+                <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+          <div class="nvx-product-card__back">
+            <p class="nvx-product-card__excerpt">Créatine monohydrate micronisée Creapure, 5g par dose. Force et volume musculaire.</p>
+            <div class="nvx-product-card__back-cta">
+              <a href="/produit/creatine-monohydrate" class="nvx-product-card__details-link">Voir les détails →</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 3 : Pre-Workout Extreme -->
+      <article class="nvx-product-card" aria-label="Pre-Workout Extreme">
+        <div class="nvx-product-card__flipper">
+          <div class="nvx-product-card__front">
+            <div class="nvx-product-card__image-wrap">
+              <div class="nvx-product-card__image" style="background:linear-gradient(135deg,#f1c40f,#f39c12);display:flex;align-items:center;justify-content:center;min-height:220px;font-size:3rem;">P</div>
+              <span class="nvx-product-card__ai-badge"><span class="nvx-product-card__ai-score">95%</span><span class="nvx-product-card__ai-label">Match IA</span></span>
+            </div>
+            <div class="nvx-product-card__body">
+              <h3 class="nvx-product-card__title">Pre-Workout Extreme</h3>
+              <div class="nvx-product-card__rating">
+                <span class="nvx-product-card__stars">★★★★★</span>
+                <span class="nvx-product-card__rating-count">(87 avis vérifiés)</span>
+                <span class="nvx-product-card__verified-icon">✓</span>
+              </div>
+              <div class="nvx-product-card__price-row">
+                <span class="nvx-product-card__price">39,99&nbsp;EUR</span>
+              </div>
+              <a href="/produit/pre-workout-extreme" class="nvx-product-card__cart-btn nvx-btn-animated">
+                <span class="nvx-btn-animated__text">Voir les détails</span>
+                <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+          <div class="nvx-product-card__back">
+            <p class="nvx-product-card__excerpt">Caféine, beta-alanine, citrulline, taurine. Énergie explosive sans crash.</p>
+            <div class="nvx-product-card__back-cta">
+              <a href="/produit/pre-workout-extreme" class="nvx-product-card__details-link">Voir les détails →</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 4 : BCAA 4:1:1 -->
+      <article class="nvx-product-card" aria-label="BCAA 4:1:1">
+        <div class="nvx-product-card__flipper">
+          <div class="nvx-product-card__front">
+            <div class="nvx-product-card__image-wrap">
+              <div class="nvx-product-card__image" style="background:linear-gradient(135deg,#3498db,#2980b9);display:flex;align-items:center;justify-content:center;min-height:220px;font-size:3rem;">B</div>
+              <span class="nvx-product-card__ai-badge"><span class="nvx-product-card__ai-score">94%</span><span class="nvx-product-card__ai-label">Match IA</span></span>
+            </div>
+            <div class="nvx-product-card__body">
+              <h3 class="nvx-product-card__title">BCAA 4:1:1</h3>
+              <div class="nvx-product-card__rating">
+                <span class="nvx-product-card__stars">★★★★★</span>
+                <span class="nvx-product-card__rating-count">(76 avis vérifiés)</span>
+                <span class="nvx-product-card__verified-icon">✓</span>
+              </div>
+              <div class="nvx-product-card__price-row">
+                <span class="nvx-product-card__price">29,99&nbsp;EUR</span>
+              </div>
+              <a href="/produit/bcaa-4-1-1" class="nvx-product-card__cart-btn nvx-btn-animated">
+                <span class="nvx-btn-animated__text">Voir les détails</span>
+                <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+          <div class="nvx-product-card__back">
+            <p class="nvx-product-card__excerpt">Acides aminés ramifiés 4:1:1. Récupération accélérée, saveur agrume.</p>
+            <div class="nvx-product-card__back-cta">
+              <a href="/produit/bcaa-4-1-1" class="nvx-product-card__details-link">Voir les détails →</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 5 : Omega-3 Ultra Pur -->
+      <article class="nvx-product-card" aria-label="Omega-3 Ultra Pur">
+        <div class="nvx-product-card__flipper">
+          <div class="nvx-product-card__front">
+            <div class="nvx-product-card__image-wrap">
+              <div class="nvx-product-card__image" style="background:linear-gradient(135deg,#9b59b6,#8e44ad);display:flex;align-items:center;justify-content:center;min-height:220px;font-size:3rem;">O</div>
+              <span class="nvx-product-card__ai-badge"><span class="nvx-product-card__ai-score">97%</span><span class="nvx-product-card__ai-label">Match IA</span></span>
+            </div>
+            <div class="nvx-product-card__body">
+              <h3 class="nvx-product-card__title">Omega-3 Ultra Pur</h3>
+              <div class="nvx-product-card__rating">
+                <span class="nvx-product-card__stars">★★★★★</span>
+                <span class="nvx-product-card__rating-count">(112 avis vérifiés)</span>
+                <span class="nvx-product-card__verified-icon">✓</span>
+              </div>
+              <div class="nvx-product-card__price-row">
+                <span class="nvx-product-card__price">34,99&nbsp;EUR</span>
+              </div>
+              <a href="/produit/omega-3-ultra-pur" class="nvx-product-card__cart-btn nvx-btn-animated">
+                <span class="nvx-btn-animated__text">Voir les détails</span>
+                <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+          <div class="nvx-product-card__back">
+            <p class="nvx-product-card__excerpt">EPA 660mg + DHA 440mg. Certifié IFOS 5 étoiles. Sans goût de poisson.</p>
+            <div class="nvx-product-card__back-cta">
+              <a href="/produit/omega-3-ultra-pur" class="nvx-product-card__details-link">Voir les détails →</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 6 : Vitamine D3 5000 UI -->
+      <article class="nvx-product-card" aria-label="Vitamine D3 5000 UI">
+        <div class="nvx-product-card__flipper">
+          <div class="nvx-product-card__front">
+            <div class="nvx-product-card__image-wrap">
+              <div class="nvx-product-card__image" style="background:linear-gradient(135deg,#e67e22,#d35400);display:flex;align-items:center;justify-content:center;min-height:220px;font-size:3rem;">D</div>
+              <span class="nvx-product-card__ai-badge"><span class="nvx-product-card__ai-score">99%</span><span class="nvx-product-card__ai-label">Match IA</span></span>
+            </div>
+            <div class="nvx-product-card__body">
+              <h3 class="nvx-product-card__title">Vitamine D3 5000 UI</h3>
+              <div class="nvx-product-card__rating">
+                <span class="nvx-product-card__stars">★★★★★</span>
+                <span class="nvx-product-card__rating-count">(203 avis vérifiés)</span>
+                <span class="nvx-product-card__verified-icon">✓</span>
+              </div>
+              <div class="nvx-product-card__price-row">
+                <span class="nvx-product-card__price">19,99&nbsp;EUR</span>
+              </div>
+              <a href="/produit/vitamine-d3-5000-ui" class="nvx-product-card__cart-btn nvx-btn-animated">
+                <span class="nvx-btn-animated__text">Voir les détails</span>
+                <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+          <div class="nvx-product-card__back">
+            <p class="nvx-product-card__excerpt">Cholécalciférol 5000 UI. Immunité, fixation du calcium. 120 capsules.</p>
+            <div class="nvx-product-card__back-cta">
+              <a href="/produit/vitamine-d3-5000-ui" class="nvx-product-card__details-link">Voir les détails →</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="nvx-featured-section__cta">
+      <a href="/produits" class="nvx-btn nvx-btn--primary nvx-btn-animated">
+        <span class="nvx-btn-animated__text">Voir tous les produits</span>
+        <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 : SOCIAL PROOF
+       ============================================================ -->
+  <section class="nvx-social-proof has-nvx-dark-background-color">
+    <div class="nvx-social-proof__inner">
+      <h2 class="nvx-social-proof__title" style="color:#fff;">Ils ont transformé leur santé</h2>
+
+      <div class="nvx-social-proof__aggregate">
+        <span class="nvx-social-proof__aggregate-rating">4.9 ★★★★★ sur 2 547 avis vérifiés</span>
+        <span class="nvx-social-proof__platform">G Google 4.9</span>
+        <span class="nvx-social-proof__platform">T Trustpilot 4.8</span>
+      </div>
+
+      <div class="nvx-social-proof__testimonials">
+
+        <!-- Testimonial 1 : Sophie M. (video) -->
+        <div class="nvx-social-proof__card nvx-social-proof__card--video">
+          <div class="nvx-social-proof__video-placeholder">
+            <span class="nvx-social-proof__play-btn" aria-hidden="true">▶</span>
+          </div>
+          <blockquote class="nvx-social-proof__quote">
+            <p>Après 3 mois de stack personnalisé, mon énergie est revenue et mes analyses sanguines sont parfaites.</p>
+          </blockquote>
+          <div class="nvx-social-proof__author">
+            <span class="nvx-social-proof__author-name">Sophie M.</span>
+            <span class="nvx-social-proof__author-tag">Achat vérifié</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 : Dr. Laurent P. -->
+        <div class="nvx-social-proof__card">
+          <blockquote class="nvx-social-proof__quote">
+            <p>Les meilleurs oméga-3 que j'ai testés. Pureté certifiée COA, aucun goût de poisson. Je recommande à 100%.</p>
+          </blockquote>
+          <div class="nvx-social-proof__author">
+            <span class="nvx-social-proof__author-name">Dr. Laurent P.</span>
+            <span class="nvx-social-proof__author-tag">Médecin nutritionniste</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 : Thomas R. -->
+        <div class="nvx-social-proof__card">
+          <blockquote class="nvx-social-proof__quote">
+            <p>Le quiz m'a recommandé le stack Énergie et en 4 semaines je sens une vraie différence à l'entraînement.</p>
+          </blockquote>
+          <div class="nvx-social-proof__author">
+            <span class="nvx-social-proof__author-name">Thomas R.</span>
+            <span class="nvx-social-proof__author-tag">Achat vérifié</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="nvx-social-proof__before-after">
+
+        <!-- Before/After 1 : Marie L. -->
+        <div class="nvx-social-proof__ba-card">
+          <h4 class="nvx-social-proof__ba-author">Marie L.</h4>
+          <p class="nvx-social-proof__ba-stack">Stack Immunité + Vitamine D3</p>
+          <div class="nvx-social-proof__ba-images">
+            <div class="nvx-social-proof__ba-before">
+              <span class="nvx-social-proof__ba-label">Avant</span>
+            </div>
+            <div class="nvx-social-proof__ba-after">
+              <span class="nvx-social-proof__ba-label">Après 90 jours</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Before/After 2 : Alex D. -->
+        <div class="nvx-social-proof__ba-card">
+          <h4 class="nvx-social-proof__ba-author">Alex D.</h4>
+          <p class="nvx-social-proof__ba-stack">Stack Sport + BCAA Premium</p>
+          <div class="nvx-social-proof__ba-images">
+            <div class="nvx-social-proof__ba-before">
+              <span class="nvx-social-proof__ba-label">Avant</span>
+            </div>
+            <div class="nvx-social-proof__ba-after">
+              <span class="nvx-social-proof__ba-label">Après 60 jours</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 : UNIVERS
+       ============================================================ -->
+  <section class="nvx-univers">
+    <div class="nvx-univers__header">
+      <h2 class="nvx-univers__title">Explorez par objectif</h2>
+      <p class="nvx-univers__subtitle">Trouvez les compléments adaptés à VOS besoins, pas l'inverse.</p>
+    </div>
+
+    <div class="nvx-univers__grid">
+
+      <a href="/boutique/?objectif=energie" class="nvx-univers__card">
+        <span class="nvx-univers__card-icon" aria-hidden="true">⚡</span>
+        <h3 class="nvx-univers__card-title">Énergie</h3>
+        <p class="nvx-univers__card-desc">Vitamines B, CoQ10, Fer, Magnésium pour retrouver vitalité et endurance.</p>
+      </a>
+
+      <a href="/boutique/?objectif=immunite" class="nvx-univers__card">
+        <span class="nvx-univers__card-icon" aria-hidden="true">🛡</span>
+        <h3 class="nvx-univers__card-title">Immunité</h3>
+        <p class="nvx-univers__card-desc">Vitamine C, D3, Zinc, Sélénium pour renforcer vos défenses naturelles.</p>
+      </a>
+
+      <a href="/boutique/?objectif=cognition" class="nvx-univers__card">
+        <span class="nvx-univers__card-icon" aria-hidden="true">🧠</span>
+        <h3 class="nvx-univers__card-title">Cognition</h3>
+        <p class="nvx-univers__card-desc">Oméga-3 DHA, Bacopa, Rhodiola pour mémoire, focus et clarté mentale.</p>
+      </a>
+
+      <a href="/boutique/?objectif=sport" class="nvx-univers__card">
+        <span class="nvx-univers__card-icon" aria-hidden="true">💪</span>
+        <h3 class="nvx-univers__card-title">Sport</h3>
+        <p class="nvx-univers__card-desc">Créatine, BCAA, Protéines, Bêta-Alanine pour vos performances.</p>
+      </a>
+
+      <a href="/boutique/?objectif=minceur" class="nvx-univers__card">
+        <span class="nvx-univers__card-icon" aria-hidden="true">⚖</span>
+        <h3 class="nvx-univers__card-title">Minceur</h3>
+        <p class="nvx-univers__card-desc">Chromium, Garcinia, Thé Vert, CLA pour métabolisme et composition corporelle.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 : LAB TRANSPARENCY
+       ============================================================ -->
+  <section class="nvx-lab-section">
+    <div class="nvx-lab-section__header">
+      <h2 class="nvx-lab-section__title">Notre Laboratoire, Votre Garantie</h2>
+      <p class="nvx-lab-section__subtitle">De la recherche à votre porte, chaque étape est traçable et vérifiable.</p>
+    </div>
+
+    <div class="nvx-lab-section__timeline">
+
+      <div class="nvx-lab-section__timeline-step">
+        <div class="nvx-lab-section__timeline-marker">1</div>
+        <div class="nvx-lab-section__timeline-content">
+          <h3 class="nvx-lab-section__timeline-title">Recherche &amp; Formulation</h3>
+          <p class="nvx-lab-section__timeline-desc">Nos chercheurs analysent 500+ études PubMed pour chaque formule. Doses cliniques validées, synergies optimisées.</p>
+        </div>
+      </div>
+
+      <div class="nvx-lab-section__timeline-step">
+        <div class="nvx-lab-section__timeline-marker">2</div>
+        <div class="nvx-lab-section__timeline-content">
+          <h3 class="nvx-lab-section__timeline-title">Sourcing des Matières Premières</h3>
+          <p class="nvx-lab-section__timeline-desc">Ingrédients certifiés, traçabilité complète depuis le fournisseur. Audits annuels de nos partenaires.</p>
+        </div>
+      </div>
+
+      <div class="nvx-lab-section__timeline-step">
+        <div class="nvx-lab-section__timeline-marker">3</div>
+        <div class="nvx-lab-section__timeline-content">
+          <h3 class="nvx-lab-section__timeline-title">Fabrication en Laboratoire GMP</h3>
+          <p class="nvx-lab-section__timeline-desc">Production en France dans des usines certifiées GMP. Contrôle qualité à chaque lot.</p>
+        </div>
+      </div>
+
+      <div class="nvx-lab-section__timeline-step">
+        <div class="nvx-lab-section__timeline-marker">4</div>
+        <div class="nvx-lab-section__timeline-content">
+          <h3 class="nvx-lab-section__timeline-title">Tests &amp; Certificats d'Analyse (COA)</h3>
+          <p class="nvx-lab-section__timeline-desc">Chaque lot est testé par un laboratoire indépendant.</p>
+        </div>
+      </div>
+
+      <div class="nvx-lab-section__timeline-step">
+        <div class="nvx-lab-section__timeline-marker">5</div>
+        <div class="nvx-lab-section__timeline-content">
+          <h3 class="nvx-lab-section__timeline-title">Livraison chez vous</h3>
+          <p class="nvx-lab-section__timeline-desc">Emballage éco-responsable, livraison sécurisée avec suivi. Satisfaction garantie 30 jours.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nvx-lab-section__photos">
+      <div class="nvx-lab-section__photo-card">
+        <div class="nvx-lab-section__photo-placeholder">🔬</div>
+        <span class="nvx-lab-section__photo-caption">Labo de Recherche</span>
+      </div>
+      <div class="nvx-lab-section__photo-card">
+        <div class="nvx-lab-section__photo-placeholder">🏭</div>
+        <span class="nvx-lab-section__photo-caption">Ligne de Production GMP</span>
+      </div>
+      <div class="nvx-lab-section__photo-card">
+        <div class="nvx-lab-section__photo-placeholder">🧪</div>
+        <span class="nvx-lab-section__photo-caption">Contrôle Qualité</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8 : BLOG
+       ============================================================ -->
+  <section class="nvx-blog-section">
+    <div class="nvx-blog-section__header">
+      <h2 class="nvx-blog-section__title">Le Blog Expert</h2>
+      <p class="nvx-blog-section__subtitle">Recherche nutritionnelle décryptée par des professionnels de santé.</p>
+    </div>
+
+    <!-- wp:query {"queryId":"nvx-blog-home","query":{"perPage":3,"postType":"post","order":"desc","orderBy":"date","inherit":false},"displayLayout":{"type":"flex","columns":3},"align":"wide"} -->
+    <div class="wp-block-query alignwide nvx-blog-grid">
+    <!-- wp:post-template {"className":"nvx-blog-card-wrapper"} -->
+    <article class="nvx-blog-card">
+      <div class="nvx-blog-card__image-wrap">
+        <!-- wp:post-featured-image {"size":"medium_large","link":"none","className":"nvx-blog-card__image"} /-->
+      </div>
+      <div class="nvx-blog-card__body">
+        <div class="nvx-blog-card__meta">
+          <span class="nvx-blog-card__category">Nutrition</span>
+          <span class="nvx-blog-card__reading-time">5 min de lecture</span>
+        </div>
+        <!-- wp:post-title {"isLink":true,"className":"nvx-blog-card__title"} /-->
+        <!-- wp:post-excerpt {"className":"nvx-blog-card__excerpt"} /-->
+        <div class="nvx-blog-card__author">
+          <span class="nvx-blog-card__author-avatar" aria-hidden="true">👤</span>
+          <span class="nvx-blog-card__author-name"><!-- wp:post-author /--></span>
+        </div>
+      </div>
+    </article>
+    <!-- /wp:post-template -->
+    <!-- wp:query-no-results -->
+    <p style="text-align:center;color:var(--wp--preset--color--nvx-gray);">Aucun article pour le moment.</p>
+    <!-- /wp:query-no-results -->
+    </div>
+    <!-- /wp:query -->
+
+    <div class="nvx-blog-section__cta">
+      <a href="/blog" class="nvx-btn nvx-btn--primary nvx-btn-animated">
+        <span class="nvx-btn-animated__text">Tous les articles</span>
+        <span class="nvx-btn-animated__icon" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 9 : NEWSLETTER
+       ============================================================ -->
+  <section class="nvx-newsletter-section">
+    <div class="nvx-newsletter__inner" style="background:var(--wp--preset--color--nvx-primary);color:#fff;border-radius:20px;">
+
+      <h2 class="nvx-newsletter__title">Votre Programme Nutritionnel Personnel — Gratuit</h2>
+      <p class="nvx-newsletter__subtitle">Recevez un plan de compléments personnalisé généré par IA. Plus des articles exclusifs, offres privées et nouveautés.</p>
+
+      <form id="nvx-newsletter-form" class="nvx-newsletter__form">
+        <input type="email" name="nvx_email" class="nvx-newsletter__input" placeholder="votre@email.com" required aria-label="Adresse e-mail">
+        <button type="submit" class="nvx-btn nvx-btn--secondary nvx-newsletter__btn">Obtenir mon programme IA ✨</button>
+      </form>
+
+      <p class="nvx-newsletter__disclaimer">Aucun spam. Désinscription en 1 clic. Vos données sont protégées conformément au RGPD.</p>
+
+      <div class="nvx-newsletter__trust">
+        <span class="nvx-newsletter__trust-item">🔒 Données RGPD</span>
+        <span class="nvx-newsletter__trust-item">📧 +5 000 abonnés</span>
+        <span class="nvx-newsletter__trust-item">⭐ 4.9/5 satisfaction</span>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

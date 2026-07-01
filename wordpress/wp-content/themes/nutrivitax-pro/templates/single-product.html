@@ -1,16 +1,171 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|40"}},"elements":{"link":{"color":{"text":"var:preset|color--nvx-primary"}}}}},"layout":{"type":"constrained"}} -->
-<main class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--40)">
-	<!-- wp:woocommerce/product-template -->
-	<div class="wp-block-woocommerce-product-template">
-		<!-- wp:woocommerce/product-image /-->
-		<!-- wp:woocommerce/product-title /-->
-		<!-- wp:woocommerce/product-price /-->
-		<!-- wp:woocommerce/product-add-to-cart /-->
-		<!-- wp:woocommerce/product-short-description /-->
-		<!-- wp:woocommerce/product-meta /-->
+
+<main id="nvx-woo-content" class="nvx-main-content" role="main">
+
+	<!-- Breadcrumb -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"1.5rem","bottom":"0"}},"elements":{"link":{"color":{"text":"#5a6a7a"},"hover":{"color":{"text":"#1A6B3A"}}}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull nvx-breadcrumb" style="padding-top:1.5rem;padding-bottom:0;">
+		<nav aria-label="Fil d'Ariane" style="max-width:1240px;margin:0 auto;padding:0 1.5rem;font-size:0.9rem;color:#5a6a7a;">
+			<a href="/" style="color:#5a6a7a;text-decoration:none;">Accueil</a>
+			<span style="margin:0 0.5rem;color:#c0c8d4;">›</span>
+			<a href="/boutique" style="color:#5a6a7a;text-decoration:none;">Boutique</a>
+			<span style="margin:0 0.5rem;color:#c0c8d4;">›</span>
+			<span style="color:#12243A;font-weight:600;"><!-- wp:post-title {"level":1,"style":{"typography":{"fontSize":"0.9rem","fontWeight":"600"}}} /--></span>
+		</nav>
 	</div>
-	<!-- /wp:woocommerce/product-template -->
+	<!-- /wp:group -->
+
+	<!-- Product Section -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"2rem","bottom":"3rem"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull nvx-single-product-section" style="padding-top:2rem;padding-bottom:3rem;">
+		<div style="max-width:1240px;margin:0 auto;padding:0 1.5rem;">
+
+			<!-- Two-column layout -->
+			<div style="display:flex;gap:3rem;align-items:flex-start;flex-wrap:wrap;">
+
+				<!-- Left: Product Gallery -->
+				<div class="nvx-product-gallery" style="flex:0 0 480px;max-width:100%;">
+					<!-- Main Image -->
+					<!-- wp:post-featured-image {"sizeSlug":"woocommerce_single","style":{"border":{"radius":"12px","width":"1px","color":"#e2e8f0"}},"linkTo":"none"} -->
+					<div style="width:100%;aspect-ratio:1/1;background:#F0F9F4;border-radius:12px;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:1rem;">
+						<!-- wp:post-featured-image {"sizeSlug":"large","style":{"border":{"radius":"12px"}},"linkTo":"none"} /-->
+					</div>
+					<!-- /wp:post-featured-image -->
+
+					<!-- Thumbnail row -->
+					<div style="display:flex;gap:0.75rem;margin-top:1rem;">
+						<div class="nvx-thumb nvx-thumb-active" style="width:80px;height:80px;border-radius:8px;background:#F0F9F4;border:2px solid #1A6B3A;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#8a94a6;">Image 1</div>
+						<div class="nvx-thumb" style="width:80px;height:80px;border-radius:8px;background:#F0F9F4;border:1px solid #e2e8f0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#8a94a6;">Image 2</div>
+						<div class="nvx-thumb" style="width:80px;height:80px;border-radius:8px;background:#F0F9F4;border:1px solid #e2e8f0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#8a94a6;">Image 3</div>
+						<div class="nvx-thumb" style="width:80px;height:80px;border-radius:8px;background:#F0F9F4;border:1px solid #e2e8f0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#8a94a6;">Image 4</div>
+					</div>
+				</div>
+
+				<!-- Right: Product Details -->
+				<div class="nvx-product-details" style="flex:1;min-width:320px;">
+
+					<!-- Product Title -->
+					<!-- wp:post-title {"level":1,"style":{"typography":{"fontSize":"2rem","fontWeight":"800","lineHeight":"1.25"},"spacing":{"margin":{"bottom":"0.75rem"}},"color":{"text":"#12243A"}}} /-->
+
+					<!-- Rating Stars -->
+					<div class="nvx-rating" style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+						<span style="color:#F4A900;font-size:1.1rem;letter-spacing:2px;">★★★★★</span>
+						<span style="color:#8a94a6;font-size:0.9rem;">(4.8) · 127 avis</span>
+					</div>
+
+					<!-- Price -->
+					<div class="nvx-price" style="margin-bottom:1.5rem;">
+						<span style="font-size:2rem;font-weight:800;color:#1A6B3A;">29,90 €</span>
+						<span style="font-size:1rem;color:#8a94a6;text-decoration:line-through;margin-left:0.75rem;">39,90 €</span>
+						<span style="display:inline-block;background:#F0F9F4;color:#1A6B3A;font-size:0.8rem;font-weight:700;padding:0.25rem 0.75rem;border-radius:20px;margin-left:0.75rem;">-25%</span>
+					</div>
+
+					<!-- Short Description -->
+					<!-- wp:post-excerpt {"excerptLength":40,"style":{"typography":{"fontSize":"1rem","lineHeight":"1.7"},"color":{"text":"#5a6a7a"},"spacing":{"margin":{"bottom":"1.5rem"}}}} /-->
+
+					<!-- Quantity + Add to Cart -->
+					<div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;">
+						<div class="nvx-qty" style="display:flex;align-items:center;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+							<button type="button" class="nvx-qty-minus" style="width:44px;height:48px;background:#F0F9F4;border:none;font-size:1.2rem;cursor:pointer;color:#12243A;">−</button>
+							<input type="number" value="1" min="1" class="nvx-qty-input" style="width:56px;height:48px;border:none;text-align:center;font-size:1rem;font-weight:600;color:#12243A;border-left:1px solid #e2e8f0;border-right:1px solid #e2e8f0;" />
+							<button type="button" class="nvx-qty-plus" style="width:44px;height:48px;background:#F0F9F4;border:none;font-size:1.2rem;cursor:pointer;color:#12243A;">+</button>
+						</div>
+						<button type="submit" class="nvx-add-to-cart-btn" style="flex:1;min-width:220px;height:52px;background:#1A6B3A;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;transition:background 0.3s;">
+							<span>🛒</span> Ajouter au panier
+						</button>
+					</div>
+
+					<!-- Product Meta -->
+					<div class="nvx-product-meta" style="padding:1.25rem;background:#F0F9F4;border-radius:10px;margin-bottom:2rem;font-size:0.9rem;color:#5a6a7a;line-height:2;">
+						<p><strong>SKU :</strong> NVX-VITD3-250</p>
+						<p><strong>Catégorie :</strong> <a href="#" style="color:#1A6B3A;text-decoration:none;">Vitamines &amp; Minéraux</a></p>
+						<p><strong>Tags :</strong> <a href="#" style="color:#1A6B3A;text-decoration:none;">Vitamine D</a>, <a href="#" style="color:#1A6B3A;text-decoration:none;">Immunité</a>, <a href="#" style="color:#1A6B3A;text-decoration:none;">Bio</a></p>
+					</div>
+
+					<!-- Product Tabs -->
+					<div class="nvx-product-tabs" style="border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
+						<div class="nvx-tabs-nav" style="display:flex;border-bottom:1px solid #e2e8f0;background:#fafbfc;">
+							<button class="nvx-tab-btn nvx-tab-active" data-tab="description" style="flex:1;padding:1rem;border:none;background:transparent;font-size:0.9rem;font-weight:600;color:#1A6B3A;cursor:pointer;border-bottom:2px solid #1A6B3A;">Description</button>
+							<button class="nvx-tab-btn" data-tab="composition" style="flex:1;padding:1rem;border:none;background:transparent;font-size:0.9rem;font-weight:600;color:#5a6a7a;cursor:pointer;border-bottom:2px solid transparent;">Composition</button>
+							<button class="nvx-tab-btn" data-tab="avis" style="flex:1;padding:1rem;border:none;background:transparent;font-size:0.9rem;font-weight:600;color:#5a6a7a;cursor:pointer;border-bottom:2px solid transparent;">Avis</button>
+							<button class="nvx-tab-btn" data-tab="coa" style="flex:1;padding:1rem;border:none;background:transparent;font-size:0.9rem;font-weight:600;color:#5a6a7a;cursor:pointer;border-bottom:2px solid transparent;">Certificat COA</button>
+						</div>
+						<div class="nvx-tab-content" style="padding:1.5rem;">
+							<!-- wp:post-content {"style":{"typography":{"fontSize":"0.95rem","lineHeight":"1.8"},"color":{"text":"#3a4a5c"}}} /-->
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Trust Badges -->
+			<div class="nvx-trust-badges" style="display:flex;justify-content:center;gap:2.5rem;margin-top:3rem;padding:2rem 0;border-top:1px solid #e2e8f0;flex-wrap:wrap;">
+				<div style="text-align:center;">
+					<div style="width:56px;height:56px;border-radius:50%;background:#F0F9F4;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;font-size:1.4rem;">🌿</div>
+					<span style="font-size:0.8rem;font-weight:700;color:#1A6B3A;">Certifié Bio</span>
+				</div>
+				<div style="text-align:center;">
+					<div style="width:56px;height:56px;border-radius:50%;background:#F0F9F4;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;font-size:1.4rem;">⚗️</div>
+					<span style="font-size:0.8rem;font-weight:700;color:#1A6B3A;">GMP</span>
+				</div>
+				<div style="text-align:center;">
+					<div style="width:56px;height:56px;border-radius:50%;background:#F0F9F4;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;font-size:1.4rem;">🛡️</div>
+					<span style="font-size:0.8rem;font-weight:700;color:#1A6B3A;">ISO 22000</span>
+				</div>
+				<div style="text-align:center;">
+					<div style="width:56px;height:56px;border-radius:50%;background:#F0F9F4;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;font-size:1.4rem;">✅</div>
+					<span style="font-size:0.8rem;font-weight:700;color:#1A6B3A;">HACCP</span>
+				</div>
+			</div>
+
+			<!-- Related Products -->
+			<div class="nvx-related-products" style="margin-top:3rem;">
+				<h2 style="font-size:1.5rem;font-weight:800;color:#12243A;margin-bottom:1.5rem;text-align:center;">Vous aimerez aussi</h2>
+				<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;">
+
+					<div class="nvx-related-card" style="background:#fff;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;transition:box-shadow 0.3s;">
+						<div style="width:100%;aspect-ratio:1/1;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:#8a94a6;">Image Produit</div>
+						<div style="padding:1rem;">
+							<h3 style="font-size:0.95rem;font-weight:700;color:#12243A;margin-bottom:0.35rem;">Oméga-3 Ultra Pur</h3>
+							<p style="font-size:1rem;font-weight:800;color:#1A6B3A;">24,90 €</p>
+							<button style="width:100%;margin-top:0.75rem;padding:0.6rem;background:#1A6B3A;color:#fff;border:none;border-radius:6px;font-size:0.85rem;font-weight:600;cursor:pointer;">Ajouter au panier</button>
+						</div>
+					</div>
+
+					<div class="nvx-related-card" style="background:#fff;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;transition:box-shadow 0.3s;">
+						<div style="width:100%;aspect-ratio:1/1;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:#8a94a6;">Image Produit</div>
+						<div style="padding:1rem;">
+							<h3 style="font-size:0.95rem;font-weight:700;color:#12243A;margin-bottom:0.35rem;">Magnésium Bisglycinate</h3>
+							<p style="font-size:1rem;font-weight:800;color:#1A6B3A;">19,90 €</p>
+							<button style="width:100%;margin-top:0.75rem;padding:0.6rem;background:#1A6B3A;color:#fff;border:none;border-radius:6px;font-size:0.85rem;font-weight:600;cursor:pointer;">Ajouter au panier</button>
+						</div>
+					</div>
+
+					<div class="nvx-related-card" style="background:#fff;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;transition:box-shadow 0.3s;">
+						<div style="width:100%;aspect-ratio:1/1;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:#8a94a6;">Image Produit</div>
+						<div style="padding:1rem;">
+							<h3 style="font-size:0.95rem;font-weight:700;color:#12243A;margin-bottom:0.35rem;">Probiotiques 50 Milliards</h3>
+							<p style="font-size:1rem;font-weight:800;color:#1A6B3A;">34,90 €</p>
+							<button style="width:100%;margin-top:0.75rem;padding:0.6rem;background:#1A6B3A;color:#fff;border:none;border-radius:6px;font-size:0.85rem;font-weight:600;cursor:pointer;">Ajouter au panier</button>
+						</div>
+					</div>
+
+					<div class="nvx-related-card" style="background:#fff;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;transition:box-shadow 0.3s;">
+						<div style="width:100%;aspect-ratio:1/1;background:#F0F9F4;display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:#8a94a6;">Image Produit</div>
+						<div style="padding:1rem;">
+							<h3 style="font-size:0.95rem;font-weight:700;color:#12243A;margin-bottom:0.35rem;">Complex B-50 Complet</h3>
+							<p style="font-size:1rem;font-weight:800;color:#1A6B3A;">22,90 €</p>
+							<button style="width:100%;margin-top:0.75rem;padding:0.6rem;background:#1A6B3A;color:#fff;border:none;border-radius:6px;font-size:0.85rem;font-weight:600;cursor:pointer;">Ajouter au panier</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- /wp:group -->
+
 </main>
-<!-- /wp:group -->
+
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
