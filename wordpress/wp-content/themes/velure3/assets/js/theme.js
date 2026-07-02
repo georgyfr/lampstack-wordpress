@@ -82,11 +82,12 @@
   /* ── Cart Count (WooCommerce) ── */
   function updateCartCount() {
     const cartCount = document.getElementById('velure-cart-count');
-    if (cartCount && typeof wc_add_to_cart_params !== 'undefined') {
-      fetch(wc_add_to_cart_params.ajax_url, {
+    if (!cartCount) return;
+    if (typeof velure3_ajax !== 'undefined') {
+      fetch(velure3_ajax.ajax_url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'action=velure_get_cart_count&nonce=' + wc_add_to_cart_params.nonce
+        body: 'action=velure_get_cart_count&nonce=' + velure3_ajax.nonce
       })
       .then(r => r.json())
       .then(data => {
@@ -99,9 +100,10 @@
     }
   }
 
-  /* Listen for cart fragments refresh */
+  /* Listen for WooCommerce cart events */
   document.body.addEventListener('added_to_cart', updateCartCount);
   document.body.addEventListener('removed_from_cart', updateCartCount);
+  document.body.addEventListener('wc_fragments_refreshed', updateCartCount);
 
   /* ── Animate on Scroll ── */
   const observerOptions = {

@@ -1,0 +1,57 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"velure-content-wrapper"} -->
+<main class="velure-content-wrapper">
+
+  <div class="velure-page-banner">
+    <div class="velure-container">
+      <h1>Blog</h1>
+      <div class="velure-breadcrumb">
+        <a href="/">Accueil</a>
+        <span class="sep">/</span>
+        <span>Blog</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="velure-section">
+    <div class="velure-container">
+      <!-- wp:query {"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"displayLayout":{"type":"flex","columns":3},"layout":{"type":"constrained"}} -->
+      <!-- wp:post-template -->
+      <article class="velure-blog-card">
+        <div class="velure-blog-card-image">
+          <a href="#">
+            <!-- wp:post-featured-image {"size":"medium_large"} /-->
+          </a>
+        </div>
+        <div class="velure-blog-card-meta">
+          <!-- wp:post-date /-->
+        </div>
+        <h2 class="velure-blog-card-title">
+          <a href="#">
+            <!-- wp:post-title /-->
+          </a>
+        </h2>
+        <p class="velure-blog-card-excerpt">
+          <!-- wp:post-excerpt /-->
+        </p>
+      </article>
+      <!-- /wp:post-template -->
+
+      <!-- wp:query-no-results -->
+      <p>Aucun article trouve.</p>
+      <!-- /wp:query-no-results -->
+
+      <!-- wp:query-pagination {"paginationArrow":"arrow","layout":{"type":"flex","justifyContent":"space-between"}} -->
+      <!-- wp:query-pagination-previous /-->
+      <!-- wp:query-pagination-numbers /-->
+      <!-- wp:query-pagination-next /-->
+      <!-- /wp:query-pagination -->
+      <!-- /wp:query -->
+    </div>
+  </div>
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
