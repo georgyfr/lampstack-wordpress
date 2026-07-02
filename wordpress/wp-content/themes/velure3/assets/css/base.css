@@ -1,0 +1,219 @@
+/* ═══════════════════════════════════════════
+   VELURE3 — Base Styles
+   ═══════════════════════════════════════════ */
+
+/* --- CSS Custom Properties --- */
+:root {
+  --v-color-base: #FAFAF8;
+  --v-color-contrast: #1A1A1A;
+  --v-color-secondary: #C8A97E;
+  --v-color-accent: #8B5E3C;
+  --v-color-muted: #E8E4DE;
+  --v-color-soft: #F5F0EB;
+  --v-color-white: #FFFFFF;
+  --v-color-border: #E5E0D8;
+
+  --v-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --v-font-serif: 'Playfair Display', 'Georgia', serif;
+  --v-font-elegant: 'Cormorant Garamond', 'Georgia', serif;
+
+  --v-header-h: 80px;
+  --v-topbar-h: 36px;
+  --v-container: 1200px;
+  --v-container-wide: 1400px;
+  --v-radius: 0px;
+  --v-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --v-gutter: 1.5rem;
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--v-font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--v-color-contrast);
+  background: var(--v-color-base);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; transition: color var(--v-transition); }
+ul, ol { list-style: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; }
+input, textarea { font: inherit; border: none; outline: none; }
+
+/* --- Container --- */
+.velure-container {
+  width: 100%;
+  max-width: var(--v-container);
+  margin: 0 auto;
+  padding: 0 var(--v-gutter);
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--v-font-serif);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--v-color-contrast);
+}
+
+.velure-section-heading {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.velure-section-heading h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.velure-section-heading p {
+  font-size: 0.95rem;
+  color: #666;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.velure-eyebrow {
+  font-family: var(--v-font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--v-color-secondary);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* --- Buttons --- */
+.velure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-family: var(--v-font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--v-radius);
+  cursor: pointer;
+  transition: all var(--v-transition);
+  text-decoration: none;
+}
+
+.velure-btn-primary {
+  background: var(--v-color-contrast);
+  color: var(--v-color-base);
+}
+
+.velure-btn-primary:hover {
+  background: #333;
+  color: var(--v-color-base);
+  transform: translateY(-1px);
+}
+
+.velure-btn-outline {
+  background: transparent;
+  color: var(--v-color-contrast);
+  border: 1.5px solid var(--v-color-contrast);
+}
+
+.velure-btn-outline:hover {
+  background: var(--v-color-contrast);
+  color: var(--v-color-base);
+}
+
+.velure-btn-gold {
+  background: var(--v-color-secondary);
+  color: #fff;
+}
+
+.velure-btn-gold:hover {
+  background: #b8955f;
+  color: #fff;
+}
+
+/* --- Section Spacing --- */
+.velure-section {
+  padding: 5rem 0;
+}
+
+.velure-section-dark {
+  background: var(--v-color-contrast);
+  color: var(--v-color-base);
+}
+
+.velure-section-dark h2,
+.velure-section-dark h3 {
+  color: var(--v-color-base);
+}
+
+.velure-section-soft {
+  background: var(--v-color-soft);
+}
+
+.velure-section-muted {
+  background: var(--v-color-muted);
+}
+
+/* --- Grid Utilities --- */
+.velure-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.velure-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.velure-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.velure-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) {
+  .velure-grid-4 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .velure-grid-2,
+  .velure-grid-3,
+  .velure-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .velure-grid-2,
+  .velure-grid-3,
+  .velure-grid-4 { grid-template-columns: 1fr; }
+}
+
+/* --- Selection --- */
+::selection {
+  background: var(--v-color-secondary);
+  color: #fff;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--v-color-base); }
+::-webkit-scrollbar-thumb { background: var(--v-color-muted); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--v-color-secondary); }
+
+/* --- Loading Skeleton --- */
+@keyframes velure-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.velure-skeleton {
+  background: linear-gradient(90deg, var(--v-color-muted) 25%, var(--v-color-soft) 50%, var(--v-color-muted) 75%);
+  background-size: 200% 100%;
+  animation: velure-shimmer 1.5s infinite;
+  border-radius: var(--v-radius);
+}

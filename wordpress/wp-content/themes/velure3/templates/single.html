@@ -1,0 +1,70 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"velure-content-wrapper"} -->
+<main class="velure-content-wrapper">
+
+  <!-- Article Header -->
+  <div class="velure-page-banner">
+    <div class="velure-container" style="max-width: 800px; text-align: left;">
+      <span class="velure-eyebrow"><!-- wp:post-terms {"term":"category"} /--></span>
+      <h1 style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; text-align: left;"><!-- wp:post-title /--></h1>
+      <div style="display: flex; align-items: center; gap: 1.5rem; font-size: 0.8rem; color: #888;">
+        <span><!-- wp:post-date /--></span>
+        <span>Par <!-- wp:post-author /--></span>
+        <span><!-- wp:post-terms {"term":"post_tag"} /--></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Image -->
+  <div class="velure-container" style="max-width: 900px;">
+    <div style="margin: -1rem 0 3rem;">
+      <!-- wp:post-featured-image {"size":"large"} /-->
+    </div>
+  </div>
+
+  <!-- Article Content -->
+  <div class="velure-section" style="padding-top: 0;">
+    <div class="velure-container" style="max-width: 720px;">
+      <article style="font-size: 1.1rem; line-height: 1.85; color: #333;">
+        <!-- wp:post-content /-->
+      </article>
+
+      <!-- Tags -->
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--v-color-border);">
+        <span style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #888;">Tags :</span>
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;">
+          <!-- wp:post-terms {"term":"post_tag"} /-->
+        </div>
+      </div>
+
+      <!-- Share -->
+      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--v-color-border); display: flex; align-items: center; gap: 1rem;">
+        <span style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #888;">Partager :</span>
+        <a href="#" class="velure-social-link" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="velure-social-link" aria-label="Twitter">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+        </a>
+        <a href="#" class="velure-social-link" aria-label="Pinterest">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.182-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.425 1.808-2.425.853 0 1.265.64 1.265 1.408 0 .858-.546 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.177-4.068-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.282a.3.3 0 0 1 .069.288l-.278 1.133c-.044.183-.145.222-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.527-2.291-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        </a>
+      </div>
+
+      <!-- Post Navigation -->
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--v-color-border);">
+        <!-- wp:post-navigation /-->
+      </div>
+
+      <!-- Comments -->
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--v-color-border);">
+        <!-- wp:comments /-->
+      </div>
+    </div>
+  </div>
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

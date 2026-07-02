@@ -1,0 +1,1204 @@
+/* ═══════════════════════════════════════════
+   VELURE3 — Components Styles
+   ═══════════════════════════════════════════ */
+
+/* ────────────────────────────
+   HEADER
+   ──────────────────────────── */
+
+/* Top Bar */
+.velure-topbar {
+  background: var(--v-color-contrast);
+  color: var(--v-color-base);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  height: var(--v-topbar-h);
+  display: flex;
+  align-items: center;
+}
+
+.velure-topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.velure-topbar-text { opacity: 0.8; }
+
+.velure-topbar-actions { display: flex; gap: 0.5rem; align-items: center; }
+.velure-topbar-sep { opacity: 0.3; }
+.velure-topbar-link { opacity: 0.8; transition: opacity var(--v-transition); }
+.velure-topbar-link:hover { opacity: 1; }
+
+@media (max-width: 768px) {
+  .velure-topbar-actions { display: none; }
+}
+
+/* Navbar */
+.velure-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(250, 250, 248, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--v-color-border);
+  transition: all var(--v-transition);
+}
+
+.velure-navbar.velure-scrolled {
+  box-shadow: 0 1px 20px rgba(0,0,0,0.05);
+}
+
+.velure-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--v-header-h);
+  gap: 2rem;
+}
+
+/* Logo */
+.velure-logo { display: flex; align-items: center; }
+.velure-logo-text {
+  font-family: var(--v-font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--v-color-contrast);
+}
+
+/* Desktop Nav */
+.velure-nav { display: flex; align-items: center; }
+
+.velure-nav-list {
+  display: flex;
+  gap: 0;
+  align-items: center;
+}
+
+.velure-nav-item {
+  position: relative;
+}
+
+.velure-nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--v-color-contrast);
+  transition: color var(--v-transition);
+}
+
+.velure-nav-link:hover {
+  color: var(--v-color-accent);
+}
+
+.velure-nav-highlight {
+  color: var(--v-color-accent) !important;
+  position: relative;
+}
+
+.velure-nav-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0.25rem;
+  left: 1rem;
+  right: 1rem;
+  height: 1px;
+  background: var(--v-color-accent);
+}
+
+/* Mega Menu */
+.velure-mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  background: var(--v-color-white);
+  border-top: 1px solid var(--v-color-border);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(10px);
+  transition: all 0.3s ease;
+  padding: 2.5rem 0;
+}
+
+.velure-nav-item:hover .velure-mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.velure-mega-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 1.5fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.velure-mega-title {
+  font-family: var(--v-font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: var(--v-color-contrast);
+}
+
+.velure-mega-links li { margin-bottom: 0.5rem; }
+.velure-mega-links a {
+  font-size: 0.875rem;
+  color: #555;
+  transition: color var(--v-transition);
+}
+.velure-mega-links a:hover { color: var(--v-color-accent); }
+
+.velure-mega-cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: 200px;
+  padding: 2rem;
+  background: var(--v-color-soft);
+  border-radius: 2px;
+  transition: background var(--v-transition);
+}
+
+.velure-mega-cta:hover { background: var(--v-color-muted); }
+
+.velure-mega-cta-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--v-color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.velure-mega-cta-title {
+  font-family: var(--v-font-serif);
+  font-size: 1.25rem;
+}
+
+/* Header Actions */
+.velure-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.velure-header-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background var(--v-transition);
+  position: relative;
+  color: var(--v-color-contrast);
+}
+
+.velure-header-btn:hover {
+  background: var(--v-color-muted);
+}
+
+.velure-cart-count {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  background: var(--v-color-accent);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger */
+.velure-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+  padding: 4px 0;
+}
+
+.velure-menu-toggle span {
+  display: block;
+  height: 1.5px;
+  background: var(--v-color-contrast);
+  transition: all var(--v-transition);
+  border-radius: 1px;
+}
+
+/* Search Overlay */
+.velure-search-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(250, 250, 248, 0.97);
+  z-index: 2000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.velure-search-overlay.velure-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.velure-search-form {
+  width: 100%;
+  max-width: 700px;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--v-color-contrast);
+  gap: 1rem;
+}
+
+.velure-search-input {
+  flex: 1;
+  font-size: 1.5rem;
+  font-family: var(--v-font-serif);
+  padding: 0.75rem 0;
+  background: transparent;
+  color: var(--v-color-contrast);
+}
+
+.velure-search-input::placeholder {
+  color: #999;
+}
+
+.velure-search-submit {
+  color: var(--v-color-contrast);
+  flex-shrink: 0;
+}
+
+.velure-search-close {
+  color: #999;
+  flex-shrink: 0;
+  transition: color var(--v-transition);
+}
+
+.velure-search-close:hover { color: var(--v-color-contrast); }
+
+/* Mobile Menu */
+.velure-mobile-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1500;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--v-transition);
+}
+
+.velure-mobile-overlay.velure-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.velure-mobile-menu {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 320px;
+  max-width: 85vw;
+  background: var(--v-color-white);
+  z-index: 1600;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.velure-mobile-menu.velure-active {
+  transform: translateX(0);
+}
+
+.velure-mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--v-color-border);
+}
+
+.velure-mobile-close {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.velure-mobile-nav-list {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.velure-mobile-nav-list li {
+  border-bottom: 1px solid var(--v-color-border);
+}
+
+.velure-mobile-nav-list a {
+  display: block;
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.velure-mobile-menu-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--v-color-border);
+  display: flex;
+  gap: 1.5rem;
+}
+
+.velure-mobile-menu-link {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: #888;
+}
+
+/* Header Responsive */
+@media (max-width: 1024px) {
+  .velure-nav { display: none; }
+  .velure-menu-toggle { display: flex; }
+  .velure-mega-menu { display: none; }
+}
+
+
+/* ────────────────────────────
+   FOOTER
+   ──────────────────────────── */
+
+.velure-footer {
+  margin-top: 5rem;
+}
+
+/* Newsletter Band */
+.velure-newsletter-band {
+  background: var(--v-color-soft);
+  padding: 3.5rem 0;
+}
+
+.velure-newsletter-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.velure-newsletter-title {
+  font-family: var(--v-font-serif);
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.velure-newsletter-desc {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.velure-newsletter-form {
+  display: flex;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.velure-newsletter-input {
+  width: 300px;
+  padding: 0.875rem 1.25rem;
+  font-size: 0.875rem;
+  background: var(--v-color-white);
+  border: 1px solid var(--v-color-border);
+  border-right: none;
+}
+
+.velure-newsletter-btn {
+  padding: 0.875rem 2rem;
+  background: var(--v-color-contrast);
+  color: var(--v-color-base);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--v-color-contrast);
+  transition: all var(--v-transition);
+}
+
+.velure-newsletter-btn:hover {
+  background: #333;
+}
+
+@media (max-width: 768px) {
+  .velure-newsletter-inner { flex-direction: column; text-align: center; }
+  .velure-newsletter-form { flex-direction: column; width: 100%; }
+  .velure-newsletter-input { width: 100%; border-right: 1px solid var(--v-color-border); }
+  .velure-newsletter-btn { width: 100%; }
+}
+
+/* Main Footer */
+.velure-footer-main {
+  background: var(--v-color-contrast);
+  color: rgba(255,255,255,0.7);
+  padding: 4rem 0 3rem;
+}
+
+.velure-footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.velure-footer-brand { padding-right: 2rem; }
+
+.velure-footer-logo {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.velure-footer-logo .velure-logo-text {
+  color: var(--v-color-base);
+}
+
+.velure-footer-about {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+
+.velure-footer-social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.velure-social-link {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  transition: all var(--v-transition);
+}
+
+.velure-social-link:hover {
+  background: var(--v-color-secondary);
+  border-color: var(--v-color-secondary);
+  color: #fff;
+}
+
+.velure-footer-heading {
+  font-family: var(--v-font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--v-color-base);
+  margin-bottom: 1.5rem;
+}
+
+.velure-footer-links li { margin-bottom: 0.75rem; }
+
+.velure-footer-links a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  transition: all var(--v-transition);
+}
+
+.velure-footer-links a:hover {
+  color: var(--v-color-secondary);
+  padding-left: 4px;
+}
+
+/* Footer Bottom */
+.velure-footer-bottom {
+  background: #111;
+  padding: 1.25rem 0;
+}
+
+.velure-footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.velure-copyright {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.velure-payments {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.velure-payment-label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.velure-payment-icon {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .velure-footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .velure-footer-brand { grid-column: 1 / -1; padding-right: 0; }
+  .velure-footer-bottom-inner { flex-direction: column; gap: 0.75rem; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .velure-footer-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ────────────────────────────
+   PRODUCT CARD
+   ──────────────────────────── */
+
+.velure-product-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.velure-product-card-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  background: var(--v-color-soft);
+  margin-bottom: 1rem;
+}
+
+.velure-product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.velure-product-card:hover .velure-product-card-image img {
+  transform: scale(1.05);
+}
+
+.velure-product-card-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--v-color-contrast);
+  color: var(--v-color-base);
+}
+
+.velure-product-card-badge.sale {
+  background: #C0392B;
+  color: #fff;
+}
+
+.velure-product-card-badge.new {
+  background: var(--v-color-secondary);
+  color: #fff;
+}
+
+.velure-product-card-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.5));
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--v-transition);
+}
+
+.velure-product-card:hover .velure-product-card-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.velure-product-card-action {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--v-transition);
+}
+
+.velure-product-card-action:hover {
+  background: var(--v-color-contrast);
+  color: #fff;
+}
+
+.velure-product-card-info h3 {
+  font-family: var(--v-font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.01em;
+}
+
+.velure-product-card-price {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.velure-product-card-price .sale-price {
+  color: #C0392B;
+  font-weight: 600;
+}
+
+.velure-product-card-price .old-price {
+  text-decoration: line-through;
+  opacity: 0.5;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+
+/* ────────────────────────────
+   HERO SECTION
+   ──────────────────────────── */
+
+.velure-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  background: var(--v-color-soft);
+  overflow: hidden;
+}
+
+.velure-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.velure-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.velure-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.velure-hero-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.velure-hero-subtitle {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 2rem;
+  max-width: 450px;
+}
+
+.velure-hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+
+/* ────────────────────────────
+   CATEGORY GRID
+   ──────────────────────────── */
+
+.velure-category-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+}
+
+.velure-category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.velure-category-card:hover img {
+  transform: scale(1.05);
+}
+
+.velure-category-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 40%, rgba(0,0,0,0.6));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  color: #fff;
+  transition: background var(--v-transition);
+}
+
+.velure-category-card:hover .velure-category-card-overlay {
+  background: linear-gradient(transparent 30%, rgba(0,0,0,0.7));
+}
+
+.velure-category-card-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.velure-category-card-title {
+  font-family: var(--v-font-serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.velure-category-card-count {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+
+/* ────────────────────────────
+   TESTIMONIAL
+   ──────────────────────────── */
+
+.velure-testimonial {
+  text-align: center;
+  padding: 2rem;
+}
+
+.velure-testimonial-stars {
+  color: var(--v-color-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.15em;
+}
+
+.velure-testimonial-text {
+  font-family: var(--v-font-serif);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  font-style: italic;
+}
+
+.velure-testimonial-author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.velure-testimonial-role {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+
+/* ────────────────────────────
+   BLOG CARD
+   ──────────────────────────── */
+
+.velure-blog-card {
+  cursor: pointer;
+}
+
+.velure-blog-card-image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  background: var(--v-color-soft);
+}
+
+.velure-blog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.velure-blog-card:hover .velure-blog-card-image img {
+  transform: scale(1.05);
+}
+
+.velure-blog-card-meta {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--v-color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.velure-blog-card-title {
+  font-family: var(--v-font-serif);
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.velure-blog-card-excerpt {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* ────────────────────────────
+   FEATURES BAR
+   ──────────────────────────── */
+
+.velure-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--v-color-border);
+  border-bottom: 1px solid var(--v-color-border);
+}
+
+.velure-feature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.75rem 1rem;
+  text-align: center;
+}
+
+.velure-feature:not(:last-child) {
+  border-right: 1px solid var(--v-color-border);
+}
+
+.velure-feature-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--v-color-accent);
+}
+
+.velure-feature-text h4 {
+  font-family: var(--v-font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.15rem;
+}
+
+.velure-feature-text p {
+  font-size: 0.7rem;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .velure-features { grid-template-columns: repeat(2, 1fr); }
+  .velure-feature:nth-child(2) { border-right: none; }
+  .velure-feature { padding: 1.25rem 0.75rem; }
+}
+
+@media (max-width: 480px) {
+  .velure-features { grid-template-columns: 1fr; }
+  .velure-feature:not(:last-child) { border-right: none; border-bottom: 1px solid var(--v-color-border); }
+}
+
+
+/* ────────────────────────────
+   MARQUEE / BRAND BAR
+   ──────────────────────────── */
+
+.velure-marquee {
+  overflow: hidden;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--v-color-border);
+  border-bottom: 1px solid var(--v-color-border);
+}
+
+.velure-marquee-track {
+  display: flex;
+  gap: 4rem;
+  animation: velure-marquee-scroll 25s linear infinite;
+  width: max-content;
+}
+
+.velure-marquee-item {
+  font-family: var(--v-font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #bbb;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+@keyframes velure-marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+/* ────────────────────────────
+   CONTACT FORM
+   ──────────────────────────── */
+
+.velure-contact-form {
+  max-width: 600px;
+}
+
+.velure-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.velure-form-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: var(--v-color-contrast);
+}
+
+.velure-form-input,
+.velure-form-textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  background: var(--v-color-white);
+  border: 1px solid var(--v-color-border);
+  transition: border-color var(--v-transition);
+  color: var(--v-color-contrast);
+}
+
+.velure-form-input:focus,
+.velure-form-textarea:focus {
+  border-color: var(--v-color-contrast);
+}
+
+.velure-form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.velure-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .velure-form-row { grid-template-columns: 1fr; }
+}
+
+
+/* ────────────────────────────
+   SIZE GUIDE TABLE
+   ──────────────────────────── */
+
+.velure-size-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.velure-size-table th,
+.velure-size-table td {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--v-color-border);
+}
+
+.velure-size-table th {
+  font-family: var(--v-font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--v-color-soft);
+  color: var(--v-color-contrast);
+}
+
+.velure-size-table tbody tr:hover {
+  background: var(--v-color-soft);
+}
+
+
+/* ────────────────────────────
+   PAGE BANNER
+   ──────────────────────────── */
+
+.velure-page-banner {
+  padding: 4rem 0 3rem;
+  text-align: center;
+  background: var(--v-color-soft);
+}
+
+.velure-page-banner h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.velure-page-banner p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.velure-breadcrumb {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.velure-breadcrumb a {
+  color: #888;
+  transition: color var(--v-transition);
+}
+
+.velure-breadcrumb a:hover {
+  color: var(--v-color-accent);
+}
+
+.velure-breadcrumb .sep { opacity: 0.4; }
+
+
+/* ────────────────────────────
+   404 PAGE
+   ──────────────────────────── */
+
+.velure-404 {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.velure-404-number {
+  font-family: var(--v-font-serif);
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--v-color-muted);
+  margin-bottom: 1rem;
+}
+
+.velure-404 h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.velure-404 p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ────────────────────────────
+   INSTAGRAM GRID
+   ──────────────────────────── */
+
+.velure-instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+
+.velure-instagram-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.velure-instagram-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.velure-instagram-item:hover img {
+  transform: scale(1.1);
+}
+
+.velure-instagram-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity var(--v-transition);
+}
+
+.velure-instagram-item:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .velure-instagram-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .velure-instagram-grid { grid-template-columns: repeat(2, 1fr); }
+}

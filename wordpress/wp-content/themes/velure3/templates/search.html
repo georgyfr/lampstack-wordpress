@@ -1,0 +1,129 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:html -->
+<div class="velure-container">
+
+    <!-- Search Section -->
+    <div class="velure-section" style="padding-top:3rem;">
+        <div class="velure-content-wrapper">
+
+            <!-- Search Bar -->
+            <div style="max-width:640px;margin:0 auto 2.5rem;text-align:center;">
+                <h1 style="font-size:2rem;margin-bottom:1.5rem;">Rechercher</h1>
+                <form action="/" method="get" style="position:relative;">
+                    <input type="search" name="s" value="chemise" placeholder="Que recherchez-vous ?" style="width:100%;padding:1rem 3.5rem 1rem 1.25rem;border:2px solid #111;border-radius:8px;font-size:1.05rem;outline:none;background:#fff;" />
+                    <button type="submit" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);background:#111;color:#fff;border:none;padding:0.75rem 1.25rem;border-radius:6px;cursor:pointer;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Filter Bar -->
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid #e5e7eb;">
+                <p style="font-size:0.95rem;color:#374151;"><strong>12 resultats</strong> pour <em>"chemise"</em></p>
+                <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+                    <!-- Filter Pills -->
+                    <span class="velure-btn velure-btn-primary" style="padding:0.4rem 1rem;font-size:0.8rem;border-radius:999px;">Tous</span>
+                    <span class="velure-btn velure-btn-outline" style="padding:0.4rem 1rem;font-size:0.8rem;border-radius:999px;">Vetements</span>
+                    <span class="velure-btn velure-btn-outline" style="padding:0.4rem 1rem;font-size:0.8rem;border-radius:999px;">Accessoires</span>
+                    <span class="velure-btn velure-btn-outline" style="padding:0.4rem 1rem;font-size:0.8rem;border-radius:999px;">Chaussures</span>
+                    <!-- Sort -->
+                    <select style="padding:0.4rem 0.75rem;font-size:0.8rem;border:1px solid #d1d5db;border-radius:6px;background:#fff;cursor:pointer;margin-left:0.5rem;">
+                        <option>Pertinence</option>
+                        <option>Prix croissant</option>
+                        <option>Prix decroissant</option>
+                        <option>Plus recents</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Results Grid -->
+            <div class="velure-grid velure-grid-3" style="margin-bottom:3rem;">
+
+                <!-- Result Card 1: Product -->
+                <a href="/produit/chemise-lin-blanc" style="text-decoration:none;color:inherit;">
+                    <div class="velure-skeleton" style="width:100%;aspect-ratio:3/4;border-radius:8px;margin-bottom:1rem;position:relative;">
+                        <span style="position:absolute;top:0.75rem;left:0.75rem;background:#111;color:#fff;font-size:0.7rem;padding:0.25rem 0.6rem;border-radius:4px;">Vetement</span>
+                    </div>
+                    <h3 style="font-size:0.95rem;margin-bottom:0.25rem;">Chemise en Lin Blanc</h3>
+                    <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.35rem;">Chemise ample en lin italien</p>
+                    <p style="font-weight:600;">129,00 &euro;</p>
+                </a>
+
+                <!-- Result Card 2: Product -->
+                <a href="/produit/chemise-oxford-bleu" style="text-decoration:none;color:inherit;">
+                    <div class="velure-skeleton" style="width:100%;aspect-ratio:3/4;border-radius:8px;margin-bottom:1rem;position:relative;">
+                        <span style="position:absolute;top:0.75rem;left:0.75rem;background:#111;color:#fff;font-size:0.7rem;padding:0.25rem 0.6rem;border-radius:4px;">Vetement</span>
+                    </div>
+                    <h3 style="font-size:0.95rem;margin-bottom:0.25rem;">Chemise Oxford Bleu Marine</h3>
+                    <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.35rem;">Coton peigne, col boutonne</p>
+                    <p style="font-weight:600;">89,00 &euro;</p>
+                </a>
+
+                <!-- Result Card 3: Blog Post -->
+                <a href="/blog/comment-porter-chemise" style="text-decoration:none;color:inherit;">
+                    <div class="velure-skeleton" style="width:100%;aspect-ratio:16/10;border-radius:8px;margin-bottom:1rem;position:relative;">
+                        <span style="position:absolute;top:0.75rem;left:0.75rem;background:#b8860b;color:#fff;font-size:0.7rem;padding:0.25rem 0.6rem;border-radius:4px;">Blog</span>
+                    </div>
+                    <h3 style="font-size:0.95rem;margin-bottom:0.25rem;">Comment Porter la Chemise en 2024 : 10 Looks Incontournables</h3>
+                    <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.35rem;">Decouvrez nos conseils pour adopter la chemise dans toutes les occasions...</p>
+                    <p style="color:#9ca3af;font-size:0.8rem;">12 Janvier 2024</p>
+                </a>
+
+                <!-- Result Card 4: Product -->
+                <a href="/produit/chemise-flanelle-grise" style="text-decoration:none;color:inherit;">
+                    <div class="velure-skeleton" style="width:100%;aspect-ratio:3/4;border-radius:8px;margin-bottom:1rem;position:relative;">
+                        <span style="position:absolute;top:0.75rem;left:0.75rem;background:#111;color:#fff;font-size:0.7rem;padding:0.25rem 0.6rem;border-radius:4px;">Vetement</span>
+                    </div>
+                    <h3 style="font-size:0.95rem;margin-bottom:0.25rem;">Chemise Flanelle Grise</h3>
+                    <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.35rem;">Coton flanelle, coupe reguliere</p>
+                    <p style="font-weight:600;">99,00 &euro;</p>
+                </a>
+
+                <!-- Result Card 5: Product -->
+                <a href="/produit/chemise-denim-noir" style="text-decoration:none;color:inherit;">
+                    <div class="velure-skeleton" style="width:100%;aspect-ratio:3/4;border-radius:8px;margin-bottom:1rem;position:relative;">
+                        <span style="position:absolute;top:0.75rem;left:0.75rem;background:#b8860b;color:#fff;font-size:0.7rem;padding:0.25rem 0.6rem;border-radius:4px;">Nouveau</span>
+                    </div>
+                    <h3 style="font-size:0.95rem;margin-bottom:0.25rem;">Chemise Denim Noir</h3>
+                    <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.35rem;">Jean premium, finitions artisanales</p>
+                    <p style="font-weight:600;">115,00 &euro;</p>
+                </a>
+
+                <!-- Result Card 6: Blog Post -->
+                <a href="/blog/entretien-chemises" style="text-decoration:none;color:inherit;">
+                    <div class="velure-skeleton" style="width:100%;aspect-ratio:16/10;border-radius:8px;margin-bottom:1rem;position:relative;">
+                        <span style="position:absolute;top:0.75rem;left:0.75rem;background:#b8860b;color:#fff;font-size:0.7rem;padding:0.25rem 0.6rem;border-radius:4px;">Blog</span>
+                    </div>
+                    <h3 style="font-size:0.95rem;margin-bottom:0.25rem;">L'Entretien de Vos Chemises : Le Guide Complet</h3>
+                    <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.35rem;">Lavage, repassage et rangement : tous nos secrets pour garder vos chemises...</p>
+                    <p style="color:#9ca3af;font-size:0.8rem;">5 Mars 2024</p>
+                </a>
+
+            </div>
+
+            <!-- No Results State (hidden by default) -->
+            <!--
+            <div style="text-align:center;padding:4rem 2rem;">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1rem;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <h2 style="font-size:1.35rem;margin-bottom:0.5rem;">Aucun resultat</h2>
+                <p style="color:#6b7280;max-width:400px;margin:0 auto 1.5rem;">Nous n'avons trouve aucun resultat pour votre recherche. Essayez avec d'autres mots-cles.</p>
+                <a href="/" class="velure-btn velure-btn-primary">Retour a l'accueil</a>
+            </div>
+            -->
+
+            <!-- Pagination -->
+            <nav style="display:flex;align-items:center;justify-content:center;gap:0.5rem;">
+                <span style="padding:0.5rem 0.875rem;border:1px solid #e5e7eb;border-radius:6px;color:#9ca3af;cursor:default;">&laquo; Precedent</span>
+                <span style="padding:0.5rem 0.875rem;border:1px solid #111;border-radius:6px;background:#111;color:#fff;font-weight:600;">1</span>
+                <a href="?s=chemise&amp;paged=2" style="padding:0.5rem 0.875rem;border:1px solid #e5e7eb;border-radius:6px;text-decoration:none;color:#111;">2</a>
+                <a href="?s=chemise&amp;paged=2" style="padding:0.5rem 0.875rem;border:1px solid #e5e7eb;border-radius:6px;text-decoration:none;color:#111;">Suivant &raquo;</a>
+            </nav>
+
+        </div>
+    </div>
+
+</div>
+<!-- /wp:html -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
